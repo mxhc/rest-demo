@@ -23,16 +23,16 @@ public class Bootstrap implements CommandLineRunner {
         fruits.setName("Fruits");
 
         Category dried = new Category();
-        fruits.setName("Dried");
+        dried.setName("Dried");
 
         Category fresh = new Category();
-        fruits.setName("Fresh");
+        fresh.setName("Fresh");
 
         Category exotic = new Category();
-        fruits.setName("Exotic");
+        exotic.setName("Exotic");
 
         Category nuts = new Category();
-        fruits.setName("Nuts");
+        nuts.setName("Nuts");
 
         categoryRepository.save(fruits);
         categoryRepository.save(dried);
