@@ -11,6 +11,8 @@
     <groupId>com.smort</groupId>
     <artifactId>rest-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
     <name>rest-demo</name>
     <description>Spring 5 REST Demo</description>
 
