@@ -24,14 +24,20 @@ public class CustomerServiceImpl implements CustomerService {
     public List<CustomerDTO> getAllCustomers() {
         return customerRepository.findAll()
                 .stream()
-                .map(customerMapper::customerToCustomerDTO)
+                .map(customer -> {
+                    CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
+                    customerDTO.setCustomerUrl("/api/v1/customer/" + customer.getId());
+                    return customerDTO;
+                })
                 .collect(Collectors.toList());
     }
 
     @Override
     public CustomerDTO findById(Long id) {
-        // todo throw exception if not found
-        return customerMapper.customerToCustomerDTO(customerRepository.findById(id).orElse(null));
+        // todo implement bettex exception handling
+        return customerRepository.findById(id)
+                .map(customerMapper::customerToCustomerDTO)
+                .orElseThrow(RuntimeException::new);
     }
 
 

@@ -23,6 +23,12 @@ public class Bootstrap implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        loadCategories();
+        loadCustomers();
+
+    }
+
+    private void loadCategories() {
         Category fruits = new Category();
         fruits.setName("Fruits");
 
@@ -45,7 +51,9 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(nuts);
 
         log.warn("Data Loaded = " + categoryRepository.count());
+    }
 
+    private void loadCustomers() {
         Customer c1 = new Customer();
         c1.setFirstName("Milojko");
         c1.setLastName("Pantic");
@@ -73,6 +81,5 @@ public class Bootstrap implements CommandLineRunner {
         customerRepository.save(c5);
 
         log.warn("Customers loaded = " + customerRepository.count());
-
     }
 }
