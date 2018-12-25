@@ -4,6 +4,10 @@
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,11 +20,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+            <state relative-caret-position="475">
+              <caret line="37" column="112" selection-start-line="37" selection-start-column="112" selection-end-line="37" selection-end-column="112" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerServiceImplTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="118" column="39" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-35">
+              <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerControllerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerDTO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,15 +133,15 @@
         <option value="$PROJECT_DIR$/src/test/java/com/smort/api/v1/mapper/CustomerMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/CustomerMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/AbstractRestControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerDTO.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" />
       </list>
     </option>
   </component>
@@ -361,7 +416,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RestDemoApplication">
+  <component name="RunManager" selected="JUnit.All in rest-demo">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -382,7 +437,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CustomerControllerTest.createNewCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerControllerTest.testUpdateCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
@@ -394,7 +449,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
       <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.CustomerControllerTest" />
-      <option name="METHOD_NAME" value="createNewCustomer" />
+      <option name="METHOD_NAME" value="testUpdateCustomer" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -405,41 +460,18 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CustomerControllerTest.getCustomerById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
+          <option name="PATTERN" value="com.smort.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.CustomerControllerTest" />
-      <option name="METHOD_NAME" value="getCustomerById" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="CustomerMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.api.v1.mapper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.api.v1.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.api.v1.mapper.CustomerMapperTest" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.CustomerServiceImplTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -464,6 +496,29 @@
       <option name="PACKAGE_NAME" value="com.smort.services" />
       <option name="MAIN_CLASS_NAME" value="com.smort.services.CustomerServiceImplTest" />
       <option name="METHOD_NAME" value="createNewCustomer" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CustomerServiceImplTest.saveCustomerByDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.CustomerServiceImplTest" />
+      <option name="METHOD_NAME" value="saveCustomerByDTO" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -519,18 +574,18 @@
     <list>
       <item itemvalue="Spring Boot.RestDemoApplication" />
       <item itemvalue="JUnit.All in rest-demo" />
-      <item itemvalue="JUnit.CustomerControllerTest.getCustomerById" />
-      <item itemvalue="JUnit.CustomerMapperTest" />
       <item itemvalue="JUnit.CustomerServiceImplTest.createNewCustomer" />
-      <item itemvalue="JUnit.CustomerControllerTest.createNewCustomer" />
+      <item itemvalue="JUnit.CustomerServiceImplTest.saveCustomerByDTO" />
+      <item itemvalue="JUnit.CustomerServiceImplTest" />
+      <item itemvalue="JUnit.CustomerControllerTest.testUpdateCustomer" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in rest-demo" />
-        <item itemvalue="JUnit.CustomerControllerTest.createNewCustomer" />
+        <item itemvalue="JUnit.CustomerControllerTest.testUpdateCustomer" />
+        <item itemvalue="JUnit.CustomerServiceImplTest" />
         <item itemvalue="JUnit.CustomerServiceImplTest.createNewCustomer" />
-        <item itemvalue="JUnit.CustomerMapperTest" />
-        <item itemvalue="JUnit.CustomerControllerTest.getCustomerById" />
+        <item itemvalue="JUnit.CustomerServiceImplTest.saveCustomerByDTO" />
       </list>
     </recent_temporary>
   </component>
@@ -548,7 +603,7 @@
       <workItem from="1545667421803" duration="2208000" />
       <workItem from="1545670030543" duration="17829000" />
       <workItem from="1545726534117" duration="857000" />
-      <workItem from="1545742040167" duration="4972000" />
+      <workItem from="1545742040167" duration="8408000" />
     </task>
     <task id="LOCAL-00001" summary="sorted test">
       <created>1545650827709</created>
@@ -683,43 +738,50 @@
       <option name="project" value="LOCAL" />
       <updated>1545752172800</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Correct Controller mapping, can't be used without trailing /. closes #15">
+      <created>1545752365375</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1545752365375</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_rest-demo - 2018.12.25 at 14h 20m 49s.xml">
+    <history-entry file="All_in_rest-demo - 2018.12.25 at 16h 40m 48s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerServiceImplTest_createNewCustomer - 2018.12.25 at 16h 11m 24s.xml">
+    <history-entry file="CustomerServiceImplTest_saveCustomerByDTO - 2018.12.25 at 17h 31m 27s.xml">
+      <configuration name="CustomerServiceImplTest.saveCustomerByDTO" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerServiceImplTest_saveCustomerByDTO - 2018.12.25 at 17h 31m 52s.xml">
+      <configuration name="CustomerServiceImplTest.saveCustomerByDTO" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CustomerServiceImplTest_createNewCustomer - 2018.12.25 at 17h 32m 32s.xml">
       <configuration name="CustomerServiceImplTest.createNewCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_createNewCustomer - 2018.12.25 at 16h 11m 35s.xml">
-      <configuration name="CustomerControllerTest.createNewCustomer" configurationId="JUnit" />
+    <history-entry file="CustomerServiceImplTest - 2018.12.25 at 17h 32m 55s.xml">
+      <configuration name="CustomerServiceImplTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_createNewCustomer - 2018.12.25 at 16h 18m 21s.xml">
-      <configuration name="CustomerControllerTest.createNewCustomer" configurationId="JUnit" />
+    <history-entry file="CustomerControllerTest_testUpdateCustomer - 2018.12.25 at 19h 04m 31s.xml">
+      <configuration name="CustomerControllerTest.testUpdateCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_createNewCustomer - 2018.12.25 at 16h 18m 42s.xml">
-      <configuration name="CustomerControllerTest.createNewCustomer" configurationId="JUnit" />
+    <history-entry file="CustomerControllerTest_testUpdateCustomer - 2018.12.25 at 19h 04m 51s.xml">
+      <configuration name="CustomerControllerTest.testUpdateCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_createNewCustomer - 2018.12.25 at 16h 20m 18s.xml">
-      <configuration name="CustomerControllerTest.createNewCustomer" configurationId="JUnit" />
+    <history-entry file="CustomerControllerTest_testUpdateCustomer - 2018.12.25 at 19h 05m 52s.xml">
+      <configuration name="CustomerControllerTest.testUpdateCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_createNewCustomer - 2018.12.25 at 16h 23m 03s.xml">
-      <configuration name="CustomerControllerTest.createNewCustomer" configurationId="JUnit" />
+    <history-entry file="CustomerControllerTest_testUpdateCustomer - 2018.12.25 at 19h 06m 32s.xml">
+      <configuration name="CustomerControllerTest.testUpdateCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_rest-demo - 2018.12.25 at 16h 24m 17s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_rest-demo - 2018.12.25 at 16h 25m 55s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_rest-demo - 2018.12.25 at 16h 32m 39s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
+    <history-entry file="CustomerControllerTest_testUpdateCustomer - 2018.12.25 at 19h 07m 19s.xml">
+      <configuration name="CustomerControllerTest.testUpdateCustomer" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34697000" />
+    <option name="totallyTimeSpent" value="38133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -787,7 +849,8 @@
     <MESSAGE value="Create Bootstrap Data for Customers. closes #12" />
     <MESSAGE value="Create Tests For Customer Controller. closes #13" />
     <MESSAGE value="add methods and tests for creating new Customer with POST. closes #14" />
-    <option name="LAST_COMMIT_MESSAGE" value="add methods and tests for creating new Customer with POST. closes #14" />
+    <MESSAGE value="Correct Controller mapping, can't be used without trailing /. closes #15" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correct Controller mapping, can't be used without trailing /. closes #15" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1080,24 +1143,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/AbstractRestControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
         </state>
       </provider>
     </entry>
@@ -1131,10 +1180,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="53" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+        <state relative-caret-position="-35">
+          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="118" column="39" selection-start-line="118" selection-start-column="39" selection-end-line="118" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="37" column="112" selection-start-line="37" selection-start-column="112" selection-end-line="37" selection-end-column="112" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1150,18 +1223,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="99" column="44" selection-start-line="99" selection-start-column="44" selection-end-line="99" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="25" column="18" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="18" />
+        <state relative-caret-position="373">
+          <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
