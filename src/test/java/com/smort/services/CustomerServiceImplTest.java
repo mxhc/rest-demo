@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
@@ -58,8 +59,8 @@ public class CustomerServiceImplTest {
         // given
         Customer customer = new Customer();
         customer.setId(ID);
-        customer.setFirstName(FIRST_NAME);
-        customer.setLastName(LAST_NAME);
+        customer.setFirstname(FIRST_NAME);
+        customer.setLastname(LAST_NAME);
         Optional<Customer> optionalCustomer = Optional.ofNullable(customer);
 
         when(customerRepository.findById(anyLong())).thenReturn(optionalCustomer);
@@ -68,9 +69,32 @@ public class CustomerServiceImplTest {
         CustomerDTO customerDTO = customerService.findById(ID);
 
         // then
-        assertEquals(FIRST_NAME, customerDTO.getFirstName());
-        assertEquals(LAST_NAME, customerDTO.getLastName());
-
+        assertEquals(FIRST_NAME, customerDTO.getFirstname());
+        assertEquals(LAST_NAME, customerDTO.getLastname());
 
     }
+
+    @Test
+    public void createNewCustomer() throws Exception {
+
+        // given
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setFirstname("Milojko");
+
+        Customer savedCustomer = new Customer();
+        savedCustomer.setFirstname(customerDTO.getFirstname());
+        savedCustomer.setLastname(customerDTO.getLastname());
+        savedCustomer.setId(1L);
+
+        when(customerRepository.save(any(Customer.class))).thenReturn(savedCustomer);
+
+        // when
+        CustomerDTO savedDTO = customerService.createNewCustomer(customerDTO);
+
+        // then
+        assertEquals(customerDTO.getFirstname(), savedDTO.getFirstname());
+        assertEquals("/api/v1/customer/1", savedDTO.getCustomerUrl());
+
+    }
+
 }
