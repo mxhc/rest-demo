@@ -1,7 +1,9 @@
 package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.CategoryDTO;
+import com.smort.controllers.RestResponseEntityExceptionHandler;
 import com.smort.services.CategoryService;
+import com.smort.services.ResourceNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -39,7 +41,9 @@ public class CategoryControllerTest {
 
         MockitoAnnotations.initMocks(this);
 
-        mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(categoryController)
+                .setControllerAdvice(new RestResponseEntityExceptionHandler())
+                .build();
     }
 
     @Test
@@ -80,6 +84,15 @@ public class CategoryControllerTest {
 
     }
 
+    @Test
+    public void testGetByNameNotFound() throws Exception {
 
+        when(categoryService.getCategoryByName(anyString())).thenThrow(ResourceNotFoundException.class);
+
+        mockMvc.perform(get(CustomerController.BASE_URL + "/neki")
+                    .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+
+    }
 
 }
