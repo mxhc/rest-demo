@@ -2,6 +2,7 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.CustomerMapper;
 import com.smort.api.v1.model.CustomerDTO;
+import com.smort.controllers.v1.CustomerController;
 import com.smort.domain.Customer;
 import com.smort.repositories.CustomerRepository;
 import org.junit.Before;
@@ -93,7 +94,7 @@ public class CustomerServiceImplTest {
 
         // then
         assertEquals(customerDTO.getFirstname(), savedDTO.getFirstname());
-        assertEquals("/api/v1/customers/1", savedDTO.getCustomerUrl());
+        assertEquals(CustomerController.BASE_URL + "/1", savedDTO.getCustomerUrl());
 
     }
 
@@ -116,7 +117,7 @@ public class CustomerServiceImplTest {
 
         // then
         assertEquals(customerDTO.getFirstname(), savedDto.getFirstname());
-        assertEquals("/api/v1/customers/1", savedDto.getCustomerUrl());
+        assertEquals(CustomerController.BASE_URL + "/1", savedDto.getCustomerUrl());
 
 
     }

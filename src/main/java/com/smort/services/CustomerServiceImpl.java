@@ -2,6 +2,7 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.CustomerMapper;
 import com.smort.api.v1.model.CustomerDTO;
+import com.smort.controllers.v1.CustomerController;
 import com.smort.domain.Customer;
 import com.smort.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .stream()
                 .map(customer -> {
                     CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
-                    customerDTO.setCustomerUrl("/api/v1/customers/" + customer.getId());
+                    customerDTO.setCustomerUrl(getCustomerUrl(customer.getId()));
                     return customerDTO;
                 })
                 .collect(Collectors.toList());
@@ -50,7 +51,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         CustomerDTO returnDTO = customerMapper.customerToCustomerDTO(savedCustomer);
 
-        returnDTO.setCustomerUrl("/api/v1/customers/" + savedCustomer.getId());
+        returnDTO.setCustomerUrl(getCustomerUrl(savedCustomer.getId()));
 
         return returnDTO;
 
@@ -61,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         CustomerDTO returnDTO = customerMapper.customerToCustomerDTO(savedCustomer);
 
-        returnDTO.setCustomerUrl("/api/v1/customers/" + savedCustomer.getId());
+        returnDTO.setCustomerUrl(getCustomerUrl(savedCustomer.getId()));
 
         return returnDTO;
 
@@ -91,7 +92,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             CustomerDTO returnDto = customerMapper.customerToCustomerDTO(customerRepository.save(customer));
 
-            returnDto.setCustomerUrl("/api/v1/customers/" + id);
+            returnDto.setCustomerUrl(getCustomerUrl(id));
 
             return returnDto; }).orElseThrow(RuntimeException::new); // todo implement better exception handling
 
@@ -101,6 +102,10 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomerById(Long id) {
         // todo error handling if id is not found
         customerRepository.deleteById(id);
+    }
+
+    private String getCustomerUrl(Long id) {
+        return CustomerController.BASE_URL + "/" + id;
     }
 
 }
