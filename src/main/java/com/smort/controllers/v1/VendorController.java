@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(VendorController.BASE_URL)
 public class VendorController {
 
-    public static final String BASE_URL = "/api/v1/vendor";
+    public static final String BASE_URL = "/api/v1/vendors";
 
 }

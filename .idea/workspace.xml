@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/VendorServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -16,112 +17,27 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="VendorRepository.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/VendorRepository.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="VendorService.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="85">
-                  <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="VendorServiceImpl.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/VendorServiceImpl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="339">
-                  <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2948#2949#0" expanded="true" />
-                    <element signature="e#2966#2967#0" expanded="true" />
-                    <element signature="e#1578#1579#0" expanded="true" />
-                    <element signature="e#1637#1638#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="VendorController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="153">
-                  <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="CustomerService.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="34" lean-forward="true" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CustomerServiceImpl.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#3325#3326#0" expanded="true" />
-                    <element signature="e#3386#3387#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="343">
-                  <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="VendorServiceImplTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="155" column="62" selection-start-line="155" selection-start-column="62" selection-end-line="155" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -167,12 +83,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerListDTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/api/v1/mapper/CustomerMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/CustomerMapper.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/AbstractRestControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ResourceNotFoundException.java" />
@@ -189,8 +103,11 @@
         <option value="$PROJECT_DIR$/src/test/java/com/smort/api/v1/mapper/VendorMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/VendorRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/VendorServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java" />
       </list>
     </option>
   </component>
@@ -323,6 +240,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -408,6 +334,15 @@
               <item name="smort" type="462c0819:PsiDirectoryNode" />
               <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -431,9 +366,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.smort.services" />
       <recent name="com.smort.api.v1.mapper" />
       <recent name="com.smort.controllers.v1" />
-      <recent name="com.smort.services" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\rest-demo\.circleci" />
@@ -457,7 +392,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.VendorMapperTest.vendorDTOtoVendor">
+  <component name="RunManager" selected="Spring Boot.RestDemoApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -478,19 +413,42 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CustomerControllerTest.testNotFoundException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendorServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
+          <option name="PATTERN" value="com.smort.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.CustomerControllerTest" />
-      <option name="METHOD_NAME" value="testNotFoundException" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.VendorServiceImplTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="VendorServiceImplTest.deleteVendorById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.VendorServiceImplTest" />
+      <option name="METHOD_NAME" value="deleteVendorById" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -501,19 +459,19 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="VendorMapperTest.vendorDTOtoVendor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendorServiceImplTest.patchVendor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.api.v1.mapper.*" />
+          <option name="PATTERN" value="com.smort.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.api.v1.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.api.v1.mapper.VendorMapperTest" />
-      <option name="METHOD_NAME" value="vendorDTOtoVendor" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.VendorServiceImplTest" />
+      <option name="METHOD_NAME" value="patchVendor" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -524,19 +482,19 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="VendorMapperTest.vendorToVendorDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendorServiceImplTest.saveVendorByDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.api.v1.mapper.*" />
+          <option name="PATTERN" value="com.smort.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.api.v1.mapper" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.api.v1.mapper.VendorMapperTest" />
-      <option name="METHOD_NAME" value="vendorToVendorDTO" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.VendorServiceImplTest" />
+      <option name="METHOD_NAME" value="saveVendorByDTO" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -554,29 +512,6 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="com.smort.controllers.v1 in rest-demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -614,19 +549,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.RestDemoApplication" />
-      <item itemvalue="JUnit.com.smort.controllers.v1 in rest-demo" />
+      <item itemvalue="JUnit.VendorServiceImplTest.saveVendorByDTO" />
+      <item itemvalue="JUnit.VendorServiceImplTest.patchVendor" />
+      <item itemvalue="JUnit.VendorServiceImplTest" />
+      <item itemvalue="JUnit.VendorServiceImplTest.deleteVendorById" />
       <item itemvalue="JUnit.All in rest-demo" />
-      <item itemvalue="JUnit.CustomerControllerTest.testNotFoundException" />
-      <item itemvalue="JUnit.VendorMapperTest.vendorToVendorDTO" />
-      <item itemvalue="JUnit.VendorMapperTest.vendorDTOtoVendor" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.VendorMapperTest.vendorDTOtoVendor" />
-        <item itemvalue="JUnit.VendorMapperTest.vendorToVendorDTO" />
-        <item itemvalue="JUnit.com.smort.controllers.v1 in rest-demo" />
         <item itemvalue="JUnit.All in rest-demo" />
-        <item itemvalue="JUnit.CustomerControllerTest.testNotFoundException" />
+        <item itemvalue="JUnit.VendorServiceImplTest" />
+        <item itemvalue="JUnit.VendorServiceImplTest.deleteVendorById" />
+        <item itemvalue="JUnit.VendorServiceImplTest.patchVendor" />
+        <item itemvalue="JUnit.VendorServiceImplTest.saveVendorByDTO" />
       </list>
     </recent_temporary>
   </component>
@@ -645,7 +580,7 @@
       <workItem from="1545670030543" duration="17829000" />
       <workItem from="1545726534117" duration="857000" />
       <workItem from="1545742040167" duration="13507000" />
-      <workItem from="1545833341852" duration="11181000" />
+      <workItem from="1545833341852" duration="14731000" />
     </task>
     <task id="LOCAL-00001" summary="sorted test">
       <created>1545650827709</created>
@@ -850,43 +785,57 @@
       <option name="project" value="LOCAL" />
       <updated>1545857057272</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Just Create Vendor Controller and set BaseUrl. closes #25&#10;Create Vendor Service and Implementation, follow by Tests. closes #24">
+      <created>1545859020379</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1545859020379</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Add Vendors To Bootstrap closes #26">
+      <created>1545860859325</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1545860859325</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CategoryControllerTest_testGetByNameNotFound - 2018.12.26 at 17h 40m 34s.xml">
-      <configuration name="CategoryControllerTest.testGetByNameNotFound" configurationId="JUnit" />
+    <history-entry file="VendorServiceImplTest_getAllVendors - 2018.12.26 at 22h 40m 57s.xml">
+      <configuration name="VendorServiceImplTest.getAllVendors" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CustomerControllerTest_testNotFoundException - 2018.12.26 at 17h 42m 05s.xml">
-      <configuration name="CustomerControllerTest.testNotFoundException" configurationId="JUnit" />
+    <history-entry file="VendorServiceImplTest_findById - 2018.12.26 at 22h 46m 43s.xml">
+      <configuration name="VendorServiceImplTest.findById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_rest-demo - 2018.12.26 at 17h 42m 45s.xml">
+    <history-entry file="VendorServiceImplTest_createNewVendor - 2018.12.26 at 22h 52m 21s.xml">
+      <configuration name="VendorServiceImplTest.createNewVendor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorServiceImplTest_saveVendorByDTO - 2018.12.26 at 22h 55m 43s.xml">
+      <configuration name="VendorServiceImplTest.saveVendorByDTO" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorServiceImplTest_patchVendor - 2018.12.26 at 23h 04m 47s.xml">
+      <configuration name="VendorServiceImplTest.patchVendor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorServiceImplTest - 2018.12.26 at 23h 04m 55s.xml">
+      <configuration name="VendorServiceImplTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorServiceImplTest_deleteVendorById - 2018.12.26 at 23h 05m 19s.xml">
+      <configuration name="VendorServiceImplTest.deleteVendorById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorServiceImplTest_deleteVendorById - 2018.12.26 at 23h 08m 09s.xml">
+      <configuration name="VendorServiceImplTest.deleteVendorById" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorServiceImplTest - 2018.12.26 at 23h 08m 15s.xml">
+      <configuration name="VendorServiceImplTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_rest-demo - 2018.12.26 at 23h 08m 31s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_smort_controllers_v1_in_rest-demo - 2018.12.26 at 20h 48m 58s.xml">
-      <configuration name="com.smort.controllers.v1 in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_smort_controllers_v1_in_rest-demo - 2018.12.26 at 20h 55m 25s.xml">
-      <configuration name="com.smort.controllers.v1 in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_smort_controllers_v1_in_rest-demo - 2018.12.26 at 20h 58m 18s.xml">
-      <configuration name="com.smort.controllers.v1 in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="com_smort_controllers_v1_in_rest-demo - 2018.12.26 at 20h 59m 20s.xml">
-      <configuration name="com.smort.controllers.v1 in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="VendorMapperTest_vendorToVendorDTO - 2018.12.26 at 21h 24m 03s.xml">
-      <configuration name="VendorMapperTest.vendorToVendorDTO" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="VendorMapperTest_vendorToVendorDTO - 2018.12.26 at 21h 27m 15s.xml">
-      <configuration name="VendorMapperTest.vendorToVendorDTO" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="VendorMapperTest_vendorDTOtoVendor - 2018.12.26 at 21h 28m 13s.xml">
-      <configuration name="VendorMapperTest.vendorDTOtoVendor" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54413000" />
+    <option name="totallyTimeSpent" value="57963000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -918,10 +867,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33769062" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33769062" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1609808" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1609808" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
@@ -943,8 +892,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="changed pom concerning ci build" />
-    <MESSAGE value="added surefire 3.0.0-M2, concerning #4" />
     <MESSAGE value="added surefire 3.0.0-M2, concerning. closes #4&#10;&#10;add codecov badge. closes #5" />
     <MESSAGE value="populate data with bootstrap class, with CommandLineRunnner. closes #6" />
     <MESSAGE value="add MapStruct support closes #7" />
@@ -968,7 +915,9 @@
     <MESSAGE value="Implement Vendor Domain objects, DTO, Mappers and Tests. closes #22" />
     <MESSAGE value="Create Vendor JpaRepository. closes #23" />
     <MESSAGE value="Just Create Vendor Controller and set BaseUrl. closes #25" />
-    <option name="LAST_COMMIT_MESSAGE" value="Just Create Vendor Controller and set BaseUrl. closes #25" />
+    <MESSAGE value="Just Create Vendor Controller and set BaseUrl. closes #25&#10;Create Vendor Service and Implementation, follow by Tests. closes #24" />
+    <MESSAGE value="Add Vendors To Bootstrap closes #26" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Vendors To Bootstrap closes #26" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -977,16 +926,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="68">
-            <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$MAVEN_REPOSITORY$/org/codehaus/mojo/cobertura-maven-plugin/2.7/cobertura-maven-plugin-2.7.pom">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-5865" />
@@ -1129,40 +1068,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="50" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1450">
-          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="119" column="52" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1345,7 +1250,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <caret line="6" column="23" lean-forward="true" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1362,6 +1267,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+          <folding>
+            <element signature="e#3325#3326#0" expanded="true" />
+            <element signature="e#3386#3387#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
@@ -1372,37 +1288,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        <state relative-caret-position="-375">
+          <caret line="46" column="100" selection-start-line="46" selection-start-column="100" selection-end-line="46" selection-end-column="100" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+        <state relative-caret-position="288">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
           <folding>
-            <element signature="e#3325#3326#0" expanded="true" />
-            <element signature="e#3386#3387#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="66" column="48" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/VendorServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="96" column="37" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
+        <state relative-caret-position="187">
+          <caret line="11" column="24" lean-forward="true" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2948#2949#0" expanded="true" />
-            <element signature="e#2966#2967#0" expanded="true" />
-            <element signature="e#1578#1579#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="105" column="30" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="155" column="62" selection-start-line="155" selection-start-column="62" selection-end-line="155" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
