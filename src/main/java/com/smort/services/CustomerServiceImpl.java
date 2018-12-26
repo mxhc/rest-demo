@@ -97,4 +97,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @Override
+    public void deleteCustomerById(Long id) {
+        // todo error handling if id is not found
+        customerRepository.deleteById(id);
+    }
+
 }
