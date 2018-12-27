@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -61,6 +63,20 @@ public class VendorServiceImplTest {
 
     }
 
+    @Test(expected = ResourceNotFoundException.class)
+    public void getVendorByIdNotFound() throws Exception {
+        //given
+        //mockito BBD syntax since mockito 1.10.0
+        given(vendorRepository.findById(anyLong())).willReturn(Optional.empty());
+
+        //when
+        VendorDTO vendorDTO = vendorService.findById(1L);
+
+        //then
+        then(vendorRepository).should(times(1)).findById(anyLong());
+
+    }
+
     @Test
     public void findById() {
 
@@ -77,7 +93,25 @@ public class VendorServiceImplTest {
 
         // then
         assertEquals(NAME_1, vendorDTO.getName());
+    }
 
+    @Test
+    public void findByIdBDD() throws Exception {
+
+        // given
+        Vendor vendor = getVendor1();
+
+        // mockito behavior driven development
+        given(vendorRepository.findById(anyLong())).willReturn(Optional.of(vendor));
+
+        // when
+        VendorDTO vendorDTO = vendorService.findById(1L);
+
+        // then
+        then(vendorRepository).should(times(1)).findById(anyLong());
+
+        // junit assert
+        assertThat(vendorDTO.getName(), is(equalTo(NAME_1)));
 
     }
 

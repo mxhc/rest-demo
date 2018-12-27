@@ -36,19 +36,20 @@ public class VendorController {
         return vendorService.createNewVendor(vendorDTO);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public VendorDTO updateVendor(@RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
-    @PatchMapping
+    // todo calling save by dto, should call patchVendor
+    @PatchMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO patchVendor(@RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
-        return vendorService.patchVendor(id, vendorDTO);
+    public VendorDTO patchVendor(@PathVariable Long id, @RequestBody VendorDTO vendorDTO){
+        return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteVendor(@PathVariable Long id) {
         vendorService.deleteVendorById(id);
