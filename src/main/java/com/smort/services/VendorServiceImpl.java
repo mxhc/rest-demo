@@ -5,10 +5,12 @@ import com.smort.api.v1.model.VendorDTO;
 import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Vendor;
 import com.smort.repositories.VendorRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class VendorServiceImpl implements VendorService {
 
     private final VendorRepository vendorRepository;

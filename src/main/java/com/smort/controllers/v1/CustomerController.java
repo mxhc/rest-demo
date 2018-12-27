@@ -38,7 +38,7 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO updateNewCustomer(@RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
+    public CustomerDTO updateCustomer(@RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
         return customerService.saveCustomerByDTO(id, customerDTO);
     }
 
