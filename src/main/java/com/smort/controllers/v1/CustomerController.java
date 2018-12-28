@@ -4,6 +4,7 @@ import com.smort.api.v1.model.CustomerDTO;
 import com.smort.api.v1.model.CustomerListDTO;
 import com.smort.services.CustomerService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "This will get a list of customers", notes = "Collection of Customers")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getAllCustomers()  {
