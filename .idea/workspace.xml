@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,20 +41,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+            <state relative-caret-position="857">
+              <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerServiceImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CustomerServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="723">
-              <caret line="68" selection-start-line="68" selection-end-line="68" />
+            <state relative-caret-position="825">
+              <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -171,6 +170,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/VendorMapper.java" />
@@ -188,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/VendorDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
@@ -245,8 +244,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -367,7 +366,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,7 +379,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="H:/spring-security-registration-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -394,14 +393,14 @@
       <recent name="com.smort.services" />
       <recent name="com.smort.api.v1.mapper" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.smort.services" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\rest-demo\.circleci" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\rest-demo\.circleci" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.smort.services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -609,8 +608,7 @@
       <workItem from="1545941492990" duration="3927000" />
       <workItem from="1546002539758" duration="4702000" />
       <workItem from="1546603379867" duration="1052000" />
-      <workItem from="1546618109603" duration="3255000" />
-      <workItem from="1546698665954" duration="480000" />
+      <workItem from="1546618109603" duration="2018000" />
     </task>
     <task id="LOCAL-00001" summary="sorted test">
       <created>1545650827709</created>
@@ -871,14 +869,7 @@
       <option name="project" value="LOCAL" />
       <updated>1546014180297</updated>
     </task>
-    <task id="LOCAL-00038" summary="Testing branch">
-      <created>1546628682290</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1546628682290</updated>
-    </task>
-    <option name="localTasksCounter" value="39" />
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -914,7 +905,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77968000" />
+    <option name="totallyTimeSpent" value="76251000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -949,7 +940,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.5294118" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14925373" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14765458" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -965,9 +956,10 @@
     <layout-to-restore>
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33769062" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info id="Image Layers" order="3" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33769062" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -992,9 +984,8 @@
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
-      <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Bean Validation" order="8" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1032,6 +1023,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="codecov added to yml. reverted" />
     <MESSAGE value="xxx" />
     <MESSAGE value="Create CategoryController, Tests and CategoryListDTO object closes #10" />
     <MESSAGE value="Implement Customer class, dto, repository, service and controller closes #11" />
@@ -1056,8 +1048,7 @@
     <MESSAGE value="Setting up Swagger closes #28" />
     <MESSAGE value="Customizing Endpoint Documentation for customer. Starting #29" />
     <MESSAGE value="Customizing Endpoint Documentation closes #29" />
-    <MESSAGE value="Testing branch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customizing Endpoint Documentation closes #29" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1412,17 +1403,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="723">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        <state relative-caret-position="857">
+          <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        <state relative-caret-position="825">
+          <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
         </state>
       </provider>
     </entry>
