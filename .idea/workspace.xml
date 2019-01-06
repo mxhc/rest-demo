@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rest-demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/rest-demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/CategoryMapper.java" afterDir="false" />
-    </list>
+    <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -251,7 +246,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -419,7 +414,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.RestDemoApplication">
+  <component name="RunManager" selected="JUnit.All in rest-demo">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -613,7 +608,7 @@
       <workItem from="1546002539758" duration="4702000" />
       <workItem from="1546603379867" duration="1052000" />
       <workItem from="1546618109603" duration="2018000" />
-      <workItem from="1546776270438" duration="3977000" />
+      <workItem from="1546776270438" duration="4698000" />
     </task>
     <task id="LOCAL-00001" summary="sorted test">
       <created>1545650827709</created>
@@ -910,7 +905,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81500000" />
+    <option name="totallyTimeSpent" value="82221000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
