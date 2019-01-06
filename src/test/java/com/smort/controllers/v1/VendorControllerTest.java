@@ -4,7 +4,6 @@ import com.smort.api.v1.model.VendorDTO;
 import com.smort.api.v1.model.VendorListDTO;
 import com.smort.services.VendorService;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Ignore
+
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = {VendorController.class})
 public class VendorControllerTest {
