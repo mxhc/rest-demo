@@ -15,5 +15,7 @@ public class Product {
     private Double price;
     @ManyToOne
     private Vendor vendor;
+    @ManyToOne
+    private Category category;
 
 }

@@ -44,6 +44,8 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling()
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
             .and()
+                .headers().frameOptions().sameOrigin()
+            .and()
                 .authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/v1/vendors/**").permitAll()
