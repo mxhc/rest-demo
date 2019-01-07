@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class VendorControllerTest {
 
     @MockBean //provided by Spring Context
-            VendorService vendorService;
+    VendorService vendorService;
 
     @Autowired
     MockMvc mockMvc; //provided by Spring Context
