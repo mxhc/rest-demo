@@ -1,4 +1,4 @@
-package com.smort.security.config;
+package com.smort.security;
 
 
 import org.springframework.context.annotation.Bean;
@@ -10,11 +10,21 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
+
+    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
+    private SavedRequestAwareAuthenticationSuccessHandler mySuccessHandler;
+    private SimpleUrlAuthenticationFailureHandler myFailureHandler = new SimpleUrlAuthenticationFailureHandler();
+
+    public SecurityJavaConfig(RestAuthenticationEntryPoint restAuthenticationEntryPoint, SavedRequestAwareAuthenticationSuccessHandler mySuccessHandler) {
+        this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
+        this.mySuccessHandler = mySuccessHandler;
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -29,7 +39,7 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .exceptionHandling()
-//                .authenticationEntryPoint(restAuthenticationEntryPoint)
+                .authenticationEntryPoint(restAuthenticationEntryPoint)
             .and()
                 .authorizeRequests()
                 .antMatchers("/api/v1/vendors/**").permitAll()
@@ -37,8 +47,8 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
             .and()
                 .formLogin()
-//                .successHandler(muSuccessHandler)
-//                .failureHandler(myFailureHandler)
+                .successHandler(mySuccessHandler)
+                .failureHandler(myFailureHandler)
             .and()
                 .logout();
     }
