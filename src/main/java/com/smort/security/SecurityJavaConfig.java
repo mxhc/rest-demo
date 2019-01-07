@@ -45,6 +45,7 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint(restAuthenticationEntryPoint)
             .and()
                 .authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/v1/vendors/**").permitAll()
                 .antMatchers("/api/v1/customers/**").authenticated()
                 .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
