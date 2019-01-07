@@ -3,7 +3,7 @@ package com.smort.controllers.v1;
 import com.smort.api.v1.model.CategoryDTO;
 import com.smort.controllers.RestResponseEntityExceptionHandler;
 import com.smort.services.CategoryService;
-import com.smort.services.ResourceNotFoundException;
+import error.ResourceNotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

@@ -1,6 +1,6 @@
 package com.smort.controllers;
 
-import com.smort.services.ResourceNotFoundException;
+import error.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.smort.services;
+package error;
 
 public class ResourceNotFoundException extends RuntimeException {
 
