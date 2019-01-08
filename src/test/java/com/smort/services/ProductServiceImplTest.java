@@ -160,13 +160,13 @@ public class ProductServiceImplTest {
     public void patchProduct() {
         ProductDTO productDTO = new ProductDTO();
         productDTO.setName(NAME);
-        productDTO.setPrice(PRICE);
+        productDTO.setPrice(311.25);
         productDTO.setVendorUrl(VendorController.BASE_URL + "/" + getVendor().getId());
         productDTO.setCategoryUrl(CategoryController.BASE_URL + "/" + getCategory().getName());
 
         Product savedProduct = new Product();
         savedProduct.setName(productDTO.getName());
-        savedProduct.setPrice(productDTO.getPrice());
+        savedProduct.setPrice(PRICE);
         savedProduct.setVendor(getVendor());
         savedProduct.setCategory(getCategory());
         savedProduct.setId(ID);
