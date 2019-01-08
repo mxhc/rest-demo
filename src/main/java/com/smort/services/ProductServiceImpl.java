@@ -3,6 +3,7 @@ package com.smort.services;
 import com.smort.api.v1.mapper.ProductMapper;
 import com.smort.api.v1.model.ProductDTO;
 import com.smort.controllers.v1.CategoryController;
+import com.smort.controllers.v1.ProductController;
 import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Product;
 import com.smort.error.ResourceNotFoundException;
@@ -34,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
         return productRepository.findAll()
                 .stream()
                 .map(product -> {
-                    ProductDTO productDTO = convertToDTOAndAddUrls(product);
+                    ProductDTO productDTO = convertToDTOAndAddProductUrl(product);
                     return productDTO;
                 })
                 .collect(Collectors.toList());
@@ -148,5 +149,12 @@ public class ProductServiceImpl implements ProductService {
         return Long.valueOf(tempArray[tempArray.length - 1]);
     }
 
+    private ProductDTO convertToDTOAndAddProductUrl(Product product) {
+        ProductDTO productDTO = productMapper.productToProductDTO(product);
+
+        productDTO.setProductUrl(ProductController.BASE_URL + "/" + product.getId());
+
+        return productDTO;
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.smort.api.v1.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -13,12 +14,25 @@ public class ProductDTO {
 
     @ApiModelProperty(value = "Product Name", required = true)
     private String name;
+
     @ApiModelProperty(value = "Product Price", required = true)
     private Double price;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty("product_url")
+    private String productUrl;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("category_url")
     private String categoryUrl;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("vendor_url")
     private String vendorUrl;
 
-
+    public ProductDTO(String name, Double price, String productUrl) {
+        this.name = name;
+        this.price = price;
+        this.productUrl = productUrl;
+    }
 }
