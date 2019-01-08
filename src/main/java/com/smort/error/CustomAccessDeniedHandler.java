@@ -1,4 +1,4 @@
-package error;
+package com.smort.error;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

@@ -4,8 +4,8 @@ import com.smort.api.v1.mapper.VendorMapper;
 import com.smort.api.v1.model.VendorDTO;
 import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Vendor;
+import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.VendorRepository;
-import error.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

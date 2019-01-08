@@ -4,8 +4,8 @@ import com.smort.api.v1.mapper.CustomerMapper;
 import com.smort.api.v1.model.CustomerDTO;
 import com.smort.controllers.v1.CustomerController;
 import com.smort.domain.Customer;
+import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
-import error.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

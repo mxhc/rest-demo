@@ -5,10 +5,10 @@ import com.smort.api.v1.model.ProductDTO;
 import com.smort.controllers.v1.CategoryController;
 import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Product;
+import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CategoryRepository;
 import com.smort.repositories.ProductRepository;
 import com.smort.repositories.VendorRepository;
-import error.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
