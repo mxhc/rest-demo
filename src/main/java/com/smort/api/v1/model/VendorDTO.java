@@ -11,9 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class VendorDTO {
 
-    @ApiModelProperty(value = "Vendor Name")
+    @ApiModelProperty(value = "Vendor Name", required = true, example = "Sveze Voce d.o.o.")
     private String name;
 
+    @ApiModelProperty(hidden = true)
     @JsonProperty("vendor_url")
     private String vendorUrl;
 

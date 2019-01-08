@@ -12,6 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Slf4j
 @Component
 public class Bootstrap implements CommandLineRunner {
@@ -53,6 +57,9 @@ public class Bootstrap implements CommandLineRunner {
     }
 
     private void loadProducts() {
+
+        List<Product> products = new ArrayList<>();
+
         Product p1 = new Product();
         p1.setName("Krompir");
         p1.setPrice(56.3);
@@ -81,13 +88,92 @@ public class Bootstrap implements CommandLineRunner {
         p5.setName("Suvo Grozdje");
         p5.setPrice(150.32);
         p5.setVendor(v1);
-        p5.setCategory(fresh);
+        p5.setCategory(dried);
 
-        productRepository.save(p1);
-        productRepository.save(p2);
-        productRepository.save(p3);
-        productRepository.save(p4);
-        productRepository.save(p5);
+        Product p6 = new Product();
+        p6.setName("Jagode");
+        p6.setPrice(150.32);
+        p6.setVendor(v1);
+        p6.setCategory(fresh);
+
+        Product p7 = new Product();
+        p7.setName("Maline");
+        p7.setPrice(820.0);
+        p7.setVendor(v2);
+        p7.setCategory(fresh);
+
+        Product p8 = new Product();
+        p8.setName("Orah");
+        p8.setPrice(1200.12);
+        p8.setVendor(v3);
+        p8.setCategory(nuts);
+
+        Product p9 = new Product();
+        p9.setName("Suve Banane");
+        p9.setPrice(650.0);
+        p9.setVendor(v2);
+        p9.setCategory(dried);
+
+        Product p10 = new Product();
+        p10.setName("Crni Luk");
+        p10.setPrice(75.2);
+        p10.setVendor(v2);
+        p10.setCategory(fresh);
+
+        Product p11 = new Product();
+        p11.setName("Ananas");
+        p11.setPrice(756.25);
+        p11.setVendor(v3);
+        p11.setCategory(exotic);
+
+        Product p12 = new Product();
+        p12.setName("Beli Luk");
+        p12.setPrice(354.7);
+        p12.setVendor(v1);
+        p12.setCategory(fresh);
+
+        Product p13 = new Product();
+        p13.setName("Kruske");
+        p13.setPrice(354.9);
+        p13.setVendor(v2);
+        p13.setCategory(fruits);
+
+
+        Product p14 = new Product();
+        p14.setName("Kupine");
+        p14.setPrice(1500.32);
+        p14.setVendor(v3);
+        p14.setCategory(fresh);
+
+        Product p15 = new Product();
+        p15.setName("Mandarine");
+        p15.setPrice(151.2);
+        p15.setVendor(v1);
+        p15.setCategory(fresh);
+
+        Product p16 = new Product();
+        p16.setName("Mango");
+        p16.setPrice(750.32);
+        p16.setVendor(v3);
+        p16.setCategory(exotic);
+
+        Product p17 = new Product();
+        p17.setName("Vlasac");
+        p17.setPrice(150.32);
+        p17.setVendor(v1);
+        p17.setCategory(fresh);
+
+        Product p18 = new Product();
+        p18.setName("Breskve");
+        p18.setPrice(741.1);
+        p18.setVendor(v2);
+        p18.setCategory(fruits);
+
+        products.addAll(Arrays.asList(
+                p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18));
+
+        productRepository.saveAll(products);
+
 
         log.warn("Products Loaded = " + productRepository.count());
 
