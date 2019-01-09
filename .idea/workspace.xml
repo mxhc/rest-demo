@@ -3,15 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/VendorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/VendorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,7 +35,7 @@
             <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="391">
-                  <caret line="145" column="8" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="8" />
+                  <caret line="142" selection-start-line="142" selection-end-line="142" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -77,7 +68,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="255">
-                  <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+                  <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
                 </state>
               </provider>
             </entry>
@@ -265,7 +256,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -707,14 +698,7 @@
       <workItem from="1546901534653" duration="14018000" />
       <workItem from="1546950685006" duration="18548000" />
       <workItem from="1547033537461" duration="14675000" />
-      <workItem from="1547066268829" duration="5103000" />
-    </task>
-    <task id="LOCAL-00001" summary="sorted test">
-      <created>1545650827709</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1545650827709</updated>
+      <workItem from="1547066268829" duration="5514000" />
     </task>
     <task id="LOCAL-00002" summary="added domain and repository base classes. closes #1">
       <created>1545659927052</created>
@@ -1052,7 +1036,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547056534379</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Add Product List to Vendor, service, controller, tests. closes #46">
+      <created>1547072024667</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1547072024670</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1088,7 +1079,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153392000" />
+    <option name="totallyTimeSpent" value="153803000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1100,7 +1091,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -1122,10 +1113,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32897604" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3583878" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3583878" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32897604" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15884861" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15884861" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -1174,7 +1165,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Implement Exception Handling for 404 and write tests. closes #20" />
     <MESSAGE value="Convert Controllers to Rest Controllers. closes #21" />
     <MESSAGE value="Implement Vendor Domain objects, DTO, Mappers and Tests. closes #22" />
     <MESSAGE value="Create Vendor JpaRepository. closes #23" />
@@ -1199,7 +1189,8 @@
     <MESSAGE value="Implement showing List of Products By Category Name closes #43" />
     <MESSAGE value="Add Url for Category. closes #44" />
     <MESSAGE value="Create new Category Tests. closes #45" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create new Category Tests. closes #45" />
+    <MESSAGE value="Add Product List to Vendor, service, controller, tests. closes #46" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Product List to Vendor, service, controller, tests. closes #46" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1534,7 +1525,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="20" column="58" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+          <caret line="19" column="58" selection-start-line="19" selection-start-column="58" selection-end-line="19" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1606,7 +1597,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="145" column="8" selection-start-line="145" selection-start-column="8" selection-end-line="145" selection-end-column="8" />
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
