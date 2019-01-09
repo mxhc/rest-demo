@@ -60,7 +60,7 @@ public class CategoryServiceTest {
         when(categoryRepository.findByName(anyString())).thenReturn(category);
 
         // when
-        CategoryDTO categoryDTO = categoryService.getCategoryByName(NAME);
+        CategoryDTO categoryDTO = categoryService.getListOfProductsByCategory(NAME);
 
         // then
         assertEquals(ID, categoryDTO.getId());

@@ -26,8 +26,8 @@ public class CategoryController {
 
     @GetMapping("/{name}")
     @ResponseStatus(HttpStatus.OK)
-    public CategoryDTO getCategoryByName(@PathVariable String name) {
-        return categoryService.getCategoryByName(name);
+    public CategoryDTO getListOfProductsByCategory(@PathVariable String name) {
+        return null;
     }
 
 }

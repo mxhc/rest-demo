@@ -16,7 +16,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
@@ -69,25 +68,11 @@ public class CategoryControllerTest {
 
     }
 
-    @Test
-    public void testGetByNameCategories() throws Exception {
-
-        CategoryDTO category1 = new CategoryDTO();
-        category1.setId(1l);
-        category1.setName(NAME);
-
-        when(categoryService.getCategoryByName(anyString())).thenReturn(category1);
-
-        mockMvc.perform(get(CategoryController.BASE_URL + "/Milojko").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name", equalTo(NAME)));
-
-    }
 
     @Test
     public void testGetByNameNotFound() throws Exception {
 
-        when(categoryService.getCategoryByName(anyString())).thenThrow(ResourceNotFoundException.class);
+        when(categoryService.getListOfProductsByCategory(anyString())).thenThrow(ResourceNotFoundException.class);
 
         mockMvc.perform(get(CustomerController.BASE_URL + "/neki")
                     .contentType(MediaType.APPLICATION_JSON))
