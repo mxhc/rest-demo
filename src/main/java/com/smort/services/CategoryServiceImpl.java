@@ -2,11 +2,14 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.CategoryMapper;
 import com.smort.api.v1.model.CategoryDTO;
+import com.smort.controllers.v1.CategoryController;
 import com.smort.domain.Category;
+import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -26,13 +29,18 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findAll()
                 .stream()
                 .map(categoryMapper::categoryToCategoryDTO)
+                .map(this::addUrl)
                 .collect(Collectors.toList());
     }
 
     @Override
     public Category findByName(String categoryName) {
-        return categoryRepository.findByName(categoryName);
+        return Optional.ofNullable(categoryRepository.findByName(categoryName)).orElseThrow(ResourceNotFoundException::new);
     }
 
+    private CategoryDTO addUrl(CategoryDTO categoryDTO) {
+        categoryDTO.setCategoryUrl(CategoryController.BASE_URL + "/" + categoryDTO.getName());
+        return categoryDTO;
+    }
 
 }

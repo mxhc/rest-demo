@@ -47,11 +47,11 @@ public class CategoryControllerTest {
     public void testListCategories() throws Exception {
         // given
         CategoryDTO categoryDTO = new CategoryDTO();
-        categoryDTO.setId(1L);
+
         categoryDTO.setName(NAME);
 
         CategoryDTO categoryDTO2 = new CategoryDTO();
-        categoryDTO.setId(2L);
+
         categoryDTO.setName("Perica");
 
         List<CategoryDTO> categories = Arrays.asList(categoryDTO, categoryDTO2);
