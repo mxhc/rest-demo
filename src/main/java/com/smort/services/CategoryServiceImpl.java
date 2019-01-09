@@ -2,6 +2,7 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.CategoryMapper;
 import com.smort.api.v1.model.CategoryDTO;
+import com.smort.domain.Category;
 import com.smort.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDTO getListOfProductsByCategory(String name) {
-        return null;
+    public Category findByName(String categoryName) {
+        return categoryRepository.findByName(categoryName);
     }
+
+
 }

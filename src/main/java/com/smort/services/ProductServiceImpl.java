@@ -108,6 +108,17 @@ public class ProductServiceImpl implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Override
+    public List<ProductDTO> convertListToDto(List<Product> products) {
+        return products.stream()
+                .map(product -> {
+                    ProductDTO productDTO = convertToDTOAndAddProductUrl(product);
+                    return productDTO;
+                })
+                .collect(Collectors.toList());
+    }
+
+
     private String getVendorUrl(Long id) {
         return VendorController.BASE_URL + "/" + id;
     }

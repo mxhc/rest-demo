@@ -2,7 +2,6 @@ package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.CategoryDTO;
 import com.smort.controllers.RestResponseEntityExceptionHandler;
-import com.smort.error.ResourceNotFoundException;
 import com.smort.services.CategoryService;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +16,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -69,15 +67,5 @@ public class CategoryControllerTest {
     }
 
 
-    @Test
-    public void testGetByNameNotFound() throws Exception {
-
-        when(categoryService.getListOfProductsByCategory(anyString())).thenThrow(ResourceNotFoundException.class);
-
-        mockMvc.perform(get(CustomerController.BASE_URL + "/neki")
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
-
-    }
 
 }

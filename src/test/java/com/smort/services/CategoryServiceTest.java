@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 public class CategoryServiceTest {
@@ -52,19 +51,6 @@ public class CategoryServiceTest {
     @Test
     public void getCategoryByName() {
 
-        // given
-        Category category = new Category();
-        category.setId(ID);
-        category.setName(NAME);
-
-        when(categoryRepository.findByName(anyString())).thenReturn(category);
-
-        // when
-        CategoryDTO categoryDTO = categoryService.getListOfProductsByCategory(NAME);
-
-        // then
-        assertEquals(ID, categoryDTO.getId());
-        assertEquals(NAME, categoryDTO.getName());
 
     }
 }

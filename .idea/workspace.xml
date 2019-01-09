@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CategoryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java" afterDir="false" />
     </list>
@@ -34,45 +39,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CategoryControllerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java">
+      <file leaf-file-name="CategoryController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CategoryServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CategoryServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+            <state relative-caret-position="228">
+              <caret line="23" column="97" selection-start-line="23" selection-start-column="97" selection-end-line="23" selection-end-column="97" />
               <folding>
-                <element signature="e#993#994#0" expanded="true" />
-                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CategoryService.java">
+      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+            <state relative-caret-position="255">
+              <caret line="23" column="97" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="97" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CategoryController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
+      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+            <state relative-caret-position="357">
+              <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
               <folding>
-                <element signature="e#914#915#0" expanded="true" />
-                <element signature="e#941#942#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Category.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryControllerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -122,15 +158,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/CustomerMapper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/AbstractRestControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ResourceNotFoundException.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/VendorMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/VendorListDTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/api/v1/mapper/VendorMapperTest.java" />
@@ -154,24 +185,29 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductListDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/ProductMapper.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/api/v1/mapper/ProductMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/ProductServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/ProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/VendorDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CategoryDTO.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" />
       </list>
     </option>
@@ -325,6 +361,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
               <item name="repositories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -363,6 +408,15 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
@@ -437,7 +491,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in rest-demo">
+  <component name="RunManager" selected="Spring Boot.RestDemoApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -449,6 +503,75 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CategoryControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.CategoryControllerTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CategoryMapperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.api.v1.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.api.v1.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.api.v1.mapper.CategoryMapperTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="CategoryServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.services" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.services.CategoryServiceTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -472,75 +595,6 @@
       <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.ProductControllerTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ProductControllerTest.getProductById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.ProductControllerTest" />
-      <option name="METHOD_NAME" value="getProductById" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ProductControllerTest.patchProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.ProductControllerTest" />
-      <option name="METHOD_NAME" value="patchProduct" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ProductControllerTest.updateProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.ProductControllerTest" />
-      <option name="METHOD_NAME" value="updateProduct" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -594,19 +648,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.RestDemoApplication" />
-      <item itemvalue="JUnit.ProductControllerTest.getProductById" />
-      <item itemvalue="JUnit.ProductControllerTest.updateProduct" />
-      <item itemvalue="JUnit.ProductControllerTest.patchProduct" />
       <item itemvalue="JUnit.ProductControllerTest" />
       <item itemvalue="JUnit.All in rest-demo" />
+      <item itemvalue="JUnit.CategoryControllerTest" />
+      <item itemvalue="JUnit.CategoryServiceTest" />
+      <item itemvalue="JUnit.CategoryMapperTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in rest-demo" />
+        <item itemvalue="JUnit.CategoryMapperTest" />
+        <item itemvalue="JUnit.CategoryServiceTest" />
+        <item itemvalue="JUnit.CategoryControllerTest" />
         <item itemvalue="JUnit.ProductControllerTest" />
-        <item itemvalue="JUnit.ProductControllerTest.getProductById" />
-        <item itemvalue="JUnit.ProductControllerTest.patchProduct" />
-        <item itemvalue="JUnit.ProductControllerTest.updateProduct" />
       </list>
     </recent_temporary>
   </component>
@@ -636,7 +690,7 @@
       <workItem from="1546863491995" duration="5411000" />
       <workItem from="1546901534653" duration="14018000" />
       <workItem from="1546950685006" duration="18548000" />
-      <workItem from="1547033537461" duration="1544000" />
+      <workItem from="1547033537461" duration="6054000" />
     </task>
     <task id="LOCAL-00001" summary="sorted test">
       <created>1545650827709</created>
@@ -964,21 +1018,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProductControllerTest_patchProduct - 2019.01.08 at 17h 33m 23s.xml">
-      <configuration name="ProductControllerTest.patchProduct" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductControllerTest_patchProduct - 2019.01.08 at 17h 33m 40s.xml">
-      <configuration name="ProductControllerTest.patchProduct" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductControllerTest_patchProduct - 2019.01.08 at 17h 34m 54s.xml">
-      <configuration name="ProductControllerTest.patchProduct" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductControllerTest - 2019.01.08 at 17h 37m 06s.xml">
-      <configuration name="ProductControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_rest-demo - 2019.01.08 at 17h 37m 34s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_rest-demo - 2019.01.08 at 17h 55m 05s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
     </history-entry>
@@ -994,9 +1033,24 @@
     <history-entry file="All_in_rest-demo - 2019.01.08 at 20h 59m 40s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_rest-demo - 2019.01.09 at 14h 21m 22s.xml">
+      <configuration name="All in rest-demo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryControllerTest - 2019.01.09 at 14h 29m 37s.xml">
+      <configuration name="CategoryControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryServiceTest - 2019.01.09 at 14h 29m 43s.xml">
+      <configuration name="CategoryServiceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CategoryMapperTest - 2019.01.09 at 14h 30m 11s.xml">
+      <configuration name="CategoryMapperTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_rest-demo - 2019.01.09 at 15h 50m 53s.xml">
+      <configuration name="All in rest-demo" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135158000" />
+    <option name="totallyTimeSpent" value="139668000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1024,13 +1078,13 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32897604" />
+      <window_info anchor="bottom" id="Messages" order="10" visible="true" weight="0.32897604" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3583878" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3583878" />
       <window_info anchor="bottom" id="Spring" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32897604" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15724947" />
@@ -1152,20 +1206,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/RestDemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="60" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1197,13 +1237,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/CategoryMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1215,13 +1248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="530">
           <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -1260,13 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1299,6 +1318,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
           <caret line="110" column="5" selection-start-line="108" selection-start-column="4" selection-end-line="110" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1313,20 +1335,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="59" column="16" selection-start-line="59" selection-start-column="16" selection-end-line="59" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1334,16 +1345,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductListDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1375,6 +1376,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-48">
           <caret line="15" column="58" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1395,24 +1401,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="73" lean-forward="true" selection-start-line="5" selection-start-column="73" selection-end-line="5" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-test-autoconfigure/2.1.0.RELEASE/spring-boot-test-autoconfigure-2.1.0.RELEASE.jar!/org/springframework/boot/test/autoconfigure/web/servlet/MockMvcAutoConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
           <caret line="77" column="19" selection-start-line="77" selection-start-column="19" selection-end-line="77" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="37" column="73" selection-start-line="37" selection-start-column="73" selection-end-line="37" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -1436,13 +1428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/ProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
@@ -1454,6 +1439,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1464,13 +1452,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="102">
           <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
@@ -1481,17 +1490,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CategoryServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="65" column="8" selection-start-line="65" selection-start-column="8" selection-end-line="65" selection-end-column="8" />
+        <state relative-caret-position="119">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CategoryDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state>
+          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="757">
+          <caret line="62" column="45" selection-start-line="62" selection-start-column="45" selection-end-line="62" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1500,36 +1529,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CategoryService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="119">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+        <state relative-caret-position="527">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#993#994#0" expanded="true" />
-            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1042#1043#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductListDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CategoryControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="30" lean-forward="true" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="60" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="97" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="97" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+        <state relative-caret-position="228">
+          <caret line="23" column="97" selection-start-line="23" selection-start-column="97" selection-end-line="23" selection-end-column="97" />
           <folding>
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#941#942#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
