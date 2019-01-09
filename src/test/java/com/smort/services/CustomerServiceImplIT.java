@@ -111,7 +111,7 @@ public class CustomerServiceImplIT {
     private Long getCustomerIdValue() {
         List<Customer> customers = customerRepository.findAll();
 
-        System.out.println("Customers foundL " + customers.size());
+        System.out.println("Customers found: " + customers.size());
 
         return customers.get(0).getId();
     }

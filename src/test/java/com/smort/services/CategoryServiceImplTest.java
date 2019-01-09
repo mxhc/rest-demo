@@ -3,6 +3,7 @@ package com.smort.services;
 import com.smort.api.v1.mapper.CategoryMapper;
 import com.smort.api.v1.model.CategoryDTO;
 import com.smort.domain.Category;
+import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CategoryRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,12 +14,17 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
-public class CategoryServiceTest {
+public class CategoryServiceImplTest {
 
     public static final Long ID = 2L;
-    public static final String NAME = "Milojko";
+    public static final String NAME = "Fresh";
+
     CategoryService categoryService;
 
     @Mock
@@ -49,8 +55,26 @@ public class CategoryServiceTest {
     }
 
     @Test
-    public void getCategoryByName() {
+    public void findByName() {
+        // given
+        Category category = new Category();
+        category.setName(NAME);
+        category.setId(ID);
 
+        when(categoryRepository.findByName(anyString())).thenReturn(category);
 
+        Category returnedCaztegory = categoryService.findByName(NAME);
+
+        // when
+        assertEquals(NAME, returnedCaztegory.getName());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void findByNameNotFound() {
+        given(categoryRepository.findByName(anyString())).willReturn(null);
+
+        Category category = categoryService.findByName("Stojko");
+
+        then(categoryRepository).should(times(1)).findByName(anyString());
     }
 }

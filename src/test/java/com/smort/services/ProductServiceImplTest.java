@@ -3,6 +3,7 @@ package com.smort.services;
 import com.smort.api.v1.mapper.ProductMapper;
 import com.smort.api.v1.model.ProductDTO;
 import com.smort.controllers.v1.CategoryController;
+import com.smort.controllers.v1.ProductController;
 import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Category;
 import com.smort.domain.Product;
@@ -211,4 +212,25 @@ public class ProductServiceImplTest {
         return category;
     }
 
+    @Test
+    public void convertListToDto() {
+
+        // given
+        Product product = new Product();
+        product.setName("Banane");
+        product.setCategory(getCategory());
+        product.setVendor(getVendor());
+        product.setPrice(PRICE);
+        product.setId(ID);
+
+        List<Product> products = Arrays.asList(new Product(), product, new Product(), new Product());
+
+        List<ProductDTO> productDTOS = productService.convertListToDto(products);
+
+        assertEquals(products.get(1).getName(),productDTOS.get(1).getName());
+        assertEquals(products.get(1).getPrice(), productDTOS.get(1).getPrice());
+        assertEquals(ProductController.BASE_URL + "/" + ID, productDTOS.get(1).getProductUrl());
+
+
+    }
 }
