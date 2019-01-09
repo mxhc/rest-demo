@@ -208,5 +208,24 @@ public class VendorServiceImplTest {
     }
 
 
+    @Test
+    public void findVendorById() {
 
+        Vendor vendor = getVendor1();
+
+        when(vendorRepository.findById(anyLong())).thenReturn(Optional.ofNullable(vendor));
+
+        Vendor returnedVendor = vendorService.findVendorById(ID_1);
+
+        assertEquals(NAME_1, returnedVendor.getName());
+    }
+
+    @Test(expected = ResourceNotFoundException.class)
+    public void findVendorByIdNotFound() {
+        given(vendorRepository.findById(anyLong())).willReturn(Optional.ofNullable(null));
+
+        Vendor vendor = vendorService.findVendorById(ID_1);
+
+        then(vendorRepository).should(times(1)).findById(anyLong());
+    }
 }

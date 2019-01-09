@@ -1,13 +1,10 @@
 package com.smort.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +17,6 @@ public class Vendor {
 
     private String name;
 
+    @OneToMany(mappedBy = "vendor", fetch = FetchType.LAZY)
+    private List<Product> products;
 }

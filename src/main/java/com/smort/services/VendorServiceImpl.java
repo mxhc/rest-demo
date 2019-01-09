@@ -106,6 +106,11 @@ public class VendorServiceImpl implements VendorService {
         vendorRepository.deleteById(id);
     }
 
+    @Override
+    public Vendor findVendorById(Long id) {
+        return vendorRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    }
+
     private String getVendorUrl(Long id) {
         return VendorController.BASE_URL + "/" + id;
     }

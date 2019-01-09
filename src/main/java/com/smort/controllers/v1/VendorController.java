@@ -1,7 +1,9 @@
 package com.smort.controllers.v1;
 
+import com.smort.api.v1.model.ProductListDTO;
 import com.smort.api.v1.model.VendorDTO;
 import com.smort.api.v1.model.VendorListDTO;
+import com.smort.services.ProductService;
 import com.smort.services.VendorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,9 +18,11 @@ public class VendorController {
     public static final String BASE_URL = "/api/v1/vendors";
 
     private final VendorService vendorService;
+    private final ProductService productService;
 
-    public VendorController(VendorService vendorService) {
+    public VendorController(VendorService vendorService, ProductService productService) {
         this.vendorService = vendorService;
+        this.productService = productService;
     }
 
     @ApiOperation(value = "List all the Vendors", notes = "Collection of Vendors")
@@ -64,6 +68,11 @@ public class VendorController {
         vendorService.deleteVendorById(id);
     }
 
-
+    @ApiOperation(value = "Get the products of a vendor", notes = "Collection of Products")
+    @GetMapping("/{id}/products")
+    @ResponseStatus(HttpStatus.OK)
+    public ProductListDTO findProductsByVendor(@PathVariable Long id){
+        return new ProductListDTO(productService.convertListToDto(vendorService.findVendorById(id).getProducts()));
+    }
 
 }

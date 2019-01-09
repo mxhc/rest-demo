@@ -1,7 +1,11 @@
 package com.smort.controllers.v1;
 
+import com.smort.api.v1.model.ProductDTO;
 import com.smort.api.v1.model.VendorDTO;
 import com.smort.api.v1.model.VendorListDTO;
+import com.smort.domain.Product;
+import com.smort.domain.Vendor;
+import com.smort.services.ProductService;
 import com.smort.services.VendorService;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,12 +18,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static com.smort.controllers.v1.AbstractRestControllerTest.asJsonString;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -33,6 +37,9 @@ public class VendorControllerTest {
 
     @MockBean //provided by Spring Context
     VendorService vendorService;
+
+    @MockBean
+    ProductService productService;
 
     @Autowired
     MockMvc mockMvc; //provided by Spring Context
@@ -110,6 +117,29 @@ public class VendorControllerTest {
                 .andExpect(status().isOk());
 
         then(vendorService).should().deleteVendorById(anyLong());
+
+    }
+
+    @Test
+    public void findProductsByVendor() throws Exception {
+        Vendor vendor = new Vendor();
+        vendor.setName("Radovan");
+        vendor.setId(1L);
+        vendor.setProducts(Arrays.asList(new Product(), new Product(), new Product()));
+
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName("Girice");
+
+        List<ProductDTO> productDTOS = Arrays.asList(productDTO, new ProductDTO(), new ProductDTO());
+
+        given(vendorService.findVendorById(anyLong())).willReturn(vendor);
+        given(productService.convertListToDto(anyList())).willReturn(productDTOS);
+
+        mockMvc.perform(get(VendorController.BASE_URL + "/1/products")
+                    .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.products", hasSize(3)))
+                .andExpect(jsonPath("$.products[0].name", equalTo("Girice")));
 
     }
 }

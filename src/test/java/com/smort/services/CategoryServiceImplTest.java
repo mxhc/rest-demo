@@ -63,10 +63,10 @@ public class CategoryServiceImplTest {
 
         when(categoryRepository.findByName(anyString())).thenReturn(category);
 
-        Category returnedCaztegory = categoryService.findByName(NAME);
+        Category returnedCategory = categoryService.findByName(NAME);
 
         // when
-        assertEquals(NAME, returnedCaztegory.getName());
+        assertEquals(NAME, returnedCategory.getName());
     }
 
     @Test(expected = ResourceNotFoundException.class)
