@@ -12,10 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ProductDTO {
 
-    @ApiModelProperty(value = "Product Name", required = true, example = "Jabuke")
+    @ApiModelProperty(value = "Product Name", required = true, example = "Jabuke", position = 0)
     private String name;
 
-    @ApiModelProperty(value = "Product Price", required = true, example = "510.32")
+    @ApiModelProperty(value = "Product Price", required = true, example = "510.32", position = 1)
     private Double price;
 
     @ApiModelProperty(hidden = true)
@@ -23,12 +23,12 @@ public class ProductDTO {
     @JsonProperty("product_url")
     private String productUrl;
 
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(example = "/shop/categories/Fruits", required = true, position = 2)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("category_url")
     private String categoryUrl;
 
-    @ApiModelProperty(hidden = true)
+    @ApiModelProperty(example = "/shop/vendors/2", required = true, position = 3)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("vendor_url")
     private String vendorUrl;

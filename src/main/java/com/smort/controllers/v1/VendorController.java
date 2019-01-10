@@ -1,5 +1,6 @@
 package com.smort.controllers.v1;
 
+import com.smort.api.v1.model.ProductDTO;
 import com.smort.api.v1.model.ProductListDTO;
 import com.smort.api.v1.model.VendorDTO;
 import com.smort.api.v1.model.VendorListDTO;
@@ -75,4 +76,12 @@ public class VendorController {
         return new ProductListDTO(productService.convertListToDto(vendorService.findVendorById(id).getProducts()));
     }
 
+    @ApiOperation(value = "Add a product to a vendor")
+    @PostMapping("/{id}/products")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProductDTO addProductToVendor(@RequestBody ProductDTO productDTO, @PathVariable Long id) {
+        return null;
+    }
 }
+
+
