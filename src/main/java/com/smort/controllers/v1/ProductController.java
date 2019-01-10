@@ -49,6 +49,7 @@ public class ProductController {
 
     @ApiOperation(value = "Replace a product by new data")
     @PutMapping("/{id}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("Product information for Product to be edited") @RequestBody ProductDTO productDTO) {
         return productService.saveProductByDTO(id, productDTO);
@@ -56,6 +57,7 @@ public class ProductController {
 
     @ApiOperation(value = "Replace a product by new data")
     @PatchMapping("/{id}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public ProductDTO patchProduct(@PathVariable Long id, @ApiParam("Product information for Product to be patched") @RequestBody ProductDTO productDTO) {
         return productService.patchProduct(id, productDTO);
@@ -63,6 +65,7 @@ public class ProductController {
 
     @ApiOperation(value = "Delete a Product")
     @DeleteMapping("/{id}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProductById(id);

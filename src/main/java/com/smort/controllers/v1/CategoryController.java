@@ -5,6 +5,8 @@ import com.smort.api.v1.model.ProductListDTO;
 import com.smort.services.CategoryService;
 import com.smort.services.ProductService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +33,7 @@ public class CategoryController {
 
     @ApiOperation(value = "This will get a list of products by category", notes = "Collection of Products")
     @GetMapping("/{name}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public ProductListDTO getListOfProductsByCategory(@PathVariable String name) {
         return new ProductListDTO(productService.convertListToDto(categoryService.findByName(name).getProducts()));
