@@ -126,6 +126,46 @@ public class ProductControllerTest {
         then(productService).should().deleteProductById(anyLong());
     }
 
+    @Test
+    public void failedValidationNameAndPrice() throws Exception {
+        ProductDTO invalidProductDTO = new ProductDTO();
+        invalidProductDTO.setName("Zbadj");
+        invalidProductDTO.setPrice(-20.1);
+
+
+        mockMvc.perform(post(ProductController.BASE_URL)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(asJsonString(invalidProductDTO)))
+                .andExpect(status().isBadRequest());
+
+        invalidProductDTO.setPrice(20.0);
+        invalidProductDTO.setName("r");
+
+        mockMvc.perform(post(ProductController.BASE_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidProductDTO)))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void failedValidationForCategoryAndVendorUrls() throws Exception {
+        ProductDTO invalidProductDTO = new ProductDTO();
+        invalidProductDTO.setCategoryUrl("fff/12");
+
+        mockMvc.perform(post(ProductController.BASE_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidProductDTO)))
+                .andExpect(status().isBadRequest());
+
+        invalidProductDTO.setProductUrl(null);
+        invalidProductDTO.setVendorUrl("mmmm/ffff");
+
+        mockMvc.perform(post(ProductController.BASE_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidProductDTO)))
+                .andExpect(status().isBadRequest());
+    }
+
 
 
 

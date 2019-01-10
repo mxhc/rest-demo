@@ -3,9 +3,7 @@ package com.smort.controllers.v1;
 import com.smort.api.v1.model.ProductDTO;
 import com.smort.api.v1.model.ProductListDTO;
 import com.smort.services.ProductService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Api(description = "This is Product Controller")
+@Validated
 @RestController
 @RequestMapping(ProductController.BASE_URL)
 public class ProductController {
@@ -34,6 +33,7 @@ public class ProductController {
 
     @ApiOperation(value = "Get a product by Id", notes = "Product")
     @GetMapping("/{id}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public ProductDTO getProductById(@PathVariable Long id) {
         return productService.findById(id);
@@ -41,8 +41,9 @@ public class ProductController {
 
     @ApiOperation(value = "Create new Product", notes = "Product")
     @PostMapping
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO createNewProduct(@ApiParam("Product information for new product to be created") @Validated @RequestBody ProductDTO productDTO) {
+    public ProductDTO createNewProduct(@ApiParam("Product information for new product to be created") @Valid @RequestBody ProductDTO productDTO) {
         return productService.createNewProduct(productDTO);
     }
 

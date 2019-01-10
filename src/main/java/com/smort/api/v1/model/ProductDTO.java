@@ -8,25 +8,32 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
 
-    @NotBlank(message = "{validation.product.name.blank}")
+    @NotBlank(message = "{product.name.blank}")
+    @Size(min = 2, message = "{product.name.minsize}")
     @ApiModelProperty(value = "Product Name", required = true, example = "Jabuke", position = 0)
     private String name;
 
+    @PositiveOrZero(message = "{product.price.negative}")
     @ApiModelProperty(value = "Product Price", required = true, example = "510.32", position = 1)
     private Double price;
 
-    @ApiModelProperty(example = "/shop/categories/Fruits", required = true, position = 2)
+    @Pattern(regexp = "^\\/api\\/v1\\/categories\\/[0-9a-zA-z]*", message = "{product.price.categoryurl}")
+    @ApiModelProperty(example = "/api/v1/categories/Fruits", required = true, position = 2)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("category_url")
     private String categoryUrl;
 
-    @ApiModelProperty(example = "/shop/vendors/2", required = true, position = 3)
+    @Pattern(regexp = "^\\/api\\/v1\\/vendors\\/[0-9]*", message = "{product.price.vendorurl}")
+    @ApiModelProperty(example = "/api/v1/vendors/2", required = true, position = 3)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("vendor_url")
     private String vendorUrl;
