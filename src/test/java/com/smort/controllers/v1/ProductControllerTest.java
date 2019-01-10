@@ -41,8 +41,20 @@ public class ProductControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        productDTO1 = new ProductDTO("Krompir", 250.3, ProductController.BASE_URL + "/1",CategoryController.BASE_URL + "/plodovi", VendorController.BASE_URL + "/1");
-        productDTO2 = new ProductDTO("Lesnik", 50.1, ProductController.BASE_URL + "/2",CategoryController.BASE_URL + "/nesto", VendorController.BASE_URL + "/2");
+        productDTO1 = new ProductDTO();
+        productDTO1.setName("Krompir");
+        productDTO1.setPrice(250.3);
+        productDTO1.setProductUrl(ProductController.BASE_URL + "/1");
+        productDTO1.setVendorUrl(VendorController.BASE_URL + "/1");
+        productDTO1.setCategoryUrl(CategoryController.BASE_URL + "/plodovi");
+
+        productDTO2 = new ProductDTO();
+        productDTO2.setName("Lesnik");
+        productDTO2.setPrice(50.1);
+        productDTO2.setProductUrl(ProductController.BASE_URL + "/2");
+        productDTO2.setVendorUrl(VendorController.BASE_URL + "/2");
+        productDTO2.setCategoryUrl(CategoryController.BASE_URL + "/nesto");
+
     }
 
     @Test
