@@ -7,18 +7,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
 
+    @NotBlank(message = "{validation.product.name.blank}")
     @ApiModelProperty(value = "Product Name", required = true, example = "Jabuke", position = 0)
     private String name;
 
     @ApiModelProperty(value = "Product Price", required = true, example = "510.32", position = 1)
     private Double price;
-
-
 
     @ApiModelProperty(example = "/shop/categories/Fruits", required = true, position = 2)
     @JsonInclude(JsonInclude.Include.NON_NULL)

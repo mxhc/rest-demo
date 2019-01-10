@@ -1,5 +1,6 @@
 package com.smort.controllers.v1;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.smort.api.v1.model.CategoryListDTO;
 import com.smort.api.v1.model.ProductListDTO;
 import com.smort.services.CategoryService;

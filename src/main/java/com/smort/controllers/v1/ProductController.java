@@ -7,7 +7,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Api(description = "This is Product Controller")
 @RestController
@@ -39,7 +42,7 @@ public class ProductController {
     @ApiOperation(value = "Create new Product", notes = "Product")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO createNewProduct(@ApiParam("Product information for new product to be created")@RequestBody ProductDTO productDTO) {
+    public ProductDTO createNewProduct(@ApiParam("Product information for new product to be created") @Validated @RequestBody ProductDTO productDTO) {
         return productService.createNewProduct(productDTO);
     }
 
