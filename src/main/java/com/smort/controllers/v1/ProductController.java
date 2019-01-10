@@ -5,6 +5,7 @@ import com.smort.api.v1.model.ProductListDTO;
 import com.smort.services.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,21 +39,21 @@ public class ProductController {
     @ApiOperation(value = "Create new Product", notes = "Product")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO createNewProduct(@RequestBody ProductDTO productDTO) {
+    public ProductDTO createNewProduct(@ApiParam("Product information for new product to be created")@RequestBody ProductDTO productDTO) {
         return productService.createNewProduct(productDTO);
     }
 
     @ApiOperation(value = "Replace a product by new data")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO) {
+    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("Product information for Product to be edited") @RequestBody ProductDTO productDTO) {
         return productService.saveProductByDTO(id, productDTO);
     }
 
     @ApiOperation(value = "Replace a product by new data")
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO patchProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO) {
+    public ProductDTO patchProduct(@PathVariable Long id, @ApiParam("Product information for Product to be patched") @RequestBody ProductDTO productDTO) {
         return productService.patchProduct(id, productDTO);
     }
 

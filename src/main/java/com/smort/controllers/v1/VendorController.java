@@ -8,6 +8,7 @@ import com.smort.services.ProductService;
 import com.smort.services.VendorService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,14 +44,14 @@ public class VendorController {
     @ApiOperation(value = "Create a vendor", notes = "Vendor of products")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VendorDTO createNewVendor(@RequestBody VendorDTO vendorDTO) {
+    public VendorDTO createNewVendor( @ApiParam("Vendor information for new Vendor to be created") @RequestBody VendorDTO vendorDTO) {
         return vendorService.createNewVendor(vendorDTO);
     }
 
     @ApiOperation(value = "Replace a vendor by new data")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO updateVendor(@RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
+    public VendorDTO updateVendor( @ApiParam("Vendor information for Vendor to be edited") @RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
@@ -58,7 +59,7 @@ public class VendorController {
     @ApiOperation(value = "Update a vendor")
     @PatchMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO patchVendor(@PathVariable Long id, @RequestBody VendorDTO vendorDTO){
+    public VendorDTO patchVendor(@PathVariable Long id, @ApiParam("Vendor information for Vendor to be patched") @RequestBody VendorDTO vendorDTO){
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
@@ -79,7 +80,7 @@ public class VendorController {
     @ApiOperation(value = "Add a product to a vendor")
     @PostMapping("/{id}/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO addProductToVendor(@RequestBody ProductDTO productDTO, @PathVariable Long id) {
+    public ProductDTO addProductToVendor(@ApiParam("Product information for new Product to be added to Vendor") @RequestBody ProductDTO productDTO, @PathVariable Long id) {
         return null;
     }
 }
