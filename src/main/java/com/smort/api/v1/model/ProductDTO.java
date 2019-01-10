@@ -18,10 +18,7 @@ public class ProductDTO {
     @ApiModelProperty(value = "Product Price", required = true, example = "510.32", position = 1)
     private Double price;
 
-    @ApiModelProperty(hidden = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty("product_url")
-    private String productUrl;
+
 
     @ApiModelProperty(example = "/shop/categories/Fruits", required = true, position = 2)
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -32,6 +29,11 @@ public class ProductDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("vendor_url")
     private String vendorUrl;
+
+    @ApiModelProperty(example = "/api/v1/products/101", readOnly = true, position = 4)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "product_url")
+    private String productUrl;
 
     public ProductDTO(String name, Double price, String productUrl) {
         this.name = name;

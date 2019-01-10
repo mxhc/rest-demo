@@ -60,6 +60,8 @@ public class ProductServiceImpl implements ProductService {
 
         ProductDTO returnDto = convertToDTOAndAddUrls(savedProduct);
 
+        returnDto.setProductUrl(ProductController.BASE_URL + "/" + savedProduct.getId());
+
         return returnDto;
     }
 
