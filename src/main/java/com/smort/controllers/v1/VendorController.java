@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Api(description = "${controller.vendor.title}")
 @RestController
-@RequestMapping("${controller.vendor.base.url}")
+@RequestMapping(VendorController.BASE_URL)
 public class VendorController {
 
-    public static final String BASE_URL = "${controller.vendor.base.url}";
+    public static final String BASE_URL = "/api/v1/vendors";
 
     private final VendorService vendorService;
     private final ProductService productService;
