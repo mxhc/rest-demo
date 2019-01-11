@@ -10,12 +10,12 @@ import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@Api(description = "This is Vendor Controller")
+@Api(description = "${controller.vendor.title}")
 @RestController
-@RequestMapping(VendorController.BASE_URL)
+@RequestMapping("${controller.vendor.base.url}")
 public class VendorController {
 
-    public static final String BASE_URL = "/api/v1/vendors";
+    public static final String BASE_URL = "${controller.vendor.base.url}";
 
     private final VendorService vendorService;
     private final ProductService productService;
@@ -25,14 +25,14 @@ public class VendorController {
         this.productService = productService;
     }
 
-    @ApiOperation(value = "List all the Vendors", notes = "Collection of Vendors")
+    @ApiOperation(value = "${controller.vendor.get.list}", notes = "${controller.vendor.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public VendorListDTO getAllVendors() {
         return new VendorListDTO(vendorService.getAllVendors());
     }
 
-    @ApiOperation(value = "Get a vendor by id", notes = "Vendor of products")
+    @ApiOperation(value = "${controller.vendor.get}", notes = "${controller.vendor.get.notes}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -40,32 +40,32 @@ public class VendorController {
         return vendorService.findById(id);
     }
 
-    @ApiOperation(value = "Create a vendor", notes = "Vendor of products")
+    @ApiOperation(value = "${controller.vendor.post}", notes = "${controller.vendor.post.notes}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VendorDTO createNewVendor( @ApiParam("Vendor information for new Vendor to be created") @RequestBody VendorDTO vendorDTO) {
+    public VendorDTO createNewVendor( @ApiParam("${controller.vendor.post.param}") @RequestBody VendorDTO vendorDTO) {
         return vendorService.createNewVendor(vendorDTO);
     }
 
-    @ApiOperation(value = "Replace a vendor by new data")
+    @ApiOperation(value = "${controller.vendor.put}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO updateVendor( @ApiParam("Vendor information for Vendor to be edited") @RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
+    public VendorDTO updateVendor( @ApiParam("${controller.vendor.put.param}") @RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
     // todo calling save by dto, should call patchVendor
-    @ApiOperation(value = "Update a vendor")
+    @ApiOperation(value = "${controller.vendor.patch}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PatchMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO patchVendor(@PathVariable Long id, @ApiParam("Vendor information for Vendor to be patched") @RequestBody VendorDTO vendorDTO){
+    public VendorDTO patchVendor(@PathVariable Long id, @ApiParam("${controller.vendor.patch.param}") @RequestBody VendorDTO vendorDTO){
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
-    @ApiOperation(value = "Delete a vendor")
+    @ApiOperation(value = "${controller.vendor.delete}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
@@ -73,7 +73,7 @@ public class VendorController {
         vendorService.deleteVendorById(id);
     }
 
-    @ApiOperation(value = "Get the products of a vendor", notes = "Collection of Products")
+    @ApiOperation(value = "${controller.vendor.get.products}", notes = "${controller.vendor.get.products.notes}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @GetMapping("/{id}/products")
     @ResponseStatus(HttpStatus.OK)
@@ -81,11 +81,11 @@ public class VendorController {
         return new ProductListDTO(productService.convertListToDto(vendorService.findVendorById(id).getProducts()));
     }
 
-    @ApiOperation(value = "Add a product to a vendor")
+    @ApiOperation(value = "${controller.vendor.post.product}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping("/{id}/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO addProductToVendor(@ApiParam("Product information for new Product to be added to Vendor") @RequestBody ProductDTO productDTO, @PathVariable Long id) {
+    public ProductDTO addProductToVendor(@ApiParam(value = "${controller.vendor.post.product.param}") @RequestBody ProductDTO productDTO, @PathVariable Long id) {
         return null;
     }
 }
