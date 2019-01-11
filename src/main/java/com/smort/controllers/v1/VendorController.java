@@ -8,9 +8,13 @@ import com.smort.services.ProductService;
 import com.smort.services.VendorService;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Api(description = "Vendor controller")
+@Validated
 @RestController
 @RequestMapping(VendorController.BASE_URL)
 public class VendorController {
@@ -44,7 +48,7 @@ public class VendorController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VendorDTO createNewVendor( @ApiParam("${controller.vendor.post.param}") @RequestBody VendorDTO vendorDTO) {
+    public VendorDTO createNewVendor( @ApiParam("${controller.vendor.post.param}") @Valid @RequestBody VendorDTO vendorDTO) {
         return vendorService.createNewVendor(vendorDTO);
     }
 
@@ -52,7 +56,7 @@ public class VendorController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO updateVendor( @ApiParam("${controller.vendor.put.param}") @RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
+    public VendorDTO updateVendor( @ApiParam("${controller.vendor.put.param}") @Valid @RequestBody VendorDTO vendorDTO, @PathVariable Long id) {
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
@@ -61,7 +65,7 @@ public class VendorController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PatchMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-    public VendorDTO patchVendor(@PathVariable Long id, @ApiParam("${controller.vendor.patch.param}") @RequestBody VendorDTO vendorDTO){
+    public VendorDTO patchVendor(@PathVariable Long id, @ApiParam("${controller.vendor.patch.param}") @Valid @RequestBody VendorDTO vendorDTO){
         return vendorService.saveVendorByDTO(id, vendorDTO);
     }
 
@@ -85,7 +89,7 @@ public class VendorController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping("/{id}/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO addProductToVendor(@ApiParam(value = "${controller.vendor.post.product.param}") @RequestBody ProductDTO productDTO, @PathVariable Long id) {
+    public ProductDTO addProductToVendor(@ApiParam(value = "${controller.vendor.post.product.param}") @Valid @RequestBody ProductDTO productDTO, @PathVariable Long id) {
         return null;
     }
 }

@@ -116,5 +116,5 @@ public class CustomerServiceImplIT {
         return customers.get(0).getId();
     }
 
-
+    //todo create validation tests
 }

@@ -26,13 +26,13 @@ public class ProductDTO {
     @ApiModelProperty(value = "Product Price", required = true, example = "510.32", position = 1)
     private Double price;
 
-    @Pattern(regexp = "^\\/api\\/v1\\/categories\\/[0-9a-zA-z]*", message = "{product.price.categoryurl}")
+    @Pattern(regexp = "^\\/api\\/v1\\/categories\\/[0-9a-zA-z]*", message = "{product.price.category.url}")
     @ApiModelProperty(example = "/api/v1/categories/Fruits", required = true, position = 2)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("category_url")
     private String categoryUrl;
 
-    @Pattern(regexp = "^\\/api\\/v1\\/vendors\\/[0-9]*", message = "{product.price.vendorurl}")
+    @Pattern(regexp = "^\\/api\\/v1\\/vendors\\/[0-9]*", message = "{product.price.vendor.url}")
     @ApiModelProperty(example = "/api/v1/vendors/2", required = true, position = 3)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty("vendor_url")

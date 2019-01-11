@@ -4,13 +4,17 @@ import com.smort.api.v1.model.CategoryListDTO;
 import com.smort.api.v1.model.ProductListDTO;
 import com.smort.services.CategoryService;
 import com.smort.services.ProductService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Api(description = "Category Controller")
 @RestController
+@Validated
 @RequestMapping(CategoryController.BASE_URL)
 public class CategoryController {
 
@@ -27,7 +31,6 @@ public class CategoryController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CategoryListDTO getAllCategories() {
-
         return new CategoryListDTO(categoryService.getAllCategories());
     }
 

@@ -5,9 +5,13 @@ import com.smort.api.v1.model.CustomerListDTO;
 import com.smort.services.CustomerService;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @Api(description = "Customer Controller")
+@Validated
 @RestController
 @RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
@@ -39,7 +43,7 @@ public class CustomerController {
     @PostMapping
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.CREATED)
-    public CustomerDTO createNewCustomer(@ApiParam("${controller.customer.post.param}") @RequestBody CustomerDTO customerDTO) {
+    public CustomerDTO createNewCustomer(@ApiParam("${controller.customer.post.param}") @Valid @RequestBody CustomerDTO customerDTO) {
         return customerService.createNewCustomer(customerDTO);
     }
 
@@ -47,7 +51,7 @@ public class CustomerController {
     @PutMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO updateCustomer(@ApiParam("${controller.customer.put.param}")@RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
+    public CustomerDTO updateCustomer(@ApiParam("${controller.customer.put.param}") @Valid @RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
         return customerService.saveCustomerByDTO(id, customerDTO);
     }
 
@@ -55,7 +59,7 @@ public class CustomerController {
     @PatchMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public CustomerDTO patchCustomer(@ApiParam("${controller.customer.patch.param}")@RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
+    public CustomerDTO patchCustomer(@ApiParam("${controller.customer.patch.param}") @Valid @RequestBody CustomerDTO customerDTO, @PathVariable Long id) {
         return customerService.patchCustomer(id, customerDTO);
     }
 

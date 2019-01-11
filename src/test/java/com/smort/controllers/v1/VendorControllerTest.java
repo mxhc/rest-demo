@@ -142,4 +142,6 @@ public class VendorControllerTest {
                 .andExpect(jsonPath("$.products[0].name", equalTo("Girice")));
 
     }
+
+    //todo create validation tests
 }

@@ -147,6 +147,7 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
         // given
         CustomerDTO customer = new CustomerDTO();
         customer.setFirstname("Fred");
+        customer.setLastname("Flintstone");
 
         CustomerDTO returnDTO = new CustomerDTO();
         returnDTO.setFirstname(customer.getFirstname());
@@ -184,5 +185,47 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
+
+    @Test
+    public void failedNameValidationTest() throws Exception {
+        CustomerDTO invalidCustomer = new CustomerDTO();
+        invalidCustomer.setFirstname("A");
+
+        mockMvc.perform(post(CustomerController.BASE_URL)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(asJsonString(invalidCustomer)))
+                .andExpect(status().isBadRequest());
+
+        mockMvc.perform(patch(CustomerController.BASE_URL + "/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidCustomer)))
+                .andExpect(status().isBadRequest());
+
+        mockMvc.perform(put(CustomerController.BASE_URL + "/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidCustomer)))
+                .andExpect(status().isBadRequest());
+
+        invalidCustomer.setFirstname("Ana");
+        invalidCustomer.setLastname("");
+
+        mockMvc.perform(post(CustomerController.BASE_URL)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidCustomer)))
+                .andExpect(status().isBadRequest());
+
+        mockMvc.perform(patch(CustomerController.BASE_URL + "/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidCustomer)))
+                .andExpect(status().isBadRequest());
+
+        mockMvc.perform(put(CustomerController.BASE_URL + "/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(invalidCustomer)))
+                .andExpect(status().isBadRequest());
+
+    }
+
+
 
 }

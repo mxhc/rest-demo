@@ -51,7 +51,7 @@ public class ProductController {
     @PutMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("${controller.product.put.param}") @RequestBody ProductDTO productDTO) {
+    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("${controller.product.put.param}") @Valid @RequestBody ProductDTO productDTO) {
         return productService.saveProductByDTO(id, productDTO);
     }
 
@@ -59,7 +59,7 @@ public class ProductController {
     @PatchMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO patchProduct(@PathVariable Long id, @ApiParam("${controller.product.patch.param}") @RequestBody ProductDTO productDTO) {
+    public ProductDTO patchProduct(@PathVariable Long id, @ApiParam("${controller.product.patch.param}") @Valid @RequestBody ProductDTO productDTO) {
         return productService.patchProduct(id, productDTO);
     }
 
