@@ -16,8 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.Arrays;
 
 import static com.smort.controllers.v1.AbstractRestControllerTest.asJsonString;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.BDDMockito.given;
@@ -136,7 +135,9 @@ public class ProductControllerTest {
         mockMvc.perform(post(ProductController.BASE_URL)
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(asJsonString(invalidProductDTO)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         invalidProductDTO.setPrice(20.0);
         invalidProductDTO.setName("r");
@@ -144,7 +145,9 @@ public class ProductControllerTest {
         mockMvc.perform(post(ProductController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidProductDTO)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));
     }
 
     @Test
@@ -155,7 +158,9 @@ public class ProductControllerTest {
         mockMvc.perform(post(ProductController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidProductDTO)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         invalidProductDTO.setProductUrl(null);
         invalidProductDTO.setVendorUrl("mmmm/ffff");
@@ -163,7 +168,9 @@ public class ProductControllerTest {
         mockMvc.perform(post(ProductController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidProductDTO)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
     }
 
 

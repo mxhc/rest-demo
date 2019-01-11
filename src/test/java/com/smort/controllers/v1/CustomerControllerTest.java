@@ -16,8 +16,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
@@ -194,17 +193,23 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
         mockMvc.perform(post(CustomerController.BASE_URL)
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(asJsonString(invalidCustomer)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         mockMvc.perform(patch(CustomerController.BASE_URL + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidCustomer)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         mockMvc.perform(put(CustomerController.BASE_URL + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidCustomer)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         invalidCustomer.setFirstname("Ana");
         invalidCustomer.setLastname("");
@@ -212,17 +217,23 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
         mockMvc.perform(post(CustomerController.BASE_URL)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidCustomer)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         mockMvc.perform(patch(CustomerController.BASE_URL + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidCustomer)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
         mockMvc.perform(put(CustomerController.BASE_URL + "/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(invalidCustomer)))
-                .andExpect(status().isBadRequest());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations[0].message", notNullValue()))
+                .andExpect(jsonPath("$.violations", notNullValue()));;
 
     }
 
