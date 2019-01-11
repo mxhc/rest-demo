@@ -23,7 +23,7 @@ public class CategoryController {
         this.productService = productService;
     }
 
-    @ApiOperation(value = "This will get a list of categories", notes = "Collection of Categories")
+    @ApiOperation(value = "${controller.category.get.list}", notes = "${controller.category.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CategoryListDTO getAllCategories() {
@@ -31,7 +31,7 @@ public class CategoryController {
         return new CategoryListDTO(categoryService.getAllCategories());
     }
 
-    @ApiOperation(value = "This will get a list of products by category", notes = "Collection of Products")
+    @ApiOperation(value = "${controller.category.get.products}", notes = "${controller.category.get.products.notes}")
     @GetMapping("/{name}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)

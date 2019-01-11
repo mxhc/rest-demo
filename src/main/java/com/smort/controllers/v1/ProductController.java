@@ -51,7 +51,7 @@ public class ProductController {
     @PutMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("${controller.product.put.notes}") @RequestBody ProductDTO productDTO) {
+    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("${controller.product.put.param}") @RequestBody ProductDTO productDTO) {
         return productService.saveProductByDTO(id, productDTO);
     }
 
