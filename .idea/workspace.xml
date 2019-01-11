@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/smort/error/ValidationErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/smort/error/Violation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,20 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="ValidationErrorResponse.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/error/ValidationErrorResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="78" column="21" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SwaggerConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="13" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -51,20 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java">
+      <file leaf-file-name="Violation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/error/Violation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductRepositoryIT.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+            <state relative-caret-position="238">
+              <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,32 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerServiceImplIT.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="25" selection-start-line="25" selection-end-line="25" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestResponseEntityExceptionHandler.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RestResponseEntityExceptionHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,8 +75,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -150,8 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductListDTO.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/api/v1/mapper/ProductMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/CategoryService.java" />
@@ -192,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/ValidationMessages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Category.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductDTO.java" />
@@ -201,6 +162,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/error/ValidationErrorResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/error/Violation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java" />
       </list>
     </option>
   </component>
@@ -335,6 +299,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="error" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
               <item name="repositories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -415,6 +388,7 @@
       <recent name="" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.smort.error" />
       <recent name="com.smort.services" />
     </key>
   </component>
@@ -430,7 +404,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in rest-demo">
+  <component name="RunManager" selected="Spring Boot.RestDemoApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -638,13 +612,6 @@
       <workItem from="1547125812010" duration="32515000" />
       <workItem from="1547179970798" duration="8000" />
       <workItem from="1547205333822" duration="9586000" />
-    </task>
-    <task id="LOCAL-00015" summary="Create CategoryController, Tests and CategoryListDTO object closes #10">
-      <created>1545676948242</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1545676948242</updated>
     </task>
     <task id="LOCAL-00016" summary="Implement Customer class, dto, repository, service and controller closes #11">
       <created>1545688239460</created>
@@ -982,7 +949,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547225403979</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Add Product Repository Integration Test for Validation. closes #56">
+      <created>1547227322989</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1547227322989</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1018,7 +992,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="210272000" />
+    <option name="totallyTimeSpent" value="212236000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1052,10 +1026,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32897604" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3583878" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.3583878" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32897604" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16364606" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16364606" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -1131,7 +1105,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Customizing Endpoint Documentation closes #29" />
     <MESSAGE value="Secured categories and customers" />
     <MESSAGE value="Add error and success handlers #34&#10;Configure Security with java config #33" />
     <MESSAGE value="Adding Product entity and DTO #35" />
@@ -1156,7 +1129,8 @@
     <MESSAGE value="Externalize Swagger Messages. closes #53&#10;finished Customer and Category controllers" />
     <MESSAGE value="xxx" />
     <MESSAGE value="Add support for swagger documenting Validation Constrains #55" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add support for swagger documenting Validation Constrains #55" />
+    <MESSAGE value="Add Product Repository Integration Test for Validation. closes #56" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Product Repository Integration Test for Validation. closes #56" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1169,14 +1143,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/NoSomething.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductVendorDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="96" selection-start-line="18" selection-start-column="96" selection-end-line="18" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/ProductMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1501,20 +1467,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state relative-caret-position="439">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/error/ValidationErrorResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/error/Violation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

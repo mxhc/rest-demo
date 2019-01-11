@@ -38,6 +38,7 @@ public class ProductRepositoryIT {
         product.setVendor(vendor);
 
         productRepository.save(product);
+        // nece baciti exception sve dok se ne uradi flush
         entityManager.flush();
 
     }
