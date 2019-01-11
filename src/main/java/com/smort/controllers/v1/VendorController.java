@@ -10,7 +10,7 @@ import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@Api(description = "${controller.vendor.title}")
+@Api(description = "Vendor controller")
 @RestController
 @RequestMapping(VendorController.BASE_URL)
 public class VendorController {

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Api(description = "This is Product Controller")
+@Api(description = "Product Controller")
 @Validated
 @RestController
 @RequestMapping(ProductController.BASE_URL)
@@ -24,14 +24,14 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @ApiOperation(value = "List all the Products", notes = "Collection of Products")
+    @ApiOperation(value = "${controller.product.get.list}", notes = "${controller.product.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ProductListDTO getAllProducts() {
         return new ProductListDTO(productService.getAllProducts());
     }
 
-    @ApiOperation(value = "Get a product by Id", notes = "Product")
+    @ApiOperation(value = "${controller.product.get}", notes = "${controller.product.get.notes}")
     @GetMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
@@ -39,31 +39,31 @@ public class ProductController {
         return productService.findById(id);
     }
 
-    @ApiOperation(value = "Create new Product", notes = "Product")
+    @ApiOperation(value = "${controller.product.post}", notes = "${controller.product.post.notes}")
     @PostMapping
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO createNewProduct(@ApiParam("Product information for new product to be created") @Valid @RequestBody ProductDTO productDTO) {
+    public ProductDTO createNewProduct(@ApiParam("${controller.product.post.param}") @Valid @RequestBody ProductDTO productDTO) {
         return productService.createNewProduct(productDTO);
     }
 
-    @ApiOperation(value = "Replace a product by new data")
+    @ApiOperation(value = "${controller.product.put}")
     @PutMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("Product information for Product to be edited") @RequestBody ProductDTO productDTO) {
+    public ProductDTO updateProduct(@PathVariable Long id, @ApiParam("${controller.product.put.notes}") @RequestBody ProductDTO productDTO) {
         return productService.saveProductByDTO(id, productDTO);
     }
 
-    @ApiOperation(value = "Replace a product by new data")
+    @ApiOperation(value = "${controller.product.patch}")
     @PatchMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO patchProduct(@PathVariable Long id, @ApiParam("Product information for Product to be patched") @RequestBody ProductDTO productDTO) {
+    public ProductDTO patchProduct(@PathVariable Long id, @ApiParam("${controller.product.patch.param}") @RequestBody ProductDTO productDTO) {
         return productService.patchProduct(id, productDTO);
     }
 
-    @ApiOperation(value = "Delete a Product")
+    @ApiOperation(value = "${controller.product.delete}")
     @DeleteMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
