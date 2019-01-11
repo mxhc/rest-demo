@@ -16,6 +16,7 @@ public class RestResponseEntityExceptionHandler {
         return new ResponseEntity<Object>("Resource Not Found", new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
+
 //    @ExceptionHandler(MethodArgumentNotValidException.class)
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)
 //    public ResponseEntity<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
