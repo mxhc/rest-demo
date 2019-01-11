@@ -39,7 +39,7 @@ public class RestResponseEntityExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    ValidationErrorResponse onMethodArgumentNotValidException(MethodArgumentNotValidException e) {
+    public ValidationErrorResponse onMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         ValidationErrorResponse error = new ValidationErrorResponse();
         for (FieldError fieldError : e.getBindingResult().getFieldErrors()) {
                 error.getViolations().add(new Violation(fieldError.getField(), fieldError.getDefaultMessage()));
@@ -47,4 +47,11 @@ public class RestResponseEntityExceptionHandler {
         return error;
     }
 
+    // todo better handling needed
+    @ExceptionHandler(NumberFormatException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<Object> handleNumberFormatException(Exception e, WebRequest request) {
+        return new ResponseEntity<Object>("Parameter must be number", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
 }
