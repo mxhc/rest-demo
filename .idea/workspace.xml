@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,103 +33,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CustomerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java">
+      <file leaf-file-name="messages.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="49" column="33" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+            <state relative-caret-position="-26">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="104" column="32" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestAuthenticationEntryPoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/RestAuthenticationEntryPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SavedRequestAwareAuthenticationSuccessHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SecurityJavaConfig.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bootstrap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="212" column="37" selection-start-line="212" selection-start-column="37" selection-end-line="212" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RestResponseEntityExceptionHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="28" column="42" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="42" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProductDTO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductDTO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="23" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SwaggerConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CustomerServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="49" column="56" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="56" />
-            </state>
-          </provider>
+          <provider editor-type-id="ResourceBundle" />
         </entry>
       </file>
     </leaf>
@@ -151,6 +63,7 @@
       <find>swagger</find>
       <find>times</find>
       <find>shop</find>
+      <find>NumberFormatException</find>
     </findStrings>
     <replaceStrings>
       <replace>getCustomerUrl(customer.getId())</replace>
@@ -190,21 +103,17 @@
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/NoSomething.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/ProductVendorDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/mapper/ProductMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/config/CustomMessageSourceConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/config/DocumentationResource.java" />
         <option value="$PROJECT_DIR$/src/main/resources/documentation.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/RestDemoApplication.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/messages_sr.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CategoryDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/VendorDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Vendor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ValidationMessages.properties" />
@@ -220,13 +129,17 @@
         <option value="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryIT.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/error/ValidationErrorResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/error/Violation.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/repositories/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
       </list>
     </option>
   </component>
@@ -420,42 +333,39 @@
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="Resource Bundle 'messages'" type="a6c14932:ResourceBundleNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -488,15 +398,15 @@
       <recent name="com.smort.controllers.v1" />
       <recent name="com.smort.api.v1.mapper" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\rest-demo\.circleci" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.smort.error" />
+      <recent name="com.smort.services" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.smort.error" />
-      <recent name="com.smort.services" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\rest-demo\.circleci" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -555,30 +465,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="CustomerServiceImplIT.testValidationFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.services" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.services.CustomerServiceImplIT" />
-      <option name="METHOD_NAME" value="testValidationFail" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="ProductControllerTest.failedValidationNameAndPrice" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductControllerTest.failedValidationForCategoryAndVendorUrls" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
@@ -590,7 +477,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
       <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.ProductControllerTest" />
-      <option name="METHOD_NAME" value="failedValidationNameAndPrice" />
+      <option name="METHOD_NAME" value="failedValidationForCategoryAndVendorUrls" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -601,19 +488,42 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="ProductRepositoryIT.testInvalidInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="VendorControllerTest.addProductToVendor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.repositories.*" />
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.repositories" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.repositories.ProductRepositoryIT" />
-      <option name="METHOD_NAME" value="testInvalidInput" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.VendorControllerTest" />
+      <option name="METHOD_NAME" value="addProductToVendor" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="VendorControllerTest.failedValidation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.VendorControllerTest" />
+      <option name="METHOD_NAME" value="failedValidation" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -669,18 +579,18 @@
     <list>
       <item itemvalue="Spring Boot.RestDemoApplication" />
       <item itemvalue="JUnit.All in rest-demo" />
-      <item itemvalue="JUnit.CustomerServiceImplIT.testValidationFail" />
-      <item itemvalue="JUnit.ProductRepositoryIT.testInvalidInput" />
-      <item itemvalue="JUnit.ProductControllerTest.failedValidationNameAndPrice" />
       <item itemvalue="JUnit.CustomerControllerTest.failedNameValidationTest" />
+      <item itemvalue="JUnit.VendorControllerTest.addProductToVendor" />
+      <item itemvalue="JUnit.ProductControllerTest.failedValidationForCategoryAndVendorUrls" />
+      <item itemvalue="JUnit.VendorControllerTest.failedValidation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VendorControllerTest.failedValidation" />
+        <item itemvalue="JUnit.ProductControllerTest.failedValidationForCategoryAndVendorUrls" />
+        <item itemvalue="JUnit.VendorControllerTest.addProductToVendor" />
         <item itemvalue="JUnit.All in rest-demo" />
         <item itemvalue="JUnit.CustomerControllerTest.failedNameValidationTest" />
-        <item itemvalue="JUnit.ProductControllerTest.failedValidationNameAndPrice" />
-        <item itemvalue="JUnit.ProductRepositoryIT.testInvalidInput" />
-        <item itemvalue="JUnit.CustomerServiceImplIT.testValidationFail" />
       </list>
     </recent_temporary>
   </component>
@@ -1068,24 +978,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProductRepositoryTest_testInvalidInput - 2019.01.11 at 18h 14m 22s.xml">
-      <configuration name="ProductRepositoryTest.testInvalidInput" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductRepositoryTest_testInvalidInput - 2019.01.11 at 18h 15m 24s.xml">
-      <configuration name="ProductRepositoryTest.testInvalidInput" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_rest-demo - 2019.01.11 at 18h 15m 49s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductControllerTest_failedValidationNameAndPrice - 2019.01.11 at 18h 57m 02s.xml">
-      <configuration name="ProductControllerTest.failedValidationNameAndPrice" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductControllerTest_failedValidationNameAndPrice - 2019.01.11 at 18h 58m 16s.xml">
-      <configuration name="ProductControllerTest.failedValidationNameAndPrice" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CustomerControllerTest_failedNameValidationTest - 2019.01.11 at 18h 59m 45s.xml">
-      <configuration name="CustomerControllerTest.failedNameValidationTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="CustomerControllerTest_failedNameValidationTest - 2019.01.11 at 19h 00m 36s.xml">
       <configuration name="CustomerControllerTest.failedNameValidationTest" configurationId="JUnit" />
     </history-entry>
@@ -1098,9 +990,27 @@
     <history-entry file="All_in_rest-demo - 2019.01.12 at 14h 47m 04s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="VendorControllerTest_addProductToVendor - 2019.01.13 at 00h 16m 55s.xml">
+      <configuration name="VendorControllerTest.addProductToVendor" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductControllerTest_failedValidationForCategoryAndVendorUrls - 2019.01.13 at 00h 18m 20s.xml">
+      <configuration name="ProductControllerTest.failedValidationForCategoryAndVendorUrls" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductControllerTest_failedValidationForCategoryAndVendorUrls - 2019.01.13 at 00h 18m 54s.xml">
+      <configuration name="ProductControllerTest.failedValidationForCategoryAndVendorUrls" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorControllerTest_failedValidation - 2019.01.13 at 00h 23m 32s.xml">
+      <configuration name="VendorControllerTest.failedValidation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorControllerTest_failedValidation - 2019.01.13 at 00h 23m 50s.xml">
+      <configuration name="VendorControllerTest.failedValidation" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VendorControllerTest_failedValidation - 2019.01.13 at 00h 24m 07s.xml">
+      <configuration name="VendorControllerTest.failedValidation" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219629000" />
+    <option name="totallyTimeSpent" value="222681000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1142,13 +1052,40 @@
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32897604" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1652452" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32897604" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.3583878" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32897604" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32995737" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.32897604" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32995737" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="13" weight="0.32897604" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32897604" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32897604" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39978212" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32897604" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Designer" order="2" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1224,14 +1161,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/MessageSourceConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/CustomMessageSourceConfiguration.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/error/CustomAccessDeniedHandler.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1247,22 +1176,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1714">
-          <caret line="167" column="20" selection-start-line="167" selection-start-column="20" selection-end-line="167" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/DocumentationResource.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/documentation.properties" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/RestDemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/CategoryServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1289,16 +1204,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="61" column="111" selection-start-line="61" selection-start-column="111" selection-end-line="61" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="91" column="109" selection-start-line="91" selection-start-column="109" selection-end-line="91" selection-end-column="109" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1413,26 +1318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="137" column="53" selection-start-line="137" selection-start-column="28" selection-end-line="137" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2533">
-          <caret line="172" column="69" selection-start-line="172" selection-start-column="69" selection-end-line="172" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3621">
@@ -1446,14 +1331,6 @@
           <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
@@ -1493,32 +1370,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" column="43" lean-forward="true" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1252#1253#0" expanded="true" />
-            <element signature="e#1330#1331#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1540,13 +1395,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/target/classes/com/smort/domain/Product.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#2314#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1562,13 +1411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="69" column="30" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="104" column="32" selection-start-line="104" selection-start-column="32" selection-end-line="104" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1592,6 +1434,104 @@
           <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="71" lean-forward="true" selection-start-line="33" selection-start-column="71" selection-end-line="33" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1252#1253#0" expanded="true" />
+            <element signature="e#1330#1331#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-269">
+          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/VendorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/VendorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="69" column="5" lean-forward="true" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/RestDemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/VendorControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/ProductControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="153" column="9" selection-start-line="153" selection-start-column="9" selection-end-line="153" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
     </entry>
   </component>
   <component name="masterDetails">

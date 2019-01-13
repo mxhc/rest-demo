@@ -21,8 +21,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.smort.controllers.v1.AbstractRestControllerTest.asJsonString;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
@@ -143,5 +143,44 @@ public class VendorControllerTest {
 
     }
 
-    //todo create validation tests
+    @Test
+    public void addProductToVendor() throws Exception {
+
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName("Ananas");
+        productDTO.setPrice(55.3);
+        productDTO.setCategoryUrl("/api/v1/categories/Fruits");
+        productDTO.setVendorUrl("/api/v1/vendors/2");
+        productDTO.setProductUrl("/api/v1/products/19");
+
+        given(productService.createNewProduct(productDTO)).willReturn(productDTO);
+
+        mockMvc.perform(post(VendorController.BASE_URL + "/2/products")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(asJsonString(productDTO)))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.name", equalTo("Ananas")));
+
+    }
+
+    @Test
+    public void failedValidation() throws Exception {
+
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setName("A");
+        productDTO.setPrice(-55.3);
+        productDTO.setCategoryUrl("1/categories/Fruits");
+        productDTO.setVendorUrl("/api/vendors/2");
+        productDTO.setProductUrl("/api/v1/products/19");
+
+        mockMvc.perform(post(VendorController.BASE_URL + "/2/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(productDTO)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.violations", notNullValue()))
+                .andExpect(jsonPath("$.violations", hasSize(4)));
+    }
+
+
+
 }
