@@ -3,16 +3,18 @@ package com.smort.bootstrap;
 import com.smort.domain.*;
 import com.smort.repositories.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
 @Component
-public class Bootstrap implements CommandLineRunner {
+public class Bootstrap2 implements ApplicationListener<ContextRefreshedEvent> {
 
     private CategoryRepository categoryRepository;
     private CustomerRepository customerRepository;
@@ -31,25 +33,57 @@ public class Bootstrap implements CommandLineRunner {
     Category nuts;
 
 
-    public Bootstrap(CategoryRepository categoryRepository,
-                     CustomerRepository customerRepository,
-                     VendorRepository vendorRepository, ProductRepository productRepository, OrderRepository orderRepository) {
+    public Bootstrap2(CategoryRepository categoryRepository,
+                      CustomerRepository customerRepository,
+                      VendorRepository vendorRepository, ProductRepository productRepository) {
         this.categoryRepository = categoryRepository;
         this.customerRepository = customerRepository;
         this.vendorRepository = vendorRepository;
         this.productRepository = productRepository;
-        this.orderRepository = orderRepository;
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    @Transactional
+    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+//        loadCategories();
+//        loadCustomers();
+//        loadVendors();
+//        loadProducts();
+//        loadOrders();
+//        orderRepository.save(getOrder());
+    }
 
-        loadCategories();
-        loadCustomers();
-        loadVendors();
-        loadProducts();
-        loadOrders();
+    private Order getOrder() {
 
+        Order order = new Order();
+
+        order.setOrderStatus(OrderStatus.CREATED);
+
+
+
+
+        Product p1 = productRepository.getOne(1L);
+        Product p2 = productRepository.getOne(2L);
+        Product p3 = productRepository.getOne(3L);
+
+        OrderItem oi1 = new OrderItem();
+
+        oi1.setProduct(p1);
+        oi1.setPrice(22.15);
+        oi1.setQuantity(5);
+
+
+        OrderItem oi2 = new OrderItem();
+
+        oi2.setProduct(p2);
+        oi2.setPrice(221.35);
+        oi2.setQuantity(5);
+
+
+        order.addOrderItem(oi1);
+        order.addOrderItem(oi2);
+
+        return order;
     }
 
     private void loadOrders() {
@@ -58,9 +92,12 @@ public class Bootstrap implements CommandLineRunner {
 
         order.setOrderStatus(OrderStatus.CREATED);
 
-        Product p1 = productRepository.findById(1L).get();
-        Product p2 = productRepository.findById(2L).get();
-        Product p3 = productRepository.findById(3L).get();
+
+
+
+        Product p1 = productRepository.getOne(1L);
+        Product p2 = productRepository.getOne(2L);
+        Product p3 = productRepository.getOne(3L);
 
         OrderItem oi1 = new OrderItem();
 
@@ -80,29 +117,6 @@ public class Bootstrap implements CommandLineRunner {
         order.addOrderItem(oi2);
 
         orderRepository.save(order);
-
-        Order order1 = new Order();
-
-        order1.setOrderStatus(OrderStatus.RECEIVED);
-
-        OrderItem oi4 = new OrderItem();
-
-        oi4.setProduct(p3);
-        oi4.setPrice(221.15);
-        oi4.setQuantity(15);
-
-        OrderItem oi3 = new OrderItem();
-
-        oi3.setProduct(p1);
-        oi3.setPrice(224.15);
-        oi3.setQuantity(45);
-
-        order.addOrderItem(oi4);
-        order.addOrderItem(oi3);
-
-        orderRepository.save(order1);
-
-        log.warn("Orders loaded = " + orderRepository.count());
 
     }
 
@@ -302,4 +316,6 @@ public class Bootstrap implements CommandLineRunner {
         log.warn("Vendors loaded = " + vendorRepository.count());
 
     }
+
+
 }

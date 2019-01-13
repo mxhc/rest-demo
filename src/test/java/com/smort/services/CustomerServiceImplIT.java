@@ -4,10 +4,7 @@ import com.smort.api.v1.mapper.CustomerMapper;
 import com.smort.api.v1.model.CustomerDTO;
 import com.smort.bootstrap.Bootstrap;
 import com.smort.domain.Customer;
-import com.smort.repositories.CategoryRepository;
-import com.smort.repositories.CustomerRepository;
-import com.smort.repositories.ProductRepository;
-import com.smort.repositories.VendorRepository;
+import com.smort.repositories.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +36,9 @@ public class CustomerServiceImplIT {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    OrderRepository orderRepository;
+
     CustomerService customerService;
 
     @Before
@@ -48,7 +48,7 @@ public class CustomerServiceImplIT {
         System.out.println(customerRepository.findAll().size());
 
         // set up data for testing
-        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository, productRepository);
+        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository, productRepository, orderRepository);
         bootstrap.run(); //  load data
 
         customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);

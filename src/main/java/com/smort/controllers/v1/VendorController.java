@@ -89,9 +89,11 @@ public class VendorController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @PostMapping("/{id}/products")
     @ResponseStatus(HttpStatus.CREATED)
-    public ProductDTO addProductToVendor(@ApiParam(value = "${controller.vendor.post.product.param}") @Valid @RequestBody ProductDTO productDTO, @ApiParam(value = "${controller.vendor.post.vendor.param}") @PathVariable Long id) {
+    public ProductDTO addProductToVendor(@ApiParam(value = "${controller.vendor.post.product.param}") @Valid @RequestBody ProductDTO productDTO, @PathVariable Long id) {   // todo api parameter throws exception
         return productService.createNewProduct(productDTO);
     }
+
+
 }
 
 
