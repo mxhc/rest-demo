@@ -3,7 +3,9 @@ package com.smort.services;
 import com.smort.api.v1.mapper.OrderMapper;
 import com.smort.api.v1.model.ActionDTO;
 import com.smort.api.v1.model.OrderDTO;
+import com.smort.api.v1.model.OrderListDTO;
 import com.smort.controllers.v1.OrderController;
+import com.smort.domain.Customer;
 import com.smort.domain.Order;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
@@ -74,6 +76,26 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setActions(actionDTOS);
 
         return orderDTO;
+    }
+
+    @Override
+    public void deleteOrder(Long id) {
+        orderRepository.delete(orderRepository.findById(id).orElseThrow(ResourceNotFoundException::new));
+    }
+
+    @Override
+    public OrderListDTO getOrdersByCustomer(Long customerId) {
+        Customer customer = customerRepository.findById(customerId).orElseThrow(ResourceNotFoundException::new);
+
+        List<Order> orders = customer.getOrders();
+
+        return new OrderListDTO(orders.stream().map(order -> {
+            OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
+            orderDTO.setOrderUrl(getOrderUrl(order.getId()));
+            orderDTO.setUpdated(null);
+            return orderDTO;
+        }).collect(Collectors.toList()));
+
     }
 
 }
