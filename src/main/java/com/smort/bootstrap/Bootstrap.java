@@ -56,11 +56,31 @@ public class Bootstrap implements CommandLineRunner {
 
         Order order = new Order();
 
-        order.setOrderStatus(OrderStatus.CREATED);
+        order.setState(OrderStatus.CREATED);
 
-        Product p1 = productRepository.findById(1L).get();
-        Product p2 = productRepository.findById(2L).get();
-        Product p3 = productRepository.findById(3L).get();
+        Product p1 = new Product();
+        p1.setName("Ananas");
+        p1.setPrice(56.3);
+        p1.setVendor(v1);
+        p1.setCategory(fresh);
+
+        p1 = productRepository.save(p1);
+
+        Product p2 = new Product();
+        p2.setName("Krastavac");
+        p2.setPrice(112.0);
+        p2.setVendor(v2);
+        p2.setCategory(fruits);
+
+        p2 = productRepository.save(p2);
+
+        Product p3 = new Product();
+        p3.setName("Papaja");
+        p3.setPrice(56.3);
+        p3.setVendor(v3);
+        p3.setCategory(fruits);
+
+        p3 = productRepository.save(p3);
 
         OrderItem oi1 = new OrderItem();
 
@@ -83,7 +103,7 @@ public class Bootstrap implements CommandLineRunner {
 
         Order order1 = new Order();
 
-        order1.setOrderStatus(OrderStatus.RECEIVED);
+        order1.setState(OrderStatus.RECEIVED);
 
         OrderItem oi4 = new OrderItem();
 
