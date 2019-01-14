@@ -4,11 +4,9 @@ import com.smort.api.v1.model.OrderDTO;
 import com.smort.api.v1.model.OrderItemDTO;
 import com.smort.api.v1.model.OrderItemListDTO;
 import com.smort.api.v1.model.OrderListDTO;
+import com.smort.domain.OrderStatus;
 import com.smort.services.OrderService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -32,8 +30,8 @@ public class OrderController {
     @ApiOperation(value = "${controller.order.get.list}", notes = "${controller.order.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public OrderListDTO getAllOrders() {   //todo display by order status
-        return new OrderListDTO(orderService.getAllOrders());
+    public OrderListDTO getAllOrders(@RequestParam(required = false) @ApiParam(value = "${controller.order.get.list.param.state}") OrderStatus state) {   //todo display by order status
+        return new OrderListDTO(orderService.getAllOrders(state));
     }
 
     @ApiOperation(value = "${controller.order.post}")
@@ -79,7 +77,7 @@ public class OrderController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public OrderItemListDTO getListOfItems(@PathVariable Long orderId) {
-        return orderService.getListOfItema(orderId);
+        return orderService.getListOfItems(orderId);
     }
 
     @ApiOperation(value = "${controller.order.action.purchase}")

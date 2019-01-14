@@ -1,12 +1,20 @@
 package com.smort.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public enum OrderStatus {
 
-    CREATED, ORDERED, RECEIVED, CANCELED
+    CREATED("CREATED"), ORDERED("ORDERED"), RECEIVED("RECEIVED"), CANCELED("CANCELED");
+
+    private String string;
+
+    OrderStatus(String string) {
+        this.string = string;
+    }
+
+    public String getString() {
+        return string;
+    }
 
 }

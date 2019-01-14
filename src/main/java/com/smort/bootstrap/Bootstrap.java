@@ -103,7 +103,13 @@ public class Bootstrap implements CommandLineRunner {
 
         order.setCustomer(c1);
 
+        order = orderRepository.save(order);
+
+        order.setState(OrderStatus.ORDERED);
+
         orderRepository.save(order);
+
+
 
         Order order1 = new Order();
 

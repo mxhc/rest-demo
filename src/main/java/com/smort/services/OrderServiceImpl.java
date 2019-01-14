@@ -36,15 +36,31 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderDTO> getAllOrders() {
-        return orderRepository.findAll()
-                .stream()
-                .map(order -> {
-                    OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
-                    orderDTO.setUpdated(null);
-                    orderDTO.setOrderUrl(getOrderUrl(order.getId()));
-                    return orderDTO;
-                }).collect(Collectors.toList());
+    public List<OrderDTO> getAllOrders(OrderStatus orderStatus) {   // todo add better implementation
+
+        List<OrderDTO> orderDTOS;
+
+        if(orderStatus != null) {
+            orderDTOS = orderRepository.findAll()
+                    .stream()
+                    .map(order -> {
+                        OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
+                        orderDTO.setUpdated(null);
+                        orderDTO.setOrderUrl(getOrderUrl(order.getId()));
+                        return orderDTO;
+                    }).filter(orderDTO -> orderDTO.getState().equals(orderStatus))
+                    .collect(Collectors.toList());
+        } else {
+            orderDTOS = orderRepository.findAll()
+                    .stream()
+                    .map(order -> {
+                        OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
+                        orderDTO.setUpdated(null);
+                        orderDTO.setOrderUrl(getOrderUrl(order.getId()));
+                        return orderDTO;
+                    }).collect(Collectors.toList());
+        }
+        return orderDTOS;
     }
 
     private String getOrderUrl(Long id) {
@@ -149,9 +165,27 @@ public class OrderServiceImpl implements OrderService {
         return actionDTO;
     }
 
+    private boolean notEqualThrowsException(String message, OrderStatus orderStatus, Order order) {
+        if (!order.getState().equals(orderStatus)) {
+            throw new OrderStateException(message);
+        }
+        return true;
+    }
+
+    private boolean equalThrowsException(String message, OrderStatus orderStatus, Order order) {
+        if (order.getState().equals(orderStatus)) {
+            throw new OrderStateException(message);
+        }
+        return false;
+    }
+
+
     @Override
     public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
+
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        notEqualThrowsException("Must be in CREATED state to add items", OrderStatus.CREATED, order);
 
         Long productId = Long.valueOf(orderItemDTO.getProductUrl().split("/")[4]);
 
@@ -174,7 +208,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public OrderItemListDTO getListOfItema(Long orderId) {
+    public OrderItemListDTO getListOfItems(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
 
         OrderItemListDTO orderItemListDTO = new OrderItemListDTO(order.getItems().stream().map(orderItem -> {
@@ -194,14 +228,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO purchaseAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
 
-        if (order.getState() == OrderStatus.RECEIVED) {
-            throw new OrderStateException("Order already delivered");
-        }
+        equalThrowsException("Order already delivered", OrderStatus.RECEIVED, order);
 
-        if (order.getState() == OrderStatus.ORDERED || order.getState() == OrderStatus.CANCELED) {
-            throw new OrderStateException("Must be in CREATED state to be purchased");
-        }
-
+        notEqualThrowsException("Must be in CREATED state to be purchased", OrderStatus.CREATED, order);
 
         order.setState(OrderStatus.ORDERED);
 
@@ -220,14 +249,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO cancelAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
 
-        if (order.getState() == OrderStatus.RECEIVED) {
-            throw new OrderStateException("Order already delivered");
-        }
+        equalThrowsException("Order already delivered", OrderStatus.RECEIVED, order);
 
-        if (order.getState() == OrderStatus.CREATED || order.getState() == OrderStatus.CANCELED) {
-            throw new OrderStateException("Must be in ORDERED state to be canceled");
-        }
-
+        notEqualThrowsException("Must be in CREATED state to be canceled", OrderStatus.CREATED, order);
 
         order.setState(OrderStatus.CANCELED);
 
@@ -245,13 +269,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO deliverAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
 
-        if (order.getState() == OrderStatus.CANCELED || order.getState() == OrderStatus.CREATED) {
-            throw new OrderStateException("Must be in ORDERED state to be delivered");
-        }
+        notEqualThrowsException("Must be in ORDERED state to be delivered", OrderStatus.ORDERED, order);
 
-        if (order.getState() == OrderStatus.RECEIVED) {
-            throw new OrderStateException("Order already delivered");
-        }
+        equalThrowsException("Order already delivered", OrderStatus.RECEIVED, order);
 
         order.setState(OrderStatus.RECEIVED);
 
