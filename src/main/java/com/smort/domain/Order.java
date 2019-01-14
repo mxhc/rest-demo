@@ -28,6 +28,9 @@ public class Order {
     @Enumerated(value = EnumType.STRING)
     private OrderStatus state;
 
+    @ManyToOne
+    private Customer customer;
+
     private LocalDateTime created;
 
     private LocalDateTime updated;
@@ -36,6 +39,7 @@ public class Order {
     protected void onCreate() {
         created = LocalDateTime.now();
         updated = LocalDateTime.now();
+        state = OrderStatus.CREATED;
     }
 
     @PreUpdate

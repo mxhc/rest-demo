@@ -30,6 +30,8 @@ public class Bootstrap implements CommandLineRunner {
     Category exotic;
     Category nuts;
 
+    Customer c1;
+    Customer c2;
 
     public Bootstrap(CategoryRepository categoryRepository,
                      CustomerRepository customerRepository,
@@ -54,9 +56,9 @@ public class Bootstrap implements CommandLineRunner {
 
     private void loadOrders() {
 
+
         Order order = new Order();
 
-        order.setState(OrderStatus.CREATED);
 
         Product p1 = new Product();
         p1.setName("Ananas");
@@ -99,11 +101,12 @@ public class Bootstrap implements CommandLineRunner {
         order.addOrderItem(oi1);
         order.addOrderItem(oi2);
 
+        order.setCustomer(c1);
+
         orderRepository.save(order);
 
         Order order1 = new Order();
 
-        order1.setState(OrderStatus.RECEIVED);
 
         OrderItem oi4 = new OrderItem();
 
@@ -119,6 +122,8 @@ public class Bootstrap implements CommandLineRunner {
 
         order.addOrderItem(oi4);
         order.addOrderItem(oi3);
+
+        order1.setCustomer(c2);
 
         orderRepository.save(order1);
 
@@ -276,11 +281,11 @@ public class Bootstrap implements CommandLineRunner {
     }
 
     private void loadCustomers() {
-        Customer c1 = new Customer();
+        c1 = new Customer();
         c1.setFirstname("Milojko");
         c1.setLastname("Pantic");
 
-        Customer c2 = new Customer();
+        c2 = new Customer();
         c2.setFirstname("Milan");
         c2.setLastname("Petrovic");
 
@@ -296,8 +301,8 @@ public class Bootstrap implements CommandLineRunner {
         c5.setFirstname("Janko");
         c5.setLastname("Petrovic");
 
-        customerRepository.save(c1);
-        customerRepository.save(c2);
+        c1 = customerRepository.save(c1);
+        c2 = customerRepository.save(c2);
         customerRepository.save(c3);
         customerRepository.save(c4);
         customerRepository.save(c5);

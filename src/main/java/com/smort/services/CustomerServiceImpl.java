@@ -105,7 +105,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(id);
     }
 
-    private String getCustomerUrl(Long id) {
+    public static String getCustomerUrl(Long id) {
         return CustomerController.BASE_URL + "/" + id;
     }
 

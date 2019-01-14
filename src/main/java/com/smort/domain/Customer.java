@@ -3,12 +3,10 @@ package com.smort.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +24,7 @@ public class Customer {
     @NotBlank(message = "{custome.last.name.blank}")
     @Size(min = 2, message = "{customer.last.name.minsize}")
     private String lastname;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "customer")
+    private List<Order> orders;
 }
