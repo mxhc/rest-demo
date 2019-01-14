@@ -8,9 +8,13 @@ import com.smort.api.v1.model.OrderListDTO;
 import com.smort.controllers.v1.OrderController;
 import com.smort.domain.Customer;
 import com.smort.domain.Order;
+import com.smort.domain.OrderItem;
+import com.smort.domain.Product;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
+import com.smort.repositories.OrderItemRepository;
 import com.smort.repositories.OrderRepository;
+import com.smort.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -23,11 +27,15 @@ public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
     private final CustomerRepository customerRepository;
+    private final ProductRepository productRepository;
+    private final OrderItemRepository orderItemRepository;
 
-    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper, CustomerRepository customerRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper, CustomerRepository customerRepository, ProductRepository productRepository, OrderItemRepository orderItemRepository) {
         this.orderRepository = orderRepository;
         this.orderMapper = orderMapper;
         this.customerRepository = customerRepository;
+        this.productRepository = productRepository;
+        this.orderItemRepository = orderItemRepository;
     }
 
     @Override
@@ -115,7 +123,26 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
-        return null;
+        Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        Long productId = Long.valueOf(orderItemDTO.getProductUrl().split("/")[4]);
+
+        Product product = productRepository.findById(productId).orElseThrow(ResourceNotFoundException::new);
+
+        OrderItem orderItem = orderMapper.orderItemDTOToOrderItem(orderItemDTO);
+        orderItem.setProduct(product);
+
+        orderItem.setOrder(order);
+
+        OrderItem savedOrderItem = orderItemRepository.save(orderItem);
+
+        OrderItemDTO returnDTO = orderMapper.orderItemToOrderItemDTO(savedOrderItem);
+
+        returnDTO.setProductUrl(orderItemDTO.getProductUrl());
+        returnDTO.setItemUrl(getItemsUrl(orderId) + savedOrderItem.getId());
+        returnDTO.setOrderUrl(getOrderUrl(orderId));
+
+        return returnDTO;
     }
 
 }
