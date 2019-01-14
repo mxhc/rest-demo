@@ -2,6 +2,7 @@ package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.OrderDTO;
 import com.smort.api.v1.model.OrderItemDTO;
+import com.smort.api.v1.model.OrderItemListDTO;
 import com.smort.api.v1.model.OrderListDTO;
 import com.smort.services.OrderService;
 import io.swagger.annotations.Api;
@@ -71,5 +72,21 @@ public class OrderController {
     @ResponseStatus(HttpStatus.OK)
     public OrderItemDTO addItemToOrder(@PathVariable Long orderId, @RequestBody @Valid OrderItemDTO orderItemDTO) {
         return orderService.addItemToOrder(orderId, orderItemDTO);
+    }
+
+    @ApiOperation(value = "${controller.order.get.items}")
+    @GetMapping("/{orderId}/items")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderItemListDTO getListOfItems(@PathVariable Long orderId) {
+        return orderService.getListOfItema(orderId);
+    }
+
+    @ApiOperation(value = "${controller.order.action.purchase}")
+    @PostMapping("/{orderId}/actions/purchase")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderDTO purchase(@PathVariable Long orderId) {
+        return orderService.purchaseAction(orderId);
     }
 }

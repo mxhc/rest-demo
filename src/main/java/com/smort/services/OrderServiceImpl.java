@@ -1,15 +1,10 @@
 package com.smort.services;
 
 import com.smort.api.v1.mapper.OrderMapper;
-import com.smort.api.v1.model.ActionDTO;
-import com.smort.api.v1.model.OrderDTO;
-import com.smort.api.v1.model.OrderItemDTO;
-import com.smort.api.v1.model.OrderListDTO;
+import com.smort.api.v1.model.*;
 import com.smort.controllers.v1.OrderController;
-import com.smort.domain.Customer;
-import com.smort.domain.Order;
-import com.smort.domain.OrderItem;
-import com.smort.domain.Product;
+import com.smort.controllers.v1.ProductController;
+import com.smort.domain.*;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
 import com.smort.repositories.OrderItemRepository;
@@ -17,6 +12,7 @@ import com.smort.repositories.OrderRepository;
 import com.smort.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -115,10 +111,41 @@ public class OrderServiceImpl implements OrderService {
 
         int total = 0;
 
+        for(OrderItem o: order.getItems()) {
+            total += o.getQuantity() * o.getPrice();
+        }
 
+        orderDTO.setTotal(total);
 
+        orderDTO.setItemsUrl(getItemsUrl(orderId));
+        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
 
-        return null;
+        List<ActionDTO> actionDTOS = new ArrayList<>();
+
+        switch (orderDTO.getState()) {
+            case CREATED:
+                actionDTOS.add(createAction("purchase", orderId));
+                break;
+            case ORDERED:
+                actionDTOS.add(createAction("cancel", orderId));
+                actionDTOS.add(createAction("deliver", orderId));
+                break;
+            case CANCELED:
+                break;
+        }
+
+        orderDTO.setActions(actionDTOS);
+
+        return orderDTO;
+    }
+
+    private ActionDTO createAction(String action, Long id) {
+
+        ActionDTO actionDTO = new ActionDTO();
+        actionDTO.setMethod("POST");
+        actionDTO.setUrl(getOrderUrl(id) + "/" + action);
+
+        return actionDTO;
     }
 
     @Override
@@ -143,6 +170,40 @@ public class OrderServiceImpl implements OrderService {
         returnDTO.setOrderUrl(getOrderUrl(orderId));
 
         return returnDTO;
+    }
+
+    @Override
+    public OrderItemListDTO getListOfItema(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        OrderItemListDTO orderItemListDTO = new OrderItemListDTO(order.getItems().stream().map(orderItem -> {
+            OrderItemDTO orderItemDTO = orderMapper.orderItemToOrderItemDTO(orderItem);
+            orderItemDTO.setItemUrl(getItemsUrl(orderId) + "/" + orderItem.getId());
+            orderItemDTO.setProductUrl(ProductController.BASE_URL + "/" + orderItem.getProduct().getId());
+            return orderItemDTO;
+        }).collect(Collectors.toList()));
+
+        orderItemListDTO.setOrderUrl(getOrderUrl(orderId));
+
+        return orderItemListDTO;
+
+    }
+
+    @Override
+    public OrderDTO purchaseAction(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        order.setState(OrderStatus.ORDERED);
+
+        Order savedOrder = orderRepository.save(order);
+
+        OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
+
+        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(getItemsUrl(orderId));
+        orderDTO.setActions(Arrays.asList(createAction("cancel", orderId)));
+
+        return orderDTO;
     }
 
 }

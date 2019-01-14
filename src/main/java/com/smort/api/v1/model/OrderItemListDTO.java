@@ -10,14 +10,13 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderItemListDTO {
 
+    @JsonProperty(value = "order_url")
     private String orderUrl;
 
-    @JsonProperty(value = "order_url")
     private List<OrderItemDTO> items;
 
     public OrderItemListDTO(List<OrderItemDTO> items) {
         this.items = items;
-        this.orderUrl= items.get(0).getOrderUrl();
     }
 
 }
