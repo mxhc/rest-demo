@@ -50,5 +50,5 @@ public class OrderDTO {
     private List<ActionDTO> actions;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private Integer total;
+    private Double total;
 }

@@ -120,19 +120,21 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    private Double getOrderTotal(Order order) {
+        Double total = 0.0;
+        for(OrderItem o: order.getItems()) {
+            total += o.getQuantity() * o.getPrice();
+        }
+        return total;
+    }
+
     @Override
     public OrderDTO getOrderById(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
 
-        int total = 0;
-
-        for(OrderItem o: order.getItems()) {
-            total += o.getQuantity() * o.getPrice();
-        }
-
-        orderDTO.setTotal(total);
+        orderDTO.setTotal(getOrderTotal(order));
 
         orderDTO.setItemsUrl(getItemsUrl(orderId));
         orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));

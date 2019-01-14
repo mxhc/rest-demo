@@ -105,33 +105,57 @@ public class Bootstrap implements CommandLineRunner {
 
         order = orderRepository.save(order);
 
+        // changing status to ordered
         order.setState(OrderStatus.ORDERED);
-
         orderRepository.save(order);
 
 
 
         Order order1 = new Order();
 
-
         OrderItem oi4 = new OrderItem();
-
         oi4.setProduct(p3);
         oi4.setPrice(221.15);
         oi4.setQuantity(15);
 
         OrderItem oi3 = new OrderItem();
-
         oi3.setProduct(p1);
         oi3.setPrice(224.15);
         oi3.setQuantity(45);
 
-        order.addOrderItem(oi4);
-        order.addOrderItem(oi3);
+        order1.addOrderItem(oi4);
+        order1.addOrderItem(oi3);
 
         order1.setCustomer(c2);
 
         orderRepository.save(order1);
+
+
+        Order order2 = new Order();
+
+        OrderItem oi5 = new OrderItem();
+        oi5.setProduct(p3);
+        oi5.setPrice(1568.2);
+        oi5.setQuantity(1);
+
+        OrderItem oi6 = new OrderItem();
+        oi6.setProduct(p1);
+        oi6.setPrice(12224.15);
+        oi6.setQuantity(45);
+
+        OrderItem oi7 = new OrderItem();
+        oi7.setProduct(p2);
+        oi7.setPrice(2224.15);
+        oi7.setQuantity(5);
+
+        order2.addOrderItem(oi5);
+        order2.addOrderItem(oi6);
+        order2.addOrderItem(oi7);
+
+        order2.setCustomer(c2);
+
+        orderRepository.save(order2);
+
 
         log.warn("Orders loaded = " + orderRepository.count());
 
