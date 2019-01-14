@@ -31,4 +31,8 @@ public interface OrderService {
     OrderDTO cancelAction(Long orderId);
 
     OrderDTO deliverAction(Long orderId);
+
+    OrderItemDTO getItemFromOrder(Long oid, Long iid);
+
+    void deleteItemFromOrder(Long oid, Long iid);
 }

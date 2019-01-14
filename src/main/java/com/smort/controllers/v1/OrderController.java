@@ -103,4 +103,20 @@ public class OrderController {
     public OrderDTO deliver(@PathVariable Long orderId) {
         return orderService.deliverAction(orderId);
     }
+
+    @ApiOperation(value = "${controller.order.get.order.item}")
+    @GetMapping("/{oid}/items/{iid}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderItemDTO getItemFromOrder(@PathVariable Long oid, @PathVariable Long iid) {
+        return orderService.getItemFromOrder(oid, iid);
+    }
+
+    @ApiOperation(value = "${controller.order.delete.order.item}")
+    @DeleteMapping("/{oid}/items/{iid}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteItemFromOrder(@PathVariable Long oid, @PathVariable Long iid) {
+        orderService.deleteItemFromOrder(oid, iid);
+    }
 }

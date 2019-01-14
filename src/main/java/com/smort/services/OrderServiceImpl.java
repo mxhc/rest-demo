@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,14 +62,6 @@ public class OrderServiceImpl implements OrderService {
                     }).collect(Collectors.toList());
         }
         return orderDTOS;
-    }
-
-    private String getOrderUrl(Long id) {
-        return OrderController.BASE_URL + "/" + id;
-    }
-
-    private String getItemsUrl(Long orderId) {
-        return OrderController.BASE_URL + "/" + orderId + "/items/";
     }
 
     @Override
@@ -120,13 +113,6 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
-    private Double getOrderTotal(Order order) {
-        Double total = 0.0;
-        for(OrderItem o: order.getItems()) {
-            total += o.getQuantity() * o.getPrice();
-        }
-        return total;
-    }
 
     @Override
     public OrderDTO getOrderById(Long orderId) {
@@ -157,30 +143,6 @@ public class OrderServiceImpl implements OrderService {
 
         return orderDTO;
     }
-
-    private ActionDTO createAction(String action, Long id) {
-
-        ActionDTO actionDTO = new ActionDTO();
-        actionDTO.setMethod("POST");
-        actionDTO.setUrl(getOrderUrl(id) + "/" + action);
-
-        return actionDTO;
-    }
-
-    private boolean notEqualThrowsException(String message, OrderStatus orderStatus, Order order) {
-        if (!order.getState().equals(orderStatus)) {
-            throw new OrderStateException(message);
-        }
-        return true;
-    }
-
-    private boolean equalThrowsException(String message, OrderStatus orderStatus, Order order) {
-        if (order.getState().equals(orderStatus)) {
-            throw new OrderStateException(message);
-        }
-        return false;
-    }
-
 
     @Override
     public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
@@ -215,7 +177,7 @@ public class OrderServiceImpl implements OrderService {
 
         OrderItemListDTO orderItemListDTO = new OrderItemListDTO(order.getItems().stream().map(orderItem -> {
             OrderItemDTO orderItemDTO = orderMapper.orderItemToOrderItemDTO(orderItem);
-            orderItemDTO.setItemUrl(getItemsUrl(orderId) + "/" + orderItem.getId());
+            orderItemDTO.setItemUrl(getItemsUrl(orderId) + orderItem.getId());
             orderItemDTO.setProductUrl(ProductController.BASE_URL + "/" + orderItem.getProduct().getId());
             return orderItemDTO;
         }).collect(Collectors.toList()));
@@ -285,6 +247,72 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setItemsUrl(getItemsUrl(orderId));
 
         return orderDTO;
+    }
+
+
+    @Override
+    public OrderItemDTO getItemFromOrder(Long oid, Long iid) {
+
+        OrderItem orderItem = Optional.ofNullable(orderItemRepository.findByIdAndOrderId(iid, oid)).orElseThrow(ResourceNotFoundException::new);
+
+        OrderItemDTO orderItemDTO = orderMapper.orderItemToOrderItemDTO(orderItem);
+
+        orderItemDTO.setProductUrl(getProductUrl(orderItem.getProduct().getId()));
+        orderItemDTO.setOrderUrl(getOrderUrl(oid));
+        orderItemDTO.setItemUrl(getItemsUrl(oid) + "/" + iid);
+
+        return orderItemDTO;
+    }
+
+    @Override
+    public void deleteItemFromOrder(Long oid, Long iid) {
+        OrderItem orderItem = Optional.ofNullable(orderItemRepository.findByIdAndOrderId(iid, oid)).orElseThrow(ResourceNotFoundException::new);
+
+        orderItemRepository.delete(orderItem);
+    }
+
+
+    private String getOrderUrl(Long id) {
+        return OrderController.BASE_URL + "/" + id;
+    }
+
+    private String getItemsUrl(Long orderId) {
+        return OrderController.BASE_URL + "/" + orderId + "/items/";
+    }
+
+    private String getProductUrl(Long productId) {
+        return ProductController.BASE_URL + "/" + productId;
+    }
+
+    private boolean notEqualThrowsException(String message, OrderStatus orderStatus, Order order) {
+        if (!order.getState().equals(orderStatus)) {
+            throw new OrderStateException(message);
+        }
+        return true;
+    }
+
+    private boolean equalThrowsException(String message, OrderStatus orderStatus, Order order) {
+        if (order.getState().equals(orderStatus)) {
+            throw new OrderStateException(message);
+        }
+        return false;
+    }
+
+    private ActionDTO createAction(String action, Long id) {
+
+        ActionDTO actionDTO = new ActionDTO();
+        actionDTO.setMethod("POST");
+        actionDTO.setUrl(getOrderUrl(id) + "/" + action);
+
+        return actionDTO;
+    }
+
+    private Double getOrderTotal(Order order) {
+        Double total = 0.0;
+        for(OrderItem o: order.getItems()) {
+            total += o.getQuantity() * o.getPrice();
+        }
+        return total;
     }
 
 
