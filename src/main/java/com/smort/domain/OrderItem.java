@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Getter
 @Setter
@@ -20,8 +22,12 @@ public class OrderItem {
     @ManyToOne
     private Order order;
 
+    @NotNull(message = "{item.price.null}")
+    @Positive(message = "{item.price.negative}")
     private Double price;
 
+    @NotNull(message = "{item.quantity.null}")
+    @Positive(message = "{item.quantity.negative}")
     private Integer quantity;
 
     public OrderItem(Product product, Double price, Integer quantity) {
