@@ -89,4 +89,20 @@ public class OrderController {
     public OrderDTO purchase(@PathVariable Long orderId) {
         return orderService.purchaseAction(orderId);
     }
+
+    @ApiOperation(value = "${controller.order.action.cancel}")
+    @PostMapping("/{orderId}/actions/cancel")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderDTO cancel(@PathVariable Long orderId) {
+        return orderService.cancelAction(orderId);
+    }
+
+    @ApiOperation(value = "${controller.order.action.deliver}")
+    @PostMapping("/{orderId}/actions/deliver")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderDTO deliver(@PathVariable Long orderId) {
+        return orderService.deliverAction(orderId);
+    }
 }

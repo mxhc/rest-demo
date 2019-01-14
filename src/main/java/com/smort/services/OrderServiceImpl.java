@@ -5,6 +5,7 @@ import com.smort.api.v1.model.*;
 import com.smort.controllers.v1.OrderController;
 import com.smort.controllers.v1.ProductController;
 import com.smort.domain.*;
+import com.smort.error.OrderStateException;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
 import com.smort.repositories.OrderItemRepository;
@@ -193,6 +194,15 @@ public class OrderServiceImpl implements OrderService {
     public OrderDTO purchaseAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
 
+        if (order.getState() == OrderStatus.RECEIVED) {
+            throw new OrderStateException("Order already delivered");
+        }
+
+        if (order.getState() == OrderStatus.ORDERED || order.getState() == OrderStatus.CANCELED) {
+            throw new OrderStateException("Must be in CREATED state to be purchased");
+        }
+
+
         order.setState(OrderStatus.ORDERED);
 
         Order savedOrder = orderRepository.save(order);
@@ -205,5 +215,55 @@ public class OrderServiceImpl implements OrderService {
 
         return orderDTO;
     }
+
+    @Override
+    public OrderDTO cancelAction(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        if (order.getState() == OrderStatus.RECEIVED) {
+            throw new OrderStateException("Order already delivered");
+        }
+
+        if (order.getState() == OrderStatus.CREATED || order.getState() == OrderStatus.CANCELED) {
+            throw new OrderStateException("Must be in ORDERED state to be canceled");
+        }
+
+
+        order.setState(OrderStatus.CANCELED);
+
+        Order savedOrder = orderRepository.save(order);
+
+        OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
+
+        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(getItemsUrl(orderId));
+
+        return orderDTO;
+    }
+
+    @Override
+    public OrderDTO deliverAction(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        if (order.getState() == OrderStatus.CANCELED || order.getState() == OrderStatus.CREATED) {
+            throw new OrderStateException("Must be in ORDERED state to be delivered");
+        }
+
+        if (order.getState() == OrderStatus.RECEIVED) {
+            throw new OrderStateException("Order already delivered");
+        }
+
+        order.setState(OrderStatus.RECEIVED);
+
+        Order savedOrder = orderRepository.save(order);
+
+        OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
+
+        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(getItemsUrl(orderId));
+
+        return orderDTO;
+    }
+
 
 }

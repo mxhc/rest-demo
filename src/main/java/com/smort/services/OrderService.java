@@ -27,4 +27,8 @@ public interface OrderService {
     OrderItemListDTO getListOfItema(Long orderId);
 
     OrderDTO purchaseAction(Long orderId);
+
+    OrderDTO cancelAction(Long orderId);
+
+    OrderDTO deliverAction(Long orderId);
 }

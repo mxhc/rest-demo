@@ -1,5 +1,6 @@
 package com.smort.controllers;
 
+import com.smort.error.OrderStateException;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.error.ValidationErrorResponse;
 import com.smort.error.Violation;
@@ -23,6 +24,12 @@ public class RestResponseEntityExceptionHandler {
     @ExceptionHandler({ResourceNotFoundException.class})
     public ResponseEntity<Object> handleNotFoundException(Exception exception, WebRequest request) {
         return new ResponseEntity<Object>("Resource Not Found", new HttpHeaders(), HttpStatus.NOT_FOUND);
+    }
+
+    // todo implement different responses for different states
+    @ExceptionHandler(OrderStateException.class)
+    public ResponseEntity<Object> handleOrderStateException(Exception exception, WebRequest request) {
+        return new ResponseEntity<Object>("Can not change state of the order: \n" + exception.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
