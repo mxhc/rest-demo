@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
 
@@ -32,6 +33,7 @@ public class OrderItemDTO {
     private String orderUrl;
 
     @ApiModelProperty(example = "/api/v1/products/101", value = "Product url")
+    @Pattern(regexp = "^\\/api\\/v1\\/products\\/[0-9]*", message = "{item.product.url}")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "product_url")
     private String productUrl;

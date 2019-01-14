@@ -3,6 +3,7 @@ package com.smort.services;
 import com.smort.api.v1.mapper.OrderMapper;
 import com.smort.api.v1.model.ActionDTO;
 import com.smort.api.v1.model.OrderDTO;
+import com.smort.api.v1.model.OrderItemDTO;
 import com.smort.api.v1.model.OrderListDTO;
 import com.smort.controllers.v1.OrderController;
 import com.smort.domain.Customer;
@@ -96,6 +97,25 @@ public class OrderServiceImpl implements OrderService {
             return orderDTO;
         }).collect(Collectors.toList()));
 
+    }
+
+    @Override
+    public OrderDTO getOrderById(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(ResourceNotFoundException::new);
+
+        OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
+
+        int total = 0;
+
+
+
+
+        return null;
+    }
+
+    @Override
+    public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
+        return null;
     }
 
 }

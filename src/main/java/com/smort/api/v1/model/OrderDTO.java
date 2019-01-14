@@ -48,4 +48,7 @@ public class OrderDTO {
     @ApiModelProperty(hidden = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private List<ActionDTO> actions;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer total;
 }

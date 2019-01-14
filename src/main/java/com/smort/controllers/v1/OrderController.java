@@ -1,6 +1,7 @@
 package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.OrderDTO;
+import com.smort.api.v1.model.OrderItemDTO;
 import com.smort.api.v1.model.OrderListDTO;
 import com.smort.services.OrderService;
 import io.swagger.annotations.Api;
@@ -10,6 +11,8 @@ import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Api(description = "Orders controller")
 @Validated
@@ -52,5 +55,21 @@ public class OrderController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);
+    }
+
+    @ApiOperation(value = "${controller.order.get}", notes = "${controller.order.get.notes}")
+    @GetMapping("/{orderId}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderDTO getOrderById(@PathVariable Long orderId) {
+        return orderService.getOrderById(orderId);
+    }
+
+    @ApiOperation(value = "${controller.order.post.item}", notes = "${controller.order.post.item.notes}")
+    @PostMapping("/{orderId}/items")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public OrderItemDTO addItemToOrder(@PathVariable Long orderId, @RequestBody @Valid OrderItemDTO orderItemDTO) {
+        return orderService.addItemToOrder(orderId, orderItemDTO);
     }
 }
