@@ -128,7 +128,7 @@ public class OrderServiceImplTest {
 
         assertEquals(orderDTO.getState(), order.getState());
         assertEquals(orderDTO.getCreated(), order.getCreated());
-        assertEquals(orderDTO.getCustomerUrl(), CustomerServiceImpl.getCustomerUrl(ID));
+        assertEquals(orderDTO.getCustomerUrl(), UrlBuilder.getCustomerUrl(ID));
 
     }
 

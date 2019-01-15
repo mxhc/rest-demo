@@ -2,7 +2,6 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.VendorMapper;
 import com.smort.api.v1.model.VendorDTO;
-import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Vendor;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.VendorRepository;
@@ -28,7 +27,7 @@ public class VendorServiceImpl implements VendorService {
                 .stream()
                 .map(vendor -> {
                     VendorDTO vendorDTO = vendorMapper.vendorToVendorDTO(vendor);
-                    vendorDTO.setVendorUrl(getVendorUrl(vendor.getId()));
+                    vendorDTO.setVendorUrl(UrlBuilder.getVendorUrl(vendor.getId()));
                     return vendorDTO;
                 })
                 .collect(Collectors.toList());
@@ -39,7 +38,7 @@ public class VendorServiceImpl implements VendorService {
         return vendorRepository.findById(id)
                 .map(vendorMapper::vendorToVendorDTO)
                 .map(vendorDTO -> {
-                    vendorDTO.setVendorUrl(getVendorUrl(id));
+                    vendorDTO.setVendorUrl(UrlBuilder.getVendorUrl(id));
                     return vendorDTO;
                 })
                 .orElseThrow(ResourceNotFoundException::new);
@@ -54,7 +53,7 @@ public class VendorServiceImpl implements VendorService {
 
         VendorDTO returnDto = vendorMapper.vendorToVendorDTO(savedVendor);
 
-        returnDto.setVendorUrl(getVendorUrl(savedVendor.getId()));
+        returnDto.setVendorUrl(UrlBuilder.getVendorUrl(savedVendor.getId()));
 
         return returnDto;
     }
@@ -75,7 +74,7 @@ public class VendorServiceImpl implements VendorService {
 
         VendorDTO returnDTO = vendorMapper.vendorToVendorDTO(savedVendor);
 
-        returnDTO.setVendorUrl(getVendorUrl(savedVendor.getId()));
+        returnDTO.setVendorUrl(UrlBuilder.getVendorUrl(savedVendor.getId()));
 
         return returnDTO;
     }
@@ -93,7 +92,7 @@ public class VendorServiceImpl implements VendorService {
 
             VendorDTO returnDTO = vendorMapper.vendorToVendorDTO(vendorRepository.save(vendor));
 
-            returnDTO.setVendorUrl(getVendorUrl(id));
+            returnDTO.setVendorUrl(UrlBuilder.getVendorUrl(id));
 
             return returnDTO;
 
@@ -111,7 +110,4 @@ public class VendorServiceImpl implements VendorService {
         return vendorRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
-    private String getVendorUrl(Long id) {
-        return VendorController.BASE_URL + "/" + id;
-    }
 }

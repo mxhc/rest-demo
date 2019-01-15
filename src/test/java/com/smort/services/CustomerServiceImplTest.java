@@ -72,6 +72,7 @@ public class CustomerServiceImplTest {
         // then
         assertEquals(FIRST_NAME, customerDTO.getFirstname());
         assertEquals(LAST_NAME, customerDTO.getLastname());
+        assertEquals(CustomerController.BASE_URL + "/" + ID, customerDTO.getCustomerUrl());
 
     }
 

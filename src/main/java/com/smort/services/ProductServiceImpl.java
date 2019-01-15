@@ -2,9 +2,6 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.ProductMapper;
 import com.smort.api.v1.model.ProductDTO;
-import com.smort.controllers.v1.CategoryController;
-import com.smort.controllers.v1.ProductController;
-import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Product;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CategoryRepository;
@@ -60,7 +57,7 @@ public class ProductServiceImpl implements ProductService {
 
         ProductDTO returnDto = convertToDTOAndAddUrls(savedProduct);
 
-        returnDto.setProductUrl(ProductController.BASE_URL + "/" + savedProduct.getId());
+        returnDto.setProductUrl(UrlBuilder.getProductUrl(savedProduct.getId()));
 
         return returnDto;
     }
@@ -120,20 +117,11 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
-
-    private String getVendorUrl(Long id) {
-        return VendorController.BASE_URL + "/" + id;
-    }
-
-    private String getCategoryUrl(String categoryName) {
-        return CategoryController.BASE_URL + "/" + categoryName;
-    }
-
     private ProductDTO convertToDTOAndAddUrls(Product product) {
         ProductDTO productDTO = productMapper.productToProductDTO(product);
 
-        productDTO.setVendorUrl(getVendorUrl(product.getVendor().getId()));
-        productDTO.setCategoryUrl(getCategoryUrl(product.getCategory().getName()));
+        productDTO.setVendorUrl(UrlBuilder.getVendorUrl(product.getVendor().getId()));
+        productDTO.setCategoryUrl(UrlBuilder.getCategoryUrl(product.getCategory().getName()));
 
         return productDTO;
     }
@@ -165,7 +153,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductDTO convertToDTOAndAddProductUrl(Product product) {
         ProductDTO productDTO = productMapper.productToProductDTO(product);
 
-        productDTO.setProductUrl(ProductController.BASE_URL + "/" + product.getId());
+        productDTO.setProductUrl(UrlBuilder.getProductUrl(product.getId()));
 
         return productDTO;
     }

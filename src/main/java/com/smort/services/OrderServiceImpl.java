@@ -2,7 +2,6 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.OrderMapper;
 import com.smort.api.v1.model.*;
-import com.smort.controllers.v1.OrderController;
 import com.smort.controllers.v1.ProductController;
 import com.smort.domain.*;
 import com.smort.error.OrderStateException;
@@ -48,7 +47,7 @@ public class OrderServiceImpl implements OrderService {
                     .map(order -> {
                         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
                         orderDTO.setUpdated(null);
-                        orderDTO.setOrderUrl(getOrderUrl(order.getId()));
+                        orderDTO.setOrderUrl(UrlBuilder.getOrderUrl(order.getId()));
                         return orderDTO;
                     }).collect(Collectors.toList());
 
@@ -58,7 +57,7 @@ public class OrderServiceImpl implements OrderService {
                     .map(order -> {
                         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
                         orderDTO.setUpdated(null);
-                        orderDTO.setOrderUrl(getOrderUrl(order.getId()));
+                        orderDTO.setOrderUrl(UrlBuilder.getOrderUrl(order.getId()));
                         return orderDTO;
                     }).collect(Collectors.toList());
         }
@@ -72,8 +71,8 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
 
-        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
-        orderDTO.setItemsUrl(getItemsUrl(id));
+        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(id));
 
         List<ActionDTO> actionDTOS = new ArrayList<>();
 
@@ -104,11 +103,11 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(customerId));
-        orderDTO.setItemsUrl(getItemsUrl(savedOrder.getId()));
+        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(customerId));
+        orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(savedOrder.getId()));
 
         ActionDTO actionDTO = new ActionDTO();
-        actionDTO.setUrl(getOrderUrl(savedOrder.getId()) + "/purchase");
+        actionDTO.setUrl(UrlBuilder.getOrderUrl(savedOrder.getId()) + "/purchase");
         actionDTO.setMethod("POST");
 
         List<ActionDTO> actionDTOS = Arrays.asList(actionDTO);
@@ -131,7 +130,7 @@ public class OrderServiceImpl implements OrderService {
 
         return new OrderListDTO(orders.stream().map(order -> {
             OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
-            orderDTO.setOrderUrl(getOrderUrl(order.getId()));
+            orderDTO.setOrderUrl(UrlBuilder.getOrderUrl(order.getId()));
             orderDTO.setUpdated(null);
             return orderDTO;
         }).collect(Collectors.toList()));
@@ -147,8 +146,8 @@ public class OrderServiceImpl implements OrderService {
 
         orderDTO.setTotal(getOrderTotal(order));
 
-        orderDTO.setItemsUrl(getItemsUrl(orderId));
-        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
+        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
 
         List<ActionDTO> actionDTOS = new ArrayList<>();
 
@@ -176,7 +175,9 @@ public class OrderServiceImpl implements OrderService {
 
         notEqualThrowsException("Must be in CREATED state to add items", OrderStatus.CREATED, order);
 
-        Long productId = Long.valueOf(orderItemDTO.getProductUrl().split("/")[4]);
+        String[] tempArray = orderItemDTO.getProductUrl().split("/");
+
+        Long productId = Long.valueOf(tempArray[tempArray.length-1]);
 
         Product product = productRepository.findById(productId).orElseThrow(ResourceNotFoundException::new);
 
@@ -190,8 +191,8 @@ public class OrderServiceImpl implements OrderService {
         OrderItemDTO returnDTO = orderMapper.orderItemToOrderItemDTO(savedOrderItem);
 
         returnDTO.setProductUrl(orderItemDTO.getProductUrl());
-        returnDTO.setItemUrl(getItemsUrl(orderId) + savedOrderItem.getId());
-        returnDTO.setOrderUrl(getOrderUrl(orderId));
+        returnDTO.setItemUrl(UrlBuilder.getItemsUrl(orderId) + savedOrderItem.getId());
+        returnDTO.setOrderUrl(UrlBuilder.getOrderUrl(orderId));
 
         return returnDTO;
     }
@@ -202,12 +203,12 @@ public class OrderServiceImpl implements OrderService {
 
         OrderItemListDTO orderItemListDTO = new OrderItemListDTO(order.getItems().stream().map(orderItem -> {
             OrderItemDTO orderItemDTO = orderMapper.orderItemToOrderItemDTO(orderItem);
-            orderItemDTO.setItemUrl(getItemsUrl(orderId) + orderItem.getId());
+            orderItemDTO.setItemUrl(UrlBuilder.getItemsUrl(orderId) + orderItem.getId());
             orderItemDTO.setProductUrl(ProductController.BASE_URL + "/" + orderItem.getProduct().getId());
             return orderItemDTO;
         }).collect(Collectors.toList()));
 
-        orderItemListDTO.setOrderUrl(getOrderUrl(orderId));
+        orderItemListDTO.setOrderUrl(UrlBuilder.getOrderUrl(orderId));
 
         return orderItemListDTO;
 
@@ -227,8 +228,8 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
-        orderDTO.setItemsUrl(getItemsUrl(orderId));
+        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
         orderDTO.setActions(Arrays.asList(createAction("cancel", orderId)));
 
         return orderDTO;
@@ -248,8 +249,8 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
-        orderDTO.setItemsUrl(getItemsUrl(orderId));
+        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
 
         return orderDTO;
     }
@@ -268,8 +269,8 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
-        orderDTO.setItemsUrl(getItemsUrl(orderId));
+        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
 
         return orderDTO;
     }
@@ -282,9 +283,9 @@ public class OrderServiceImpl implements OrderService {
 
         OrderItemDTO orderItemDTO = orderMapper.orderItemToOrderItemDTO(orderItem);
 
-        orderItemDTO.setProductUrl(getProductUrl(orderItem.getProduct().getId()));
-        orderItemDTO.setOrderUrl(getOrderUrl(oid));
-        orderItemDTO.setItemUrl(getItemsUrl(oid) + iid);
+        orderItemDTO.setProductUrl(UrlBuilder.getProductUrl(orderItem.getProduct().getId()));
+        orderItemDTO.setOrderUrl(UrlBuilder.getOrderUrl(oid));
+        orderItemDTO.setItemUrl(UrlBuilder.getItemsUrl(oid) + iid);
 
         return orderItemDTO;
     }
@@ -294,19 +295,6 @@ public class OrderServiceImpl implements OrderService {
         OrderItem orderItem = Optional.ofNullable(orderItemRepository.findByIdAndOrderId(iid, oid)).orElseThrow(ResourceNotFoundException::new);
 
         orderItemRepository.delete(orderItem);
-    }
-
-
-    private String getOrderUrl(Long id) {
-        return OrderController.BASE_URL + "/" + id;
-    }
-
-    private String getItemsUrl(Long orderId) {
-        return OrderController.BASE_URL + "/" + orderId + "/items/";
-    }
-
-    private String getProductUrl(Long productId) {
-        return ProductController.BASE_URL + "/" + productId;
     }
 
     private boolean notEqualThrowsException(String message, OrderStatus orderStatus, Order order) {
@@ -327,7 +315,7 @@ public class OrderServiceImpl implements OrderService {
 
         ActionDTO actionDTO = new ActionDTO();
         actionDTO.setMethod("POST");
-        actionDTO.setUrl(getOrderUrl(id) + "/" + action);
+        actionDTO.setUrl(UrlBuilder.getOrderUrl(id) + "/" + action);
 
         return actionDTO;
     }
