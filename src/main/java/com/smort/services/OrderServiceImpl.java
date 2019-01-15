@@ -66,7 +66,31 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDTO findById(Long id) {
-        return null;
+
+        Order order = orderRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+
+        OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
+
+        orderDTO.setCustomerUrl(CustomerServiceImpl.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setItemsUrl(getItemsUrl(id));
+
+        List<ActionDTO> actionDTOS = new ArrayList<>();
+
+        switch (orderDTO.getState()) {
+            case CREATED:
+                actionDTOS.add(createAction("purchase", id));
+                break;
+            case ORDERED:
+                actionDTOS.add(createAction("cancel", id));
+                actionDTOS.add(createAction("deliver", id));
+                break;
+            case CANCELED:
+                break;
+        }
+
+        orderDTO.setActions(actionDTOS);
+
+        return orderDTO;
     }
 
     @Override
