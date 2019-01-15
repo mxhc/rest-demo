@@ -37,20 +37,21 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<OrderDTO> getAllOrders(OrderStatus orderStatus) {   // todo add better implementation
+    public List<OrderDTO> getAllOrders(OrderStatus orderStatus) {
 
         List<OrderDTO> orderDTOS;
 
         if(orderStatus != null) {
-            orderDTOS = orderRepository.findAll()
+
+            orderDTOS = orderRepository.findAllByState(orderStatus)
                     .stream()
                     .map(order -> {
                         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
                         orderDTO.setUpdated(null);
                         orderDTO.setOrderUrl(getOrderUrl(order.getId()));
                         return orderDTO;
-                    }).filter(orderDTO -> orderDTO.getState().equals(orderStatus))
-                    .collect(Collectors.toList());
+                    }).collect(Collectors.toList());
+
         } else {
             orderDTOS = orderRepository.findAll()
                     .stream()
@@ -283,7 +284,7 @@ public class OrderServiceImpl implements OrderService {
 
         orderItemDTO.setProductUrl(getProductUrl(orderItem.getProduct().getId()));
         orderItemDTO.setOrderUrl(getOrderUrl(oid));
-        orderItemDTO.setItemUrl(getItemsUrl(oid) + "/" + iid);
+        orderItemDTO.setItemUrl(getItemsUrl(oid) + iid);
 
         return orderItemDTO;
     }

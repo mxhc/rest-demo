@@ -72,7 +72,7 @@ public class OrderController {
         return orderService.addItemToOrder(orderId, orderItemDTO);
     }
 
-    @ApiOperation(value = "${controller.order.get.items}")
+    @ApiOperation(value = "${controller.order.get.items}", notes = "${controller.order.get.items.notes}")
     @GetMapping("/{orderId}/items")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
