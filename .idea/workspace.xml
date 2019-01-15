@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/OrderControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/OrderItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/OrderItemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/repositories/VendorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/repositories/VendorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/services/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/services/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/messages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,41 +29,48 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5021322">
+    <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="OrderServiceImplTest.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java">
-              <provider selected="true" editor-type-id="text-editor" />
+          <file leaf-file-name="OrderControllerTest.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/OrderControllerTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="561">
+                  <caret line="209" column="58" selection-start-line="209" selection-start-column="58" selection-end-line="209" selection-end-column="58" />
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="OrderServiceImpl.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/OrderServiceImpl.java">
+          <file leaf-file-name="CustomerControllerTest.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1292">
-                  <caret line="286" column="48" selection-start-line="286" selection-start-column="48" selection-end-line="286" selection-end-column="48" />
+                <state relative-caret-position="-2533">
+                  <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ProductServiceImplTest.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/ProductServiceImplTest.java">
+          <file leaf-file-name="OrderController.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/OrderController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="374">
-                  <caret line="223" column="26" lean-forward="true" selection-start-line="218" selection-start-column="8" selection-end-line="223" selection-end-column="26" />
+                <state relative-caret-position="476">
+                  <caret line="72" column="5" lean-forward="true" selection-start-line="70" selection-start-column="3" selection-end-line="72" selection-end-column="5" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="VendorServiceImplTest.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/VendorServiceImplTest.java">
+          <file leaf-file-name="OrderServiceImplTest.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2502">
-                  <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+                <state relative-caret-position="850">
+                  <caret line="205" column="28" lean-forward="true" selection-start-line="193" selection-end-line="205" selection-end-column="28" />
                 </state>
               </provider>
             </entry>
@@ -129,7 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/repositories/ProductRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/error/ValidationErrorResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/error/Violation.java" />
@@ -180,6 +177,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/services/OrderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/OrderControllerTest.java" />
       </list>
     </option>
   </component>
@@ -285,8 +283,17 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
               <item name="v1" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
@@ -331,7 +338,7 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
-              <item name="repositories" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
@@ -360,7 +367,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547485858843" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="com.smort.controllers.v1.AbstractRestControllerTest" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="H:/spring5-recipe-app" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -372,23 +379,24 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.smort.controllers.v1" />
       <recent name="com.smort.services" />
       <recent name="com.smort.api.v1.mapper" />
       <recent name="com.smort.repositories" />
-      <recent name="com.smort.controllers.v1" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.smort.error" />
+      <recent name="com.smort.services" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="com.smort.controllers.v1.AbstractRestControllerTest" />
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.smort.bootstrap" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="H:\rest-demo\.circleci" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.smort.error" />
-      <recent name="com.smort.services" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -403,63 +411,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in rest-demo">
+  <component name="RunManager" selected="JUnit.OrderControllerTest.addItemToOrder">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="All in rest-demo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="OrderServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderControllerTest.addItemToOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.services.*" />
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.services" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.services.OrderServiceImplTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="OrderServiceImplTest.deliverActionCanceled" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.services" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.services.OrderServiceImplTest" />
-      <option name="METHOD_NAME" value="deliverActionCanceled" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
+      <option name="METHOD_NAME" value="addItemToOrder" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -470,19 +438,19 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="OrderServiceImplTest.deliverActionCreated" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderControllerTest.createNewOrderInvalidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.services.*" />
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.services" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.services.OrderServiceImplTest" />
-      <option name="METHOD_NAME" value="deliverActionCreated" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
+      <option name="METHOD_NAME" value="createNewOrderInvalidId" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -493,19 +461,65 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="OrderServiceImplTest.purchaseAction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderControllerTest.deleteOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="rest-demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.smort.services.*" />
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.smort.services" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.services.OrderServiceImplTest" />
-      <option name="METHOD_NAME" value="purchaseAction" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
+      <option name="METHOD_NAME" value="deleteOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="OrderControllerTest.getOrderById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
+      <option name="METHOD_NAME" value="getOrderById" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="OrderControllerTest.getOrdersByCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.controllers.v1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
+      <option name="METHOD_NAME" value="getOrdersByCustomer" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -560,19 +574,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.RestDemoApplication" />
-      <item itemvalue="JUnit.OrderServiceImplTest.deliverActionCanceled" />
-      <item itemvalue="JUnit.OrderServiceImplTest.deliverActionCreated" />
-      <item itemvalue="JUnit.OrderServiceImplTest.purchaseAction" />
-      <item itemvalue="JUnit.OrderServiceImplTest" />
-      <item itemvalue="JUnit.All in rest-demo" />
+      <item itemvalue="JUnit.OrderControllerTest.createNewOrderInvalidId" />
+      <item itemvalue="JUnit.OrderControllerTest.getOrdersByCustomer" />
+      <item itemvalue="JUnit.OrderControllerTest.deleteOrder" />
+      <item itemvalue="JUnit.OrderControllerTest.getOrderById" />
+      <item itemvalue="JUnit.OrderControllerTest.addItemToOrder" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in rest-demo" />
-        <item itemvalue="JUnit.OrderServiceImplTest" />
-        <item itemvalue="JUnit.OrderServiceImplTest.purchaseAction" />
-        <item itemvalue="JUnit.OrderServiceImplTest.deliverActionCreated" />
-        <item itemvalue="JUnit.OrderServiceImplTest.deliverActionCanceled" />
+        <item itemvalue="JUnit.OrderControllerTest.addItemToOrder" />
+        <item itemvalue="JUnit.OrderControllerTest.getOrderById" />
+        <item itemvalue="JUnit.OrderControllerTest.deleteOrder" />
+        <item itemvalue="JUnit.OrderControllerTest.getOrdersByCustomer" />
+        <item itemvalue="JUnit.OrderControllerTest.createNewOrderInvalidId" />
       </list>
     </recent_temporary>
   </component>
@@ -616,14 +630,7 @@
       <workItem from="1547414211411" duration="8585000" />
       <workItem from="1547463695760" duration="12206000" />
       <workItem from="1547486487978" duration="20551000" />
-      <workItem from="1547542462235" duration="10691000" />
-    </task>
-    <task id="LOCAL-00033" summary="Created Vendor controller #27">
-      <created>1545878417319</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1545878417319</updated>
+      <workItem from="1547542462235" duration="15109000" />
     </task>
     <task id="LOCAL-00034" summary="Create Tests for VendorService and Controller. closes #27">
       <created>1545931792223</created>
@@ -961,43 +968,50 @@
       <option name="project" value="LOCAL" />
       <updated>1547516599549</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Service implementation tests #61">
+      <created>1547554836372</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1547554836372</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OrderServiceImplTest_cancelActionDelivered - 2019.01.15 at 13h 15m 54s.xml">
-      <configuration name="OrderServiceImplTest.cancelActionDelivered" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_createNewOrder - 2019.01.15 at 14h 37m 23s.xml">
+      <configuration name="OrderControllerTest.createNewOrder" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_cancelActionCanceled - 2019.01.15 at 13h 16m 40s.xml">
-      <configuration name="OrderServiceImplTest.cancelActionCanceled" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_createNewOrderInvalidId - 2019.01.15 at 14h 38m 42s.xml">
+      <configuration name="OrderControllerTest.createNewOrderInvalidId" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_cancelActionOrdered - 2019.01.15 at 13h 17m 03s.xml">
-      <configuration name="OrderServiceImplTest.cancelActionOrdered" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_getOrdersByCustomer - 2019.01.15 at 14h 46m 40s.xml">
+      <configuration name="OrderControllerTest.getOrdersByCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_deliverActionDelivered - 2019.01.15 at 13h 17m 45s.xml">
-      <configuration name="OrderServiceImplTest.deliverActionDelivered" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_getOrdersByCustomer - 2019.01.15 at 14h 48m 22s.xml">
+      <configuration name="OrderControllerTest.getOrdersByCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_deliverActionDelivered - 2019.01.15 at 13h 18m 19s.xml">
-      <configuration name="OrderServiceImplTest.deliverActionDelivered" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_getOrdersByCustomer - 2019.01.15 at 14h 49m 34s.xml">
+      <configuration name="OrderControllerTest.getOrdersByCustomer" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_deliverActionCanceled - 2019.01.15 at 13h 18m 44s.xml">
-      <configuration name="OrderServiceImplTest.deliverActionCanceled" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_deleteOrder - 2019.01.15 at 14h 52m 07s.xml">
+      <configuration name="OrderControllerTest.deleteOrder" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_deliverActionCreated - 2019.01.15 at 13h 19m 09s.xml">
-      <configuration name="OrderServiceImplTest.deliverActionCreated" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_getOrderById - 2019.01.15 at 14h 56m 45s.xml">
+      <configuration name="OrderControllerTest.getOrderById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest_purchaseAction - 2019.01.15 at 13h 19m 17s.xml">
-      <configuration name="OrderServiceImplTest.purchaseAction" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_getOrderById - 2019.01.15 at 14h 57m 13s.xml">
+      <configuration name="OrderControllerTest.getOrderById" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OrderServiceImplTest - 2019.01.15 at 13h 19m 28s.xml">
-      <configuration name="OrderServiceImplTest" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_addItemToOrder - 2019.01.15 at 15h 04m 45s.xml">
+      <configuration name="OrderControllerTest.addItemToOrder" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_rest-demo - 2019.01.15 at 13h 19m 56s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
+    <history-entry file="OrderControllerTest_addItemToOrder - 2019.01.15 at 15h 05m 42s.xml">
+      <configuration name="OrderControllerTest.addItemToOrder" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294434000" />
+    <option name="totallyTimeSpent" value="298852000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1030,10 +1044,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32897604" />
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.32897604" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.28431374" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.28431374" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32897604" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16151386" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.16151386" />
       <window_info anchor="right" id="Bean Validation" order="11" weight="0.32995737" />
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32897604" />
@@ -1124,7 +1138,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Added validation for ProductDTO and wrote test for Failed Validation. #49" />
     <MESSAGE value="Add undocumented Http status responses to controller methods @ApiResponse. closes #52&#10;&#10;Added status 400" />
     <MESSAGE value="Externalize Swagger Messages #53&#10;finished VendorController" />
     <MESSAGE value="Externalize Swagger Messages #53&#10;finished ProductController" />
@@ -1149,7 +1162,8 @@
     <MESSAGE value="Reworked some helper methods" />
     <MESSAGE value="Create Orders Controller. closes #62&#10;Create Order Service and Implementation. closes #60" />
     <MESSAGE value="Write tests for Order #61" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write tests for Order #61" />
+    <MESSAGE value="Service implementation tests #61" />
+    <option name="LAST_COMMIT_MESSAGE" value="Service implementation tests #61" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1162,20 +1176,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="18" column="60" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/VendorDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="53" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="17" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/CustomerListDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1533,13 +1533,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/OrderController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/OrderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="74" column="70" lean-forward="true" selection-start-line="74" selection-start-column="70" selection-end-line="74" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1343">
+          <caret line="286" column="48" selection-start-line="286" selection-start-column="48" selection-end-line="286" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1557,15 +1554,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/services/OrderServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="286" column="48" selection-start-line="286" selection-start-column="48" selection-end-line="286" selection-end-column="48" />
+        <state relative-caret-position="850">
+          <caret line="205" column="28" lean-forward="true" selection-start-line="193" selection-end-line="205" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/services/OrderServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/CustomerControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2533">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="72" column="5" lean-forward="true" selection-start-line="70" selection-start-column="3" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/smort/controllers/v1/OrderControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="209" column="58" selection-start-line="209" selection-start-column="58" selection-end-line="209" selection-end-column="58" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
