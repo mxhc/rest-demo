@@ -16,7 +16,7 @@ import org.springframework.security.web.authentication.SimpleUrlAuthenticationFa
 @Configuration
 @ComponentScan
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
@@ -34,7 +34,7 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("admin").password(encoder().encode("adminPass")).roles("ADMIN")
             .and()
-                .withUser("user").password(encoder().encode("userPass")).roles("USER");
+                .withUser("xxx").password(encoder().encode("userPass")).roles("USER");
     }
 
     @Override
@@ -42,7 +42,7 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .exceptionHandling()
-//                .authenticationEntryPoint(restAuthenticationEntryPoint)
+                .authenticationEntryPoint(restAuthenticationEntryPoint)
             .and()
                 .headers().frameOptions().sameOrigin()
             .and()
@@ -51,10 +51,10 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/vendors/**").permitAll()
 //                .antMatchers("/api/v1/customers/**").authenticated()
 //                .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
-            .and()
-                .formLogin()
-                .successHandler(mySuccessHandler)
-                .failureHandler(myFailureHandler)
+//            .and()
+//                .formLogin()
+//                .successHandler(mySuccessHandler)
+//                .failureHandler(myFailureHandler)
             .and()
                 .logout();
     }

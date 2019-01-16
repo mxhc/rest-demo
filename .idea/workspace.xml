@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="Write tests for Order. closes #61">
+    <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="Fixed Project Build Fail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/security/MethodSecurityConfigurer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,11 +34,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/RestAuthenticationEntryPoint.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -71,6 +109,7 @@
       <find>pli</find>
       <find>ProductController.BASE_URL + &quot;/&quot;</find>
       <find>getVendor</find>
+      <find>methodSecurityInterceptor</find>
     </findStrings>
     <replaceStrings>
       <replace>getCustomerUrl(customer.getId())</replace>
@@ -87,6 +126,7 @@
     <dirStrings>
       <dir>H:\rest-demo\src\test\java</dir>
       <dir>H:\rest-demo\src\main\java\com\smort\services</dir>
+      <dir>H:\rest-demo\src\main\java\com\smort\security</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -100,11 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Hjjjjjjj.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/config/OrderStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap2.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/domain/Product.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/smort/services/CustomerServiceImplIT.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/OrderDto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/api/v1/model/OrderListDTO.java" />
@@ -151,6 +186,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/config/H2Config.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/config/EmbeddedTomcatConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/security/MethodSecurityConfigurer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/security/GlobalMethodSecurityConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/security/MethodSecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" />
       </list>
     </option>
   </component>
@@ -256,6 +296,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
               <item name="security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -270,6 +320,21 @@
               <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="smort" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,7 +352,7 @@
     <property name="SearchEverywhereHistoryKey" value="assertTha&#9;PSI&#9;JAVA://org.assertj.core.api.AbstractStandardSoftAssertions#assertThat" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547650605813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547652878143" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="com.smort.controllers.v1.AbstractRestControllerTest" />
     <property name="database.console.LAST_STATE" value="true" />
@@ -334,7 +399,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in rest-demo">
+  <component name="RunManager" selected="Spring Boot.RestDemoApplication">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -361,23 +426,6 @@
       <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
       <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
       <option name="METHOD_NAME" value="deleteItemFromOrder" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OrderControllerTest.deliver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="rest-demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.smort.controllers.v1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.smort.controllers.v1" />
-      <option name="MAIN_CLASS_NAME" value="com.smort.controllers.v1.OrderControllerTest" />
-      <option name="METHOD_NAME" value="deliver" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -418,6 +466,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RestDemoApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="rest-demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.smort.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.smort" />
+      <option name="MAIN_CLASS_NAME" value="com.smort.RestDemoApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -441,20 +505,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.OrderControllerTest.deliver" />
       <item itemvalue="JUnit.OrderControllerTest.getListOfItems" />
       <item itemvalue="JUnit.OrderControllerTest.getItemFromOrder" />
       <item itemvalue="JUnit.OrderControllerTest.deleteItemFromOrder" />
       <item itemvalue="JUnit.All in rest-demo" />
       <item itemvalue="Spring Boot.RestDemoApplication" />
+      <item itemvalue="JUnit.RestDemoApplicationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RestDemoApplicationTests" />
         <item itemvalue="JUnit.All in rest-demo" />
         <item itemvalue="JUnit.OrderControllerTest.deleteItemFromOrder" />
         <item itemvalue="JUnit.OrderControllerTest.getItemFromOrder" />
         <item itemvalue="JUnit.OrderControllerTest.getListOfItems" />
-        <item itemvalue="JUnit.OrderControllerTest.deliver" />
       </list>
     </recent_temporary>
   </component>
@@ -501,14 +565,7 @@
       <workItem from="1547542462235" duration="15809000" />
       <workItem from="1547578983091" duration="163000" />
       <workItem from="1547579178867" duration="13393000" />
-      <workItem from="1547645513203" duration="2959000" />
-    </task>
-    <task id="LOCAL-00037" summary="Customizing Endpoint Documentation closes #29">
-      <created>1546014180297</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1546014180297</updated>
+      <workItem from="1547645513203" duration="5139000" />
     </task>
     <task id="LOCAL-00038" summary="Secured categories and customers">
       <created>1546797248457</created>
@@ -846,28 +903,17 @@
       <option name="project" value="LOCAL" />
       <updated>1547596944508</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Fixed Project Build Fail">
+      <created>1547650652637</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1547650652637</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OrderControllerTest_getItemFromOrder - 2019.01.16 at 00h 56m 41s.xml">
-      <configuration name="OrderControllerTest.getItemFromOrder" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OrderControllerTest_getItemFromOrder - 2019.01.16 at 00h 58m 05s.xml">
-      <configuration name="OrderControllerTest.getItemFromOrder" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OrderControllerTest_getItemFromOrder - 2019.01.16 at 00h 58m 29s.xml">
-      <configuration name="OrderControllerTest.getItemFromOrder" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OrderControllerTest_getItemFromOrder - 2019.01.16 at 00h 59m 40s.xml">
-      <configuration name="OrderControllerTest.getItemFromOrder" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OrderControllerTest_deleteItemFromOrder - 2019.01.16 at 01h 01m 13s.xml">
-      <configuration name="OrderControllerTest.deleteItemFromOrder" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_rest-demo - 2019.01.16 at 01h 01m 39s.xml">
-      <configuration name="All in rest-demo" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_rest-demo - 2019.01.16 at 02h 26m 55s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
     </history-entry>
@@ -880,9 +926,27 @@
     <history-entry file="All_in_rest-demo - 2019.01.16 at 15h 56m 46s.xml">
       <configuration name="All in rest-demo" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="RestDemoApplicationTests - 2019.01.16 at 15h 59m 55s.xml">
+      <configuration name="RestDemoApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RestDemoApplicationTests - 2019.01.16 at 16h 03m 30s.xml">
+      <configuration name="RestDemoApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_rest-demo - 2019.01.16 at 16h 04m 44s.xml">
+      <configuration name="All in rest-demo" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RestDemoApplicationTests - 2019.01.16 at 16h 07m 00s.xml">
+      <configuration name="RestDemoApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RestDemoApplicationTests - 2019.01.16 at 16h 07m 25s.xml">
+      <configuration name="RestDemoApplicationTests" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RestDemoApplicationTests - 2019.01.16 at 16h 16m 49s.xml">
+      <configuration name="RestDemoApplicationTests" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="316067000" />
+    <option name="totallyTimeSpent" value="318247000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -895,6 +959,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Learn" order="0" />
       <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4983871" visible="true" weight="0.1663113" />
@@ -923,7 +988,7 @@
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.32936078" />
       <window_info anchor="right" id="TCPMON" order="0" />
-      <window_info anchor="right" id="Maven" order="1" visible="true" weight="0.32942432" />
+      <window_info anchor="right" id="Maven" order="1" weight="0.32942432" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="2" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
@@ -1021,7 +1086,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Externalize Swagger Messages #53&#10;finished ProductController" />
     <MESSAGE value="Externalize Swagger Messages. closes #53&#10;finished Customer and Category controllers" />
     <MESSAGE value="xxx" />
     <MESSAGE value="Add support for swagger documenting Validation Constrains #55" />
@@ -1046,7 +1110,8 @@
     <MESSAGE value="Service implementation tests #61" />
     <MESSAGE value="Refactor with UrlBuilder static Methods and write tests. closes #68" />
     <MESSAGE value="Write tests for Order. closes #61" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write tests for Order. closes #61" />
+    <MESSAGE value="Fixed Project Build Fail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Project Build Fail" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1054,43 +1119,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/OrderStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="86" selection-start-line="7" selection-start-column="86" selection-end-line="7" selection-end-column="86" />
-          <folding>
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#388#389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/bootstrap/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="78" column="35" lean-forward="true" selection-start-line="78" selection-start-column="35" selection-end-line="78" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/CategoryRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Order.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -1196,20 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1414,10 +1428,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" selection-start-column="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/MethodSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/RestAuthenticationEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
         </state>
       </provider>
     </entry>
