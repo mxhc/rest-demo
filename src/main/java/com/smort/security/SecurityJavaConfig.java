@@ -47,14 +47,15 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().sameOrigin()
             .and()
                 .authorizeRequests()
+                .antMatchers("/api/v1/customers/**").authenticated()
                 .antMatchers("/**").permitAll()
                 .antMatchers("/api/v1/vendors/**").permitAll()
-//                .antMatchers("/api/v1/customers/**").authenticated()
+
 //                .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
-//            .and()
-//                .formLogin()
-//                .successHandler(mySuccessHandler)
-//                .failureHandler(myFailureHandler)
+            .and()
+                .formLogin()
+                .successHandler(mySuccessHandler)
+                .failureHandler(myFailureHandler)
             .and()
                 .logout();
     }

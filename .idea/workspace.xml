@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="Fixed Project Build Fail">
+    <list default="true" id="56ce1e5f-4fe5-4295-ad00-2e94c07055f9" name="Default" comment="Security">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -34,47 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/RestResponseEntityExceptionHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/RestAuthenticationEntryPoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state relative-caret-position="707">
+              <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -189,8 +152,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/smort/security/GlobalMethodSecurityConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/security/MethodSecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java" />
       </list>
     </option>
   </component>
@@ -218,10 +181,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1937" />
-    <option name="height" value="1057" />
+    <option name="x" value="-6" />
+    <option name="width" value="1934" />
+    <option name="height" value="1054" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -270,15 +232,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="smort" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rest-demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="smort" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rest-demo" type="b2602c69:ProjectViewProjectNode" />
@@ -352,7 +305,7 @@
     <property name="SearchEverywhereHistoryKey" value="assertTha&#9;PSI&#9;JAVA://org.assertj.core.api.AbstractStandardSoftAssertions#assertThat" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547652878143" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547654948007" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="com.smort.controllers.v1.AbstractRestControllerTest" />
     <property name="database.console.LAST_STATE" value="true" />
@@ -565,14 +518,7 @@
       <workItem from="1547542462235" duration="15809000" />
       <workItem from="1547578983091" duration="163000" />
       <workItem from="1547579178867" duration="13393000" />
-      <workItem from="1547645513203" duration="5139000" />
-    </task>
-    <task id="LOCAL-00038" summary="Secured categories and customers">
-      <created>1546797248457</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1546797248457</updated>
+      <workItem from="1547645513203" duration="7569000" />
     </task>
     <task id="LOCAL-00039" summary="Add error and success handlers #34&#10;Configure Security with java config #33">
       <created>1546828410770</created>
@@ -910,7 +856,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547650652637</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Security">
+      <created>1547652926375</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1547652926375</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -946,7 +899,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318247000" />
+    <option name="totallyTimeSpent" value="320677000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -962,7 +915,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Learn" order="0" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4983871" visible="true" weight="0.1663113" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4983871" visible="true" weight="0.1663113" />
       <window_info id="Structure" order="2" sideWeight="0.5016129" side_tool="true" weight="0.16471216" />
       <window_info id="Designer" order="3" />
       <window_info id="Image Layers" order="4" />
@@ -973,7 +926,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32897604" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32827735" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.44637054" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.44637054" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39978212" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1086,7 +1039,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Externalize Swagger Messages. closes #53&#10;finished Customer and Category controllers" />
     <MESSAGE value="xxx" />
     <MESSAGE value="Add support for swagger documenting Validation Constrains #55" />
     <MESSAGE value="Add Product Repository Integration Test for Validation. closes #56" />
@@ -1111,7 +1063,8 @@
     <MESSAGE value="Refactor with UrlBuilder static Methods and write tests. closes #68" />
     <MESSAGE value="Write tests for Order. closes #61" />
     <MESSAGE value="Fixed Project Build Fail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Project Build Fail" />
+    <MESSAGE value="Security" />
+    <option name="LAST_COMMIT_MESSAGE" value="Security" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1119,23 +1072,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/domain/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/VendorRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="11" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/repositories/ProductRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1410,13 +1346,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/EmbeddedTomcatConfig.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/MethodSecurityConfigurer.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1445,10 +1374,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/RestAuthenticationEntryPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1459,24 +1388,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.1.1.RELEASE/spring-security-config-5.1.1.RELEASE.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="30" column="14" lean-forward="true" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        <state relative-caret-position="162">
+          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/RestAuthenticationEntryPoint.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/RestDemoApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/controllers/v1/CategoryController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SavedRequestAwareAuthenticationSuccessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/config/SwaggerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/smort/security/SecurityJavaConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="707">
+          <caret line="55" column="16" selection-start-line="55" selection-start-column="16" selection-end-line="55" selection-end-column="16" />
         </state>
       </provider>
     </entry>

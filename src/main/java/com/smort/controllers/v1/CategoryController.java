@@ -9,6 +9,8 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +31,6 @@ public class CategoryController {
         this.productService = productService;
     }
 
-    @RolesAllowed("ROLE_USER")
     @ApiOperation(value = "${controller.category.get.list}", notes = "${controller.category.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
