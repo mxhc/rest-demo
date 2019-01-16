@@ -1,9 +1,6 @@
 package com.smort.controllers.v1;
 
-import com.smort.api.v1.model.ActionDTO;
-import com.smort.api.v1.model.OrderDTO;
-import com.smort.api.v1.model.OrderItemDTO;
-import com.smort.api.v1.model.OrderListDTO;
+import com.smort.api.v1.model.*;
 import com.smort.controllers.RestResponseEntityExceptionHandler;
 import com.smort.domain.OrderStatus;
 import com.smort.services.OrderService;
@@ -182,11 +179,11 @@ public class OrderControllerTest extends AbstractRestControllerTest {
 
     private OrderItemDTO getItemDto() {
         OrderItemDTO orderItemDTO = new OrderItemDTO();
-        orderItemDTO.setProductUrl(ProductController.BASE_URL + "/" + 5L);
+        orderItemDTO.setProductUrl(ProductController.BASE_URL + "/" + 5);
         orderItemDTO.setQuantity(10);
         orderItemDTO.setPrice(25.5);
         orderItemDTO.setOrderUrl(getOrderDto().getOrderUrl());
-        orderItemDTO.setItemUrl(getOrderDto().getItemsUrl());
+        orderItemDTO.setItemUrl(getOrderDto().getItemsUrl() + "/" + 1);
         return orderItemDTO;
     }
 
@@ -202,30 +199,79 @@ public class OrderControllerTest extends AbstractRestControllerTest {
                         .content(asJsonString(orderItemDTO)))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.price", equalTo(getItemDto().getPrice())));
+    }
+
+    @Test
+    public void getListOfItems() throws Exception {
+
+        OrderItemListDTO orderItemListDTO = new OrderItemListDTO();
+
+        OrderDTO orderDTO = getOrderDto();
+
+        OrderItemDTO oi1 = getItemDto();
+        OrderItemDTO oi2 = getItemDto();
+        OrderItemDTO oi3 = getItemDto();
+
+        orderItemListDTO.setItems(Arrays.asList(oi1, oi2, oi3));
+        orderItemListDTO.setOrderUrl(oi1.getOrderUrl());
+
+        when(orderService.getListOfItems(anyLong())).thenReturn(orderItemListDTO);
+
+        mockMvc.perform(get(oi1.getOrderUrl() + "/items")
+                    .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.items", hasSize(3)))
+                .andExpect(jsonPath("$.order_url", notNullValue()));
 
     }
 
     @Test
-    public void getListOfItems() {
+    public void purchase() throws Exception {
+        OrderDTO orderDTO = getOrderDto();
+        when(orderService.purchaseAction(anyLong())).thenReturn(orderDTO);
+        mockMvc.perform(post(OrderController.BASE_URL + "/" + 1 + "/actions/purchase")
+                            .contentType(MediaType.APPLICATION_JSON))
+                    .andExpect(status().isOk());
     }
 
     @Test
-    public void purchase() {
+    public void cancel() throws Exception {
+        OrderDTO orderDTO = getOrderDto();
+        when(orderService.purchaseAction(anyLong())).thenReturn(orderDTO);
+        mockMvc.perform(post(OrderController.BASE_URL + "/" + 1 + "/actions/cancel")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
     @Test
-    public void cancel() {
+    public void deliver() throws Exception {
+        OrderDTO orderDTO = getOrderDto();
+        when(orderService.purchaseAction(anyLong())).thenReturn(orderDTO);
+        mockMvc.perform(post(OrderController.BASE_URL + "/" + 1 + "/actions/deliver")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
     @Test
-    public void deliver() {
+    public void getItemFromOrder() throws Exception {
+
+        OrderItemDTO orderItemDTO = getItemDto();
+
+        when(orderService.getItemFromOrder(anyLong(), anyLong())).thenReturn(orderItemDTO);
+
+        mockMvc.perform(get(orderItemDTO.getItemUrl())
+                    .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.quantity", equalTo(orderItemDTO.getQuantity())))
+                .andExpect(jsonPath("$.price", equalTo(orderItemDTO.getPrice())))
+                .andExpect(jsonPath("$.order_url", equalTo(orderItemDTO.getOrderUrl())));
     }
 
     @Test
-    public void getItemFromOrder() {
-    }
-
-    @Test
-    public void deleteItemFromOrder() {
+    public void deleteItemFromOrder() throws Exception {
+        mockMvc.perform(delete(OrderController.BASE_URL + "/" + ID + "/items/3")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+        verify(orderService, times(1)).deleteItemFromOrder(anyLong(), anyLong());
     }
 }
