@@ -4,6 +4,7 @@ package com.smort.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
+@Profile("default")
 @Configuration
 @ComponentScan
 @EnableWebSecurity
@@ -48,16 +50,19 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .authorizeRequests()
                 .antMatchers("/api/v1/customers/**").authenticated()
+                .antMatchers("/api/v1/vendors/**").hasRole("ADMIN")
                 .antMatchers("/**").permitAll()
-                .antMatchers("/api/v1/vendors/**").permitAll()
-
 //                .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
 //            .and()
 //                .formLogin()
 //                .successHandler(mySuccessHandler)
 //                .failureHandler(myFailureHandler)
             .and()
-                .logout();
+                .logout()
+                    .logoutUrl("/logout")
+                    .invalidateHttpSession(true)
+                    .clearAuthentication(true)
+                    .logoutSuccessUrl("/swagger-ui.html");
     }
 
     @Bean
