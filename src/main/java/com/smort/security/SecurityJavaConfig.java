@@ -39,10 +39,10 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
+        http.httpBasic().and()
                 .csrf().disable()
                 .exceptionHandling()
-                .authenticationEntryPoint(restAuthenticationEntryPoint)
+//                .authenticationEntryPoint(restAuthenticationEntryPoint)
             .and()
                 .headers().frameOptions().sameOrigin()
             .and()
@@ -52,10 +52,10 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/vendors/**").permitAll()
 
 //                .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
-            .and()
-                .formLogin()
-                .successHandler(mySuccessHandler)
-                .failureHandler(myFailureHandler)
+//            .and()
+//                .formLogin()
+//                .successHandler(mySuccessHandler)
+//                .failureHandler(myFailureHandler)
             .and()
                 .logout();
     }
