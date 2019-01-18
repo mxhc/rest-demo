@@ -51,11 +51,5 @@ public class UserInfoDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String userUrl;
 
-    public UserInfoDTO(String userName, String firstName, String lastName) {
-        this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
 
 }

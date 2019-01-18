@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class UrlBuilderTest {
+public class UrlBuilderTest extends AbstractRestControllerTest {
 
     @Test
     public void getProductUrl() {
@@ -41,5 +41,11 @@ public class UrlBuilderTest {
     public void getItemsUrl() {
         String url = UrlBuilder.getItemsUrl(3L);
         assertEquals(OrderController.BASE_URL + "/" + 3 + "/items/", url);
+    }
+
+    @Test
+    public void getUserUrl() {
+        String url = UrlBuilder.getUserUrl(15L);
+        assertEquals(UserController.BASE_URL + "/" + 15L, url);
     }
 }
