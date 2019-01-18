@@ -1,6 +1,7 @@
 package com.smort.services;
 
 import com.smort.domain.UserInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,8 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class MyUserService implements UserDetailsService {
 
@@ -27,9 +30,12 @@ public class MyUserService implements UserDetailsService {
 
         UserInfo activeUserInfo = userDao.loadActiveUser(userName);
 
-        GrantedAuthority authority = new SimpleGrantedAuthority(activeUserInfo.getRole());
+        List<GrantedAuthority> authorities = activeUserInfo.getRoles().stream().map(role -> {
+            GrantedAuthority authority = new SimpleGrantedAuthority(role.getRole());
+            return authority;
+        }).collect(Collectors.toList());
 
-        UserDetails userDetails = (UserDetails) new User(activeUserInfo.getUserName(), activeUserInfo.getPassword(), Arrays.asList(authority));
+        UserDetails userDetails = (UserDetails) new User(activeUserInfo.getUserName(), activeUserInfo.getPassword(), authorities);
 
         return userDetails;
     }

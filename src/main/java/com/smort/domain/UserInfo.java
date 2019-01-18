@@ -1,11 +1,15 @@
 package com.smort.domain;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
+@ToString
 @Entity
 @Table(name = "users")
 public class UserInfo {
@@ -19,7 +23,8 @@ public class UserInfo {
 
     private String password;
 
-    private String role;
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users", fetch = FetchType.EAGER)
+    private List<Role> roles;
 
     private String firstName;
 
