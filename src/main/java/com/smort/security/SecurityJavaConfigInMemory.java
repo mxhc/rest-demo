@@ -14,22 +14,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 
-@Profile("default")
+@Profile("h2")
 @Configuration
 @ComponentScan
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
+public class SecurityJavaConfigInMemory extends WebSecurityConfigurerAdapter {
 
-    private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
-    private SavedRequestAwareAuthenticationSuccessHandler mySuccessHandler;
+
     private SimpleUrlAuthenticationFailureHandler myFailureHandler = new SimpleUrlAuthenticationFailureHandler();
-
-    public SecurityJavaConfig(RestAuthenticationEntryPoint restAuthenticationEntryPoint, SavedRequestAwareAuthenticationSuccessHandler mySuccessHandler) {
-        this.restAuthenticationEntryPoint = restAuthenticationEntryPoint;
-        this.mySuccessHandler = mySuccessHandler;
-    }
-
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -44,7 +37,6 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic().and()
                 .csrf().disable()
                 .exceptionHandling()
-//                .authenticationEntryPoint(restAuthenticationEntryPoint)
             .and()
                 .headers().frameOptions().sameOrigin()
             .and()
@@ -52,11 +44,6 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/customers/**").authenticated()
                 .antMatchers("/api/v1/vendors/**").hasRole("ADMIN")
                 .antMatchers("/**").permitAll()
-//                .antMatchers("/api/v1/categories/**").hasRole("ADMIN")
-//            .and()
-//                .formLogin()
-//                .successHandler(mySuccessHandler)
-//                .failureHandler(myFailureHandler)
             .and()
                 .logout()
                     .logoutUrl("/logout")

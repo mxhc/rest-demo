@@ -4,12 +4,14 @@ import com.smort.domain.*;
 import com.smort.repositories.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Profile("h2")
 @Slf4j
 @Component
 public class Bootstrap implements CommandLineRunner {
