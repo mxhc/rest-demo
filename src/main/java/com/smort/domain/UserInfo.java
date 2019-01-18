@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -23,8 +24,8 @@ public class UserInfo {
 
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "users", fetch = FetchType.EAGER)
-    private List<Role> roles;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Role> roles = new ArrayList<>();
 
     private String firstName;
 
@@ -32,8 +33,14 @@ public class UserInfo {
 
     private String country;
 
-    private short enabled;
+    private boolean enabled;
 
+    @Column(unique=true)
     private String email;
 
+    public UserInfo addRole(Role role) {
+        role.setUser(this);
+        roles.add(role);
+        return this;
+    }
 }

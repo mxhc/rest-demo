@@ -27,4 +27,8 @@ public final class UrlBuilder {
     public static String getItemsUrl(Long orderId) {
         return OrderController.BASE_URL + "/" + orderId + "/items/";
     }
+
+    public static String getUserUrl(Long userId) {
+        return UserController.BASE_URL + "/" + userId;
+    }
 }
