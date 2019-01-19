@@ -87,7 +87,8 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         UserInfo enabledUser = userRepository.findById(id).map(userInfo -> {
             userInfo.setEnabled(true);
-            return userInfo;
+            UserInfo saved = userRepository.save(userInfo);
+            return saved;
         }).orElseThrow(ResourceNotFoundException::new);
 
         UserInfoDTO userInfoDTO = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(enabledUser);

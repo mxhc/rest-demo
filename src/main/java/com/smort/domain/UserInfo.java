@@ -19,7 +19,7 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     private String userName;
 
     @Column(nullable = false)
@@ -28,15 +28,17 @@ public class UserInfo {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     private List<Role> roles = new ArrayList<>();
 
+    @Column(nullable = false)
     private String firstName;
 
+    @Column(nullable = false)
     private String lastName;
 
     private String country;
 
     private boolean enabled;
 
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     private String email;
 
     public UserInfo addRole(Role role) {
