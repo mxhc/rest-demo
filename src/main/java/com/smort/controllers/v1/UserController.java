@@ -41,11 +41,35 @@ public class UserController {
     }
 
     @ApiOperation(value = "Set user role")
-    @PostMapping("/{id}")
+    @PostMapping("/{id}/roles")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public UserInfoDTO setRole(@RequestParam RolesEnum role, @PathVariable Long id) {
         return userInfoService.setRole(role, id);
     }
+
+    @ApiOperation(value = "Activate user")
+    @PostMapping("/{id}/activate")
+    @ResponseStatus(HttpStatus.OK)
+    public UserInfoDTO setActive(@PathVariable Long id) {
+        return userInfoService.activateUser(id);
+    }
+
+    @ApiOperation(value = "Delete user")
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteUser(@PathVariable Long id) {
+        userInfoService.deleteUser(id);
+    }
+
+
+    @ApiOperation(value = "Edit user")
+    @PutMapping("/{id}")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public UserInfoDTO editUser(@ApiParam("User information for user to be edited") @Valid @RequestBody UserInfoDTO userInfoDTO, @PathVariable Long id) {
+        return userInfoService.editUser(userInfoDTO, id);
+    }
+
 
 }

@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class UserInfoDTO {
 
     @ApiModelProperty(value = "user name", required = true, example = "someusername", position = 0)
     @Size(min = 3, message = "{user.name.minsize}")
+    @NotBlank(message = "{default}")
     private String userName;
 
     @ApiModelProperty(required = true, example = "somePassword", value = "password", position = 1)
@@ -31,9 +33,11 @@ public class UserInfoDTO {
     private List<RoleDTO> roles;
 
     @ApiModelProperty(required = true, example = "Petar", value = "first name", position = 2)
+    @NotBlank(message = "{default}")
     private String firstName;
 
     @ApiModelProperty(required = true, example = "Stojic", value = "last name", position = 3)
+    @NotBlank(message = "{default}")
     private String lastName;
 
     @ApiModelProperty(required = false, example = "Zimbabwe", value = "country", position = 4)
@@ -41,6 +45,7 @@ public class UserInfoDTO {
     private String country;
 
     @ApiModelProperty(required = true, example = "someemail@mail.com", value = "email", position = 5)
+    @NotBlank(message = "{default}")
     private String email;
 
     @ApiModelProperty(readOnly = true)

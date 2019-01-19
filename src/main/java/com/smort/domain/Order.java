@@ -31,6 +31,7 @@ public class Order {
     @ManyToOne
     private Customer customer;
 
+    @Column(nullable = false, updatable = false)
     private LocalDateTime created;
 
     private LocalDateTime updated;

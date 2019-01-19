@@ -22,6 +22,7 @@ public class UserInfo {
     @Column(unique=true)
     private String userName;
 
+    @Column(nullable = false)
     private String password;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)

@@ -11,4 +11,10 @@ public interface UserInfoService {
     UserInfoDTO createNewUser(UserInfoDTO userInfoDTO);
 
     UserInfoDTO setRole(RolesEnum role, Long id);
+
+    UserInfoDTO activateUser(Long id);
+
+    void deleteUser(Long id);
+
+    UserInfoDTO editUser(UserInfoDTO userInfoDTO, Long id);
 }

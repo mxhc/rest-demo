@@ -6,7 +6,6 @@ import com.smort.controllers.v1.CustomerController;
 import com.smort.domain.Customer;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -83,7 +82,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-    @Secured("ADMIN_ROLE")
     @Override
     public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
         return customerRepository.findById(id).map(customer -> {
