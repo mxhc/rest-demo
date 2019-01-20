@@ -6,7 +6,9 @@ import com.smort.api.v1.model.UserInfoDTO;
 import com.smort.domain.Role;
 import com.smort.domain.RolesEnum;
 import com.smort.domain.UserInfo;
+import com.smort.error.InvalidUserOperationException;
 import com.smort.error.ResourceNotFoundException;
+import com.smort.repositories.RoleRepository;
 import com.smort.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -20,10 +22,12 @@ import java.util.stream.Collectors;
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
 
-    public UserInfoServiceImpl(UserRepository userRepository) {
+    public UserInfoServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -31,17 +35,11 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userRepository.findAll()
                 .stream()
                 .map(userInfo -> {
-                    UserInfoDTO userInfoDTO = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(userInfo);
-                    userInfoDTO.setUserUrl(UrlBuilder.getUserUrl(userInfo.getId()));
-                    userInfoDTO.setRoles(userInfo.getRoles()
-                            .stream()
-                            .map(role -> {
-                                RoleDTO roleDTO = UserInfoMapper.INSTANCE.roleToRoleDTO(role);
-                                return roleDTO;
-                            }).collect(Collectors.toList()));
+                    UserInfoDTO userInfoDTO = convertToDTO(userInfo);
                     return userInfoDTO;
                 }).collect(Collectors.toList());
     }
+
 
     @Override
     public UserInfoDTO createNewUser(UserInfoDTO userInfoDTO) {
@@ -71,13 +69,15 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         UserInfo userInfo = userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
 
+        if (userInfo.getRoles().stream().anyMatch(role1 -> role1.getRole().getRole().equals(role.getRole()))) {
+            throw new InvalidUserOperationException("User already has that role");
+        }
+
         userInfo.addRole(new Role(role));
 
         UserInfo savedUser = userRepository.save(userInfo);
 
-        UserInfoDTO userInfoDTO = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(savedUser);
-
-        userInfoDTO.setUserUrl(UrlBuilder.getUserUrl(id));
+        UserInfoDTO userInfoDTO = convertToDTO(savedUser);
 
         return userInfoDTO;
     }
@@ -91,9 +91,7 @@ public class UserInfoServiceImpl implements UserInfoService {
             return saved;
         }).orElseThrow(ResourceNotFoundException::new);
 
-        UserInfoDTO userInfoDTO = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(enabledUser);
-
-        userInfoDTO.setUserUrl(UrlBuilder.getUserUrl(id));
+        UserInfoDTO userInfoDTO = convertToDTO(enabledUser);
 
         return userInfoDTO;
     }
@@ -115,12 +113,78 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         UserInfo savedUser = userRepository.save(userInfo);
 
-        UserInfoDTO returnDto = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(savedUser);
-        returnDto.setUserUrl(UrlBuilder.getUserUrl(id));
+        UserInfoDTO returnDto = convertToDTO(savedUser);
 
         return returnDto;
     }
 
+    @Override
+    public UserInfoDTO getUserById(Long id) {
 
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+
+        UserInfoDTO userInfoDTO = convertToDTO(userInfo);
+
+        return userInfoDTO;
+    }
+
+    @Override
+    public UserInfoDTO revokeRole(Long id, RolesEnum role) {
+
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+
+        if (!userInfo.getRoles().stream().anyMatch(role1 -> role1.getRole().getRole().equals(role.getRole()))) {
+            throw new InvalidUserOperationException("User does not have that role");
+        }
+
+        Role roleToDelete = userInfo.getRoles().stream()
+                .filter(role1 -> role1.getRole().getRole().equals(role.getRole()))
+                .findFirst()
+                .get();
+
+        userInfo.getRoles().remove(roleToDelete);
+
+        roleRepository.delete(roleToDelete);
+
+        UserInfoDTO userInfoDTO = convertToDTO(userInfo);
+
+        return userInfoDTO;
+
+    }
+
+    @Override
+    public UserInfoDTO resetPassword(Long id, String newPassword) {
+
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        String password = encoder.encode(newPassword);
+
+        userInfo.setPassword(password);
+
+        userRepository.save(userInfo);
+
+        return convertToDTO(userInfo);
+    }
+
+    private UserInfoDTO convertToDTO(UserInfo userInfo) {
+        UserInfoDTO userInfoDTO = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(userInfo);
+
+        userInfoDTO.setUserUrl(UrlBuilder.getUserUrl(userInfo.getId()));
+
+        userInfoDTO.setRoles(convertRolesToRolesDTO(userInfo.getRoles()));
+
+        return userInfoDTO;
+    }
+
+    private List<RoleDTO> convertRolesToRolesDTO(List<Role> roles) {
+        return roles
+                .stream()
+                .map(role -> {
+                    RoleDTO roleDTO = UserInfoMapper.INSTANCE.roleToRoleDTO(role);
+                    return roleDTO;
+                }).collect(Collectors.toList());
+    }
 
 }

@@ -1,9 +1,6 @@
 package com.smort.controllers;
 
-import com.smort.error.OrderStateException;
-import com.smort.error.ResourceNotFoundException;
-import com.smort.error.ValidationErrorResponse;
-import com.smort.error.Violation;
+import com.smort.error.*;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +27,12 @@ public class RestResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleOrderStateException(Exception exception, WebRequest request) {
         return new ResponseEntity<Object>("Error message: \n" + exception.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(InvalidUserOperationException.class)
+    public ResponseEntity<Object> handleUserOperationException(Exception exception, WebRequest request) {
+        return new ResponseEntity<Object>("Error message: \n" + exception.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
 
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)

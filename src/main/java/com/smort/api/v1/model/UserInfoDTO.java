@@ -52,7 +52,7 @@ public class UserInfoDTO {
     private boolean enabled;
 
     @JsonProperty("user_url")
-    @ApiModelProperty(readOnly = true)
+    @ApiModelProperty(readOnly = true, hidden = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String userUrl;
 

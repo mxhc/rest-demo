@@ -17,4 +17,10 @@ public interface UserInfoService {
     void deleteUser(Long id);
 
     UserInfoDTO editUser(UserInfoDTO userInfoDTO, Long id);
+
+    UserInfoDTO getUserById(Long id);
+
+    UserInfoDTO revokeRole(Long id, RolesEnum role);
+
+    UserInfoDTO resetPassword(Long id, String newPassword);
 }

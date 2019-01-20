@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping(UserController.BASE_URL)
 public class UserController {
 
-    public static final String BASE_URL = "api/v1/users";
+    public static final String BASE_URL = "/api/v1/users";
 
     private final UserInfoService userInfoService;
 
@@ -62,13 +62,35 @@ public class UserController {
         userInfoService.deleteUser(id);
     }
 
-
     @ApiOperation(value = "Edit user")
     @PutMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
     public UserInfoDTO editUser(@ApiParam("User information for user to be edited") @Valid @RequestBody UserInfoDTO userInfoDTO, @PathVariable Long id) {
         return userInfoService.editUser(userInfoDTO, id);
+    }
+
+    @ApiOperation(value = "Get user by id")
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserInfoDTO getUser(@PathVariable Long id) {
+        return userInfoService.getUserById(id);
+    }
+
+    @ApiOperation(value = "Revoke user role")
+    @DeleteMapping("/{id}/roles")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public UserInfoDTO revokeRole(@PathVariable Long id, @RequestParam RolesEnum role) {
+        return userInfoService.revokeRole(id, role);
+    }
+
+    @ApiOperation(value = "Reset user password")
+    @PostMapping("/{id}/password")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.OK)
+    public UserInfoDTO changePassword(@PathVariable Long id, @RequestParam String newPassword) {
+        return userInfoService.resetPassword(id, newPassword);
     }
 
 
