@@ -36,7 +36,7 @@ public class UserInfo {
 
     private String country;
 
-    private boolean enabled;
+    private Boolean enabled;
 
     @Column(unique=true, nullable = false)
     private String email;

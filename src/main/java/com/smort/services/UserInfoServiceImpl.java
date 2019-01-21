@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
 
+
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
@@ -97,7 +98,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUserById(Long id) {
         userRepository.delete(userRepository.findById(id).orElseThrow(ResourceNotFoundException::new));
     }
 
@@ -108,7 +109,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         UserInfo userInfo = UserInfoMapper.INSTANCE.userInfoDTOToUserInfo(userInfoDTO);
         userInfo.setId(id);
-        userInfo.setEnabled(oldUser.isEnabled());
+        userInfo.setEnabled(oldUser.getEnabled());
         userInfo.setPassword(oldUser.getPassword());
 
         UserInfo savedUser = userRepository.save(userInfo);
@@ -168,7 +169,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return convertToDTO(userInfo);
     }
 
-    private UserInfoDTO convertToDTO(UserInfo userInfo) {
+    public UserInfoDTO convertToDTO(UserInfo userInfo) {
         UserInfoDTO userInfoDTO = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(userInfo);
 
         userInfoDTO.setUserUrl(UrlBuilder.getUserUrl(userInfo.getId()));
@@ -178,7 +179,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDTO;
     }
 
-    private List<RoleDTO> convertRolesToRolesDTO(List<Role> roles) {
+    public List<RoleDTO> convertRolesToRolesDTO(List<Role> roles) {
         return roles
                 .stream()
                 .map(role -> {

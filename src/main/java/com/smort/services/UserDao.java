@@ -16,7 +16,7 @@ public class UserDao {
     public UserInfo loadActiveUser(String userName) {
         UserInfo userInfo = userRepository.findByUserName(userName);
 
-        return userInfo.isEnabled() ? userInfo : null;
+        return userInfo.getEnabled() ? userInfo : null;
     }
 
 }

@@ -14,7 +14,7 @@ public interface UserInfoService {
 
     UserInfoDTO activateUser(Long id);
 
-    void deleteUser(Long id);
+    void deleteUserById(Long id);
 
     UserInfoDTO editUser(UserInfoDTO userInfoDTO, Long id);
 
