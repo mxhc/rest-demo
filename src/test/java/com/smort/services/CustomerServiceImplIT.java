@@ -39,6 +39,9 @@ public class CustomerServiceImplIT {
     @Autowired
     OrderRepository orderRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
     CustomerService customerService;
 
     @Before
@@ -48,7 +51,7 @@ public class CustomerServiceImplIT {
         System.out.println(customerRepository.findAll().size());
 
         // set up data for testing
-        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository, productRepository, orderRepository);
+        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository, productRepository, orderRepository, userRepository);
         bootstrap.run(); //  load data
 
         customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);

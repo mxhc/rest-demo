@@ -5,6 +5,7 @@ import com.smort.repositories.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class Bootstrap implements CommandLineRunner {
     private VendorRepository vendorRepository;
     private ProductRepository productRepository;
     private OrderRepository orderRepository;
+    private UserRepository userRepository;
 
     Vendor v1;
     Vendor v2;
@@ -37,12 +39,13 @@ public class Bootstrap implements CommandLineRunner {
 
     public Bootstrap(CategoryRepository categoryRepository,
                      CustomerRepository customerRepository,
-                     VendorRepository vendorRepository, ProductRepository productRepository, OrderRepository orderRepository) {
+                     VendorRepository vendorRepository, ProductRepository productRepository, OrderRepository orderRepository, UserRepository userRepository) {
         this.categoryRepository = categoryRepository;
         this.customerRepository = customerRepository;
         this.vendorRepository = vendorRepository;
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -53,6 +56,45 @@ public class Bootstrap implements CommandLineRunner {
         loadVendors();
         loadProducts();
         loadOrders();
+        loadUsers();
+
+    }
+
+    private void loadUsers() {
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setPassword(new BCryptPasswordEncoder().encode("password"));
+        userInfo.setEnabled(true);
+        userInfo.setEmail("email@email.com");
+        userInfo.setUserName("superadmin");
+        userInfo.setCountry("India");
+        userInfo.setFirstName("Mile");
+        userInfo.setLastName("Karapandza");
+
+        Role r1 = new Role(RolesEnum.ROLE_USER);
+        userInfo.addRole(r1);
+
+        Role r2 = new Role(RolesEnum.ROLE_ADMIN);
+        userInfo.addRole(r2);
+
+        Role r3 = new Role(RolesEnum.ROLE_SUPERADMIN);
+        userInfo.addRole(r3);
+
+        userRepository.save(userInfo);
+
+        UserInfo userInfo1 =new UserInfo();
+        userInfo1.setPassword(new BCryptPasswordEncoder().encode("password"));
+        userInfo1.setEnabled(true);
+        userInfo1.setEmail("nekiemail@email.com");
+        userInfo1.setUserName("user");
+        userInfo1.setCountry("Denmark");
+        userInfo1.setFirstName("Bjorn");
+        userInfo1.setLastName("Olafssen");
+
+        Role role = new Role(RolesEnum.ROLE_USER);
+        userInfo1.addRole(role);
+
+        userRepository.save(userInfo1);
 
     }
 
