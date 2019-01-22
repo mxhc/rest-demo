@@ -1,5 +1,6 @@
 package com.smort.controllers.v1;
 
+import com.smort.api.v1.model.PasswordDTO;
 import com.smort.api.v1.model.UserInfoDTO;
 import com.smort.domain.RolesEnum;
 import com.smort.services.UserInfoService;
@@ -89,8 +90,8 @@ public class UserController {
     @PostMapping("/{id}/password")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.OK)
-    public UserInfoDTO changePassword(@PathVariable Long id, @RequestParam String newPassword) {
-        return userInfoService.resetPassword(id, newPassword);
+    public UserInfoDTO changePassword(@PathVariable Long id, @RequestBody PasswordDTO passwordDTO) {
+        return userInfoService.resetPassword(id, passwordDTO);
     }
 
 

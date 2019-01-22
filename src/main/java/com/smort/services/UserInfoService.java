@@ -1,5 +1,6 @@
 package com.smort.services;
 
+import com.smort.api.v1.model.PasswordDTO;
 import com.smort.api.v1.model.UserInfoDTO;
 import com.smort.domain.RolesEnum;
 
@@ -22,5 +23,5 @@ public interface UserInfoService {
 
     UserInfoDTO revokeRole(Long id, RolesEnum role);
 
-    UserInfoDTO resetPassword(Long id, String newPassword);
+    UserInfoDTO resetPassword(Long id, PasswordDTO passwordDTO);
 }

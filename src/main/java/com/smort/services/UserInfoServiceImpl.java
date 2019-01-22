@@ -1,6 +1,7 @@
 package com.smort.services;
 
 import com.smort.api.v1.mapper.UserInfoMapper;
+import com.smort.api.v1.model.PasswordDTO;
 import com.smort.api.v1.model.RoleDTO;
 import com.smort.api.v1.model.UserInfoDTO;
 import com.smort.domain.Role;
@@ -57,9 +58,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         UserInfo savedUser = userRepository.save(userInfo);
 
-        UserInfoDTO returnDto = UserInfoMapper.INSTANCE.userInfoToUserInfoDTO(savedUser);
-
-        returnDto.setUserUrl(UrlBuilder.getUserUrl(savedUser.getId()));
+        UserInfoDTO returnDto = convertToDTO(savedUser);
 
         return returnDto;
 
@@ -154,13 +153,13 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public UserInfoDTO resetPassword(Long id, String newPassword) {
+    public UserInfoDTO resetPassword(Long id, PasswordDTO passwordDTO) {
 
         UserInfo userInfo = userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        String password = encoder.encode(newPassword);
+        String password = encoder.encode(passwordDTO.getPassword());
 
         userInfo.setPassword(password);
 
@@ -179,7 +178,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDTO;
     }
 
-    public List<RoleDTO> convertRolesToRolesDTO(List<Role> roles) {
+    public static List<RoleDTO> convertRolesToRolesDTO(List<Role> roles) {
         return roles
                 .stream()
                 .map(role -> {
