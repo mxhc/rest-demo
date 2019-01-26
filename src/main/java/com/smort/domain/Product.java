@@ -38,4 +38,13 @@ public class Product {
     @ManyToOne
     private Category category;
 
+    @OneToOne(mappedBy = "product", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private ProductPhoto productPhoto;
+
+    public Product(Long id, @NotBlank(message = "{product.name.blank}") @Size(min = 2, message = "{product.name.minsize}") String name, @PositiveOrZero(message = "{product.price.negative}") Double price, @NotNull(message = "{product.vendor}") Vendor vendor, @NotNull(message = "{product.category}") Category category) {
+        this.name = name;
+        this.price = price;
+        this.vendor = vendor;
+        this.category = category;
+    }
 }

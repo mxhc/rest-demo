@@ -2,13 +2,21 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.ProductMapper;
 import com.smort.api.v1.model.ProductDTO;
+import com.smort.domain.File;
 import com.smort.domain.Product;
+import com.smort.domain.ProductPhoto;
+import com.smort.error.FileStorageException;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CategoryRepository;
+import com.smort.repositories.FileRepository;
 import com.smort.repositories.ProductRepository;
 import com.smort.repositories.VendorRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,12 +27,14 @@ public class ProductServiceImpl implements ProductService {
     private final ProductMapper productMapper;
     private final VendorRepository vendorRepository;
     private final CategoryRepository categoryRepository;
+    private final FileRepository fileRepository;
 
-    public ProductServiceImpl(ProductRepository productRepository, ProductMapper productMapper, VendorRepository vendorRepository, CategoryRepository categoryRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, ProductMapper productMapper, VendorRepository vendorRepository, CategoryRepository categoryRepository, FileRepository fileRepository) {
         this.productRepository = productRepository;
         this.productMapper = productMapper;
         this.vendorRepository = vendorRepository;
         this.categoryRepository = categoryRepository;
+        this.fileRepository = fileRepository;
     }
 
     @Override
@@ -117,11 +127,64 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    @Override
+    public ProductDTO uploadPhoto(Long id, MultipartFile file) throws IOException {
+
+        Product product = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Product with id: " + id + " not found"));
+
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+        if (fileName.contains("..")) {
+            throw new FileStorageException("Filename contains invalid path sequence " + fileName);
+        }
+
+        File dbFile = new File(fileName, file.getContentType(), file.getBytes());
+
+        File savedFile = fileRepository.save(dbFile);
+
+        ProductPhoto productPhoto;
+
+        if (product.getProductPhoto() == null) {
+            productPhoto = new ProductPhoto();
+            productPhoto.setProduct(product);
+            productPhoto.setPhoto(savedFile);
+
+            product.setProductPhoto(productPhoto);
+        } else {
+            productPhoto = product.getProductPhoto();
+            productPhoto.setPhoto(savedFile);
+        }
+
+        Product savedProduct = productRepository.save(product);
+
+        ProductDTO productDTO = convertToDTOAndAddUrls(savedProduct);
+
+        return productDTO;
+
+    }
+
+    @Override
+    public File getImageByProductId(Long id) {
+
+        Product product = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Product with id: " + id + " not found"));
+
+        File dbFile = fileRepository.findById(product.getProductPhoto().getPhoto().getId())
+                .orElseThrow(()-> new ResourceNotFoundException("Product photo with product id: " + id + " not found"));
+
+        return dbFile;
+    }
+
     private ProductDTO convertToDTOAndAddUrls(Product product) {
         ProductDTO productDTO = productMapper.productToProductDTO(product);
 
         productDTO.setVendorUrl(UrlBuilder.getVendorUrl(product.getVendor().getId()));
         productDTO.setCategoryUrl(UrlBuilder.getCategoryUrl(product.getCategory().getName()));
+
+        if (product.getProductPhoto() != null) {
+            // todo check fetch type eager
+            productDTO.setPhotoUrl(UrlBuilder.getPhotoUrl(product.getId()));
+        }
 
         return productDTO;
     }

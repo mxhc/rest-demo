@@ -43,6 +43,11 @@ public class ProductDTO {
     @JsonProperty(value = "product_url")
     private String productUrl;
 
+    @ApiModelProperty(example = "/api/v1/products/101/photo", readOnly = true, position = 5)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "photo_url")
+    private String photoUrl;
+
     public ProductDTO(String name, Double price, String productUrl) {
         this.name = name;
         this.price = price;

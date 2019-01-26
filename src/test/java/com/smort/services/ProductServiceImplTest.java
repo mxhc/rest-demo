@@ -9,6 +9,7 @@ import com.smort.domain.Category;
 import com.smort.domain.Product;
 import com.smort.domain.Vendor;
 import com.smort.repositories.CategoryRepository;
+import com.smort.repositories.FileRepository;
 import com.smort.repositories.ProductRepository;
 import com.smort.repositories.VendorRepository;
 import org.junit.Before;
@@ -21,9 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 public class ProductServiceImplTest {
@@ -40,13 +39,15 @@ public class ProductServiceImplTest {
     VendorRepository vendorRepository;
     @Mock
     CategoryRepository categoryRepository;
+    @Mock
+    FileRepository fileRepository;
 
     @Before
     public void setUp() throws Exception {
 
         MockitoAnnotations.initMocks(this);
 
-        productService = new ProductServiceImpl(productRepository, ProductMapper.INSTANCE, vendorRepository, categoryRepository);
+        productService = new ProductServiceImpl(productRepository, ProductMapper.INSTANCE, vendorRepository, categoryRepository, fileRepository);
 
     }
 

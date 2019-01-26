@@ -2,13 +2,18 @@ package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.ProductDTO;
 import com.smort.api.v1.model.ProductListDTO;
+import com.smort.domain.File;
 import com.smort.services.ProductService;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 
 @Api(description = "Product Controller")
 @Validated
@@ -70,4 +75,28 @@ public class ProductController {
     public void deleteProduct(@PathVariable Long id) {
         productService.deleteProductById(id);
     }
+
+
+    @ApiOperation(value = "Upload a product photo")
+    @PutMapping("/{id}/photo")
+    @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProductDTO uploadProductPhoto(@PathVariable Long id, @RequestParam MultipartFile productPhoto) throws IOException {
+        return productService.uploadPhoto(id, productPhoto);
+    }
+
+    @ApiOperation(value = "Get a photo of a product")
+    @GetMapping(value = "/{id}/photo")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<byte[]> getProductPhoto(@PathVariable Long id) {
+
+        File dbFile = productService.getImageByProductId(id);
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.valueOf(dbFile.getFileType()))
+                .body(dbFile.getData());
+
+    }
 }
+

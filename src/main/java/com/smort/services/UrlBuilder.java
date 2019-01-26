@@ -35,4 +35,8 @@ public final class UrlBuilder {
     public static String getFileUri(String fileId) {
         return FileController.BASE_URL + "/" + fileId;
     }
+
+    public static String getPhotoUrl(Long id) {
+        return ProductController.BASE_URL + "/" + id + "/photo";
+    }
 }
