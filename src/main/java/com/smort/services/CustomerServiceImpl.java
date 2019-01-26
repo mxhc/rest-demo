@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .map(customerDTO -> {
                     customerDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(id));
                     return customerDTO;
-                }).orElseThrow(ResourceNotFoundException::new);
+                }).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + id + " not found"));
     }
 
     @Override
@@ -98,7 +98,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             returnDto.setCustomerUrl(UrlBuilder.getCustomerUrl(id));
 
-            return returnDto; }).orElseThrow(ResourceNotFoundException::new);
+            return returnDto; }).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + id + " not found"));
 
     }
 

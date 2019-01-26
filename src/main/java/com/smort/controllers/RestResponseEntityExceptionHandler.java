@@ -14,13 +14,14 @@ import org.springframework.web.context.request.WebRequest;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import java.io.IOException;
 
 @ControllerAdvice
 public class RestResponseEntityExceptionHandler {
 
     @ExceptionHandler({ResourceNotFoundException.class})
     public ResponseEntity<Object> handleNotFoundException(Exception exception, WebRequest request) {
-        return new ResponseEntity<Object>("Resource Not Found", new HttpHeaders(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<Object>("Resource Not Found\n" + exception.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(OrderStateException.class)
@@ -63,4 +64,19 @@ public class RestResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleNumberFormatException(Exception e, WebRequest request) {
         return new ResponseEntity<Object>("Parameter must be number", new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(IOException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<Object> handleIOException(Exception e, WebRequest request) {   // todo add multipart to constructor
+        return new ResponseEntity<Object>("Could not store file. Please try again.", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(FileStorageException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<Object> handleFileStorageException(Exception e, WebRequest request) {
+        return new ResponseEntity<Object>(e.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
 }

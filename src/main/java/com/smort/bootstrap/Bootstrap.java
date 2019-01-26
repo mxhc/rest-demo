@@ -63,10 +63,10 @@ public class Bootstrap implements CommandLineRunner {
     private void loadUsers() {
 
         UserInfo userInfo = new UserInfo();
-        userInfo.setPassword(new BCryptPasswordEncoder().encode("password"));
+        userInfo.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo.setEnabled(true);
         userInfo.setEmail("email@email.com");
-        userInfo.setUserName("superadmin");
+        userInfo.setUserName("mxhc");
         userInfo.setCountry("India");
         userInfo.setFirstName("Mile");
         userInfo.setLastName("Karapandza");
@@ -83,7 +83,7 @@ public class Bootstrap implements CommandLineRunner {
         userRepository.save(userInfo);
 
         UserInfo userInfo1 =new UserInfo();
-        userInfo1.setPassword(new BCryptPasswordEncoder().encode("password"));
+        userInfo1.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo1.setEnabled(true);
         userInfo1.setEmail("nekiemail@email.com");
         userInfo1.setUserName("user");

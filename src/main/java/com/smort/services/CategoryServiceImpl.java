@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Category findByName(String categoryName) {
-        return Optional.ofNullable(categoryRepository.findByName(categoryName)).orElseThrow(ResourceNotFoundException::new);
+        return Optional.ofNullable(categoryRepository.findByName(categoryName)).orElseThrow(()-> new ResourceNotFoundException("No such category"));
     }
 
     private CategoryDTO addUrl(CategoryDTO categoryDTO) {

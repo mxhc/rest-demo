@@ -31,4 +31,8 @@ public final class UrlBuilder {
     public static String getUserUrl(Long userId) {
         return UserController.BASE_URL + "/" + userId;
     }
+
+    public static String getFileUri(String fileId) {
+        return FileController.BASE_URL + "/" + fileId;
+    }
 }

@@ -41,7 +41,7 @@ public class VendorServiceImpl implements VendorService {
                     vendorDTO.setVendorUrl(UrlBuilder.getVendorUrl(id));
                     return vendorDTO;
                 })
-                .orElseThrow(ResourceNotFoundException::new);
+                .orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + id + " not found"));
     }
 
     @Override
@@ -96,7 +96,7 @@ public class VendorServiceImpl implements VendorService {
 
             return returnDTO;
 
-        }).orElseThrow(ResourceNotFoundException::new);
+        }).orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + id + " not found"));
 
     }
 
@@ -107,7 +107,7 @@ public class VendorServiceImpl implements VendorService {
 
     @Override
     public Vendor findVendorById(Long id) {
-        return vendorRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        return vendorRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + id + " not found"));
     }
 
 }

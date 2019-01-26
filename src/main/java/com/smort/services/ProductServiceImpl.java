@@ -40,7 +40,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO findById(Long id) {
-        Product product = productRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        Product product = productRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Product with id: " + id + " not found"));
 
         ProductDTO productDTO = convertToDTOAndAddUrls(product);
 
@@ -86,7 +86,7 @@ public class ProductServiceImpl implements ProductService {
             }
 
             if (productDTO.getVendorUrl() != null) {
-                product.setVendor(vendorRepository.findById(extractVendorIdFromUrl(productDTO)).orElseThrow(ResourceNotFoundException::new));
+                product.setVendor(vendorRepository.findById(extractVendorIdFromUrl(productDTO)).orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + extractVendorIdFromUrl(productDTO) + " not found")));
             }
 
             if (productDTO.getCategoryUrl() != null) {
@@ -99,7 +99,7 @@ public class ProductServiceImpl implements ProductService {
 
             return returnDTO;
 
-        }).orElseThrow(ResourceNotFoundException::new);
+        }).orElseThrow(()-> new ResourceNotFoundException("Product with id: " + id + " not found"));
     }
 
     @Override
@@ -133,7 +133,7 @@ public class ProductServiceImpl implements ProductService {
 
         Product product = productMapper.productDTOToProduct(productDTO);
 
-        product.setVendor(vendorRepository.findById(vendorId).orElseThrow(ResourceNotFoundException::new));
+        product.setVendor(vendorRepository.findById(vendorId).orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + vendorId + " not found")));
         product.setCategory(categoryRepository.findByName(categoryName));
 
         return product;
