@@ -59,7 +59,9 @@ public class FileStorageServiceImpl implements FileStorageService {
         BigDecimal sizeKb = BigDecimal.valueOf((double)fileInfoDTO.getSize()/1024);
         sizeKb = sizeKb.setScale(2, RoundingMode.HALF_UP);
 
-        fileInfoDTO.setSizeKb(sizeKb);
+        String stringSize = sizeKb + "kb";
+
+        fileInfoDTO.setSizeKb(stringSize);
 
         return fileInfoDTO;
 
