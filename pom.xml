@@ -50,7 +50,7 @@
         </dependency>
         <dependency>
             <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-jdk8</artifactId>
+            <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
 
@@ -117,20 +117,20 @@
                     <check/>
                 </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M2</version>
-                <configuration>
-                    <argLine>
-                        --illegal-access=permit
-                    </argLine>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>3.0.0-M2</version>-->
+                <!--<configuration>-->
+                    <!--<argLine>-->
+                        <!--&#45;&#45;illegal-access=permit-->
+                    <!--</argLine>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.7.0</version>
                 <configuration>
                     <release>11</release>
                     <annotationProcessorPaths>
