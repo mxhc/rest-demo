@@ -34,7 +34,6 @@ public class RestResponseEntityExceptionHandler {
         return new ResponseEntity<Object>("Error message: \n" + exception.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
-
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
