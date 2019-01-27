@@ -146,6 +146,7 @@
                 <version>0.8.3</version>
                 <executions>
                     <execution>
+                        <id>default-prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -163,9 +164,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <argLine>
-                        --illegal-access=permit
-                    </argLine>
+
                 </configuration>
             </plugin>
 
