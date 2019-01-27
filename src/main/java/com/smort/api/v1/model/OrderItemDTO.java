@@ -43,4 +43,5 @@ public class OrderItemDTO {
     @JsonProperty(value = "item_url")
     private String itemUrl;
 
+
 }
