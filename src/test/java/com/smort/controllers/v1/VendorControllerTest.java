@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -88,7 +89,8 @@ public class VendorControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(vendorDTO_1)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.name", equalTo(vendorDTO_1.getName())));
+                .andExpect(jsonPath("$.name", equalTo(vendorDTO_1.getName())))
+                .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
