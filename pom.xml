@@ -117,16 +117,15 @@
                     <check/>
                 </configuration>
             </plugin>
-
-            <!--<plugin>-->
-                <!--<artifactId>maven-surefire-plugin</artifactId>-->
-                <!--<version>3.0.0-M2</version>-->
-                <!--<configuration>-->
-                    <!--<argLine>-->
-                        <!--&#45;&#45;illegal-access=permit-->
-                    <!--</argLine>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M2</version>
+                <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                    </argLine>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
