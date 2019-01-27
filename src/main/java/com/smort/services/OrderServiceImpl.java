@@ -11,6 +11,7 @@ import com.smort.repositories.OrderItemRepository;
 import com.smort.repositories.OrderRepository;
 import com.smort.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,6 +94,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @Transactional
     @Override
     public OrderDTO createNewOrder(Long customerId) {
 
@@ -117,6 +119,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @Transactional
     @Override
     public void deleteOrder(Long id) {
         orderRepository.delete(orderRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + id + " not found")));
@@ -168,6 +171,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @Transactional
     @Override
     public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
 
@@ -214,6 +218,7 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    @Transactional
     @Override
     public OrderDTO purchaseAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -235,6 +240,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @Transactional
     @Override
     public OrderDTO cancelAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -255,6 +261,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @Transactional
     @Override
     public OrderDTO deliverAction(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -275,7 +282,6 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
-
     @Override
     public OrderItemDTO getItemFromOrder(Long oid, Long iid) {
 
@@ -291,6 +297,7 @@ public class OrderServiceImpl implements OrderService {
         return orderItemDTO;
     }
 
+    @Transactional
     @Override
     public void deleteItemFromOrder(Long oid, Long iid) {
         OrderItem orderItem = Optional.ofNullable(orderItemRepository.findByIdAndOrderId(iid, oid)).orElseThrow(()-> new ResourceNotFoundException("OrderItem with oid: " + oid + " and iid " + iid + " not found"));

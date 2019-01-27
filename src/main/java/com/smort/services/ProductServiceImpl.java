@@ -58,6 +58,7 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+    @Transactional
     @Override
     public ProductDTO createNewProduct(ProductDTO productDTO) {
 
@@ -72,6 +73,7 @@ public class ProductServiceImpl implements ProductService {
         return returnDto;
     }
 
+    @Transactional
     @Override
     public ProductDTO saveProductByDTO(Long id, ProductDTO productDTO) {
         Product product = convertToProductAndSetVendorAndCategory(productDTO);
@@ -83,7 +85,7 @@ public class ProductServiceImpl implements ProductService {
         return convertToDTOAndAddUrls(savedProduct);
     }
 
-
+    @Transactional
     @Override
     public ProductDTO patchProduct(Long id, ProductDTO productDTO) {
         return productRepository.findById(id).map(product -> {
@@ -112,6 +114,7 @@ public class ProductServiceImpl implements ProductService {
         }).orElseThrow(()-> new ResourceNotFoundException("Product with id: " + id + " not found"));
     }
 
+    @Transactional
     @Override
     public void deleteProductById(Long id) {
         productRepository.deleteById(id);
@@ -182,7 +185,6 @@ public class ProductServiceImpl implements ProductService {
         productDTO.setCategoryUrl(UrlBuilder.getCategoryUrl(product.getCategory().getName()));
 
         if (product.getProductPhoto() != null) {
-            // todo check fetch type eager
             productDTO.setPhotoUrl(UrlBuilder.getPhotoUrl(product.getId()));
         }
 

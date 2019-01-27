@@ -1,6 +1,7 @@
 package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.FileInfoDTO;
+import com.smort.api.v1.model.FileInfoListDTO;
 import com.smort.domain.File;
 import com.smort.services.FileStorageService;
 import io.swagger.annotations.Api;
@@ -82,4 +83,10 @@ public class FileController {
         return fileStorageService.getFileInfoById(fileId);
     }
 
+    @ApiOperation(value = "Get list of files")
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public FileInfoListDTO getFileInfoList() {
+        return fileStorageService.getFileInfoList();
+    }
 }

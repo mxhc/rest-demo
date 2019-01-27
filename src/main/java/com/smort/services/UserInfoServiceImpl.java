@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,7 +43,7 @@ public class UserInfoServiceImpl implements UserInfoService {
                 }).collect(Collectors.toList());
     }
 
-
+    @Transactional
     @Override
     public UserInfoDTO createNewUser(UserInfoDTO userInfoDTO) {
 
@@ -64,6 +65,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     }
 
+    @Transactional
     @Override
     public UserInfoDTO setRole(RolesEnum role, Long id) {
 
@@ -82,6 +84,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDTO;
     }
 
+    @Transactional
     @Override
     public UserInfoDTO activateUser(Long id) {
 
@@ -96,11 +99,13 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDTO;
     }
 
+    @Transactional
     @Override
     public void deleteUserById(Long id) {
         userRepository.delete(userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found")));
     }
 
+    @Transactional
     @Override
     public UserInfoDTO editUser(UserInfoDTO userInfoDTO, Long id) {
 
@@ -118,6 +123,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return returnDto;
     }
 
+    @Transactional
     @Override
     public UserInfoDTO getUserById(Long id) {
 
@@ -128,6 +134,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDTO;
     }
 
+    @Transactional
     @Override
     public UserInfoDTO revokeRole(Long id, RolesEnum role) {
 
@@ -152,6 +159,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     }
 
+    @Transactional
     @Override
     public UserInfoDTO resetPassword(Long id, PasswordDTO passwordDTO) {
 

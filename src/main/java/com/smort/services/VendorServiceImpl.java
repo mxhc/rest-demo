@@ -6,6 +6,7 @@ import com.smort.domain.Vendor;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.VendorRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -44,6 +45,7 @@ public class VendorServiceImpl implements VendorService {
                 .orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + id + " not found"));
     }
 
+    @Transactional
     @Override
     public VendorDTO createNewVendor(VendorDTO vendorDTO) {
 
@@ -58,6 +60,7 @@ public class VendorServiceImpl implements VendorService {
         return returnDto;
     }
 
+    @Transactional
     @Override
     public VendorDTO saveVendorByDTO(Long id, VendorDTO vendorDTO) {
 
@@ -68,6 +71,7 @@ public class VendorServiceImpl implements VendorService {
         return saveAndReturnDto(vendor);
     }
 
+    @Transactional
     private VendorDTO saveAndReturnDto(Vendor vendor) {
 
         Vendor savedVendor = vendorRepository.save(vendor);
@@ -79,6 +83,7 @@ public class VendorServiceImpl implements VendorService {
         return returnDTO;
     }
 
+    @Transactional
     @Override
     public VendorDTO patchVendor(Long id, VendorDTO vendorDTO) {
 
@@ -100,6 +105,7 @@ public class VendorServiceImpl implements VendorService {
 
     }
 
+    @Transactional
     @Override
     public void deleteVendorById(Long id) {
         vendorRepository.deleteById(id);

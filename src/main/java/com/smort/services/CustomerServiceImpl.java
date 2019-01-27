@@ -2,11 +2,11 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.CustomerMapper;
 import com.smort.api.v1.model.CustomerDTO;
-import com.smort.controllers.v1.CustomerController;
 import com.smort.domain.Customer;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,6 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + id + " not found"));
     }
 
+    @Transactional
     @Override
     public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
 
@@ -60,7 +61,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
-    private CustomerDTO saveAndReturnDTO(Customer customer) {
+    @Transactional
+    public CustomerDTO saveAndReturnDTO(Customer customer) {
         Customer savedCustomer = customerRepository.save(customer);
 
         CustomerDTO returnDTO = customerMapper.customerToCustomerDTO(savedCustomer);
@@ -71,6 +73,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @Transactional
     @Override
     public CustomerDTO saveCustomerByDTO(Long id, CustomerDTO customerDTO) {
 
@@ -81,7 +84,7 @@ public class CustomerServiceImpl implements CustomerService {
         return saveAndReturnDTO(customer);
     }
 
-
+    @Transactional
     @Override
     public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
         return customerRepository.findById(id).map(customer -> {
@@ -102,14 +105,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @Transactional
     @Override
     public void deleteCustomerById(Long id) {
         // todo error handling if id is not found
         customerRepository.deleteById(id);
     }
 
-    public static String getCustomerUrl(Long id) {
-        return CustomerController.BASE_URL + "/" + id;
-    }
 
 }

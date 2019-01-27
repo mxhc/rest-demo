@@ -1,6 +1,7 @@
 package com.smort.services;
 
 import com.smort.api.v1.model.FileInfoDTO;
+import com.smort.api.v1.model.FileInfoListDTO;
 import com.smort.domain.File;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,4 +14,7 @@ public interface FileStorageService {
     File getFile(String fileId);
 
     FileInfoDTO getFileInfoById(String fileId);
+
+    FileInfoListDTO getFileInfoList();
+
 }
