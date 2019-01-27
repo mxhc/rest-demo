@@ -27,7 +27,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rest-demo" target="1.8" />
+      <module name="rest-demo" target="11.0.2" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
