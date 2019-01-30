@@ -1,0 +1,6 @@
+---
+applications:
+- name: rest-demo-smort
+  memory: 768M
+  instances: 1
+  path: ./target/rest-demo-0.0.1-SNAPSHOT.jar
