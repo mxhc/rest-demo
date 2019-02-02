@@ -39,4 +39,8 @@ public final class UrlBuilder {
     public static String getPhotoUrl(Long id) {
         return ProductController.BASE_URL + "/" + id + "/photo";
     }
+
+    public static String getNextPageUrl(Integer page, Integer limit) {
+        return ProductController.BASE_URL + "/?page=" + (page + 1) + "&limit=" + limit;
+    }
 }

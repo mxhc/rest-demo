@@ -1,6 +1,7 @@
 package com.smort.services;
 
 import com.smort.api.v1.model.ProductDTO;
+import com.smort.api.v1.model.ProductListDTO;
 import com.smort.domain.File;
 import com.smort.domain.Product;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,8 +10,6 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ProductService {
-
-    List<ProductDTO> getAllProducts();
 
     ProductDTO findById(Long id);
 
@@ -27,4 +26,9 @@ public interface ProductService {
     ProductDTO uploadPhoto(Long id, MultipartFile productPhoto) throws IOException;
 
     File getImageByProductId(Long id);
+
+    ProductListDTO getAllProductsPaginated(Integer page, int limit);
+
+    ProductListDTO getAllProductsMeta();
+
 }

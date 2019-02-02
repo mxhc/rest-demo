@@ -2,15 +2,17 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.ProductMapper;
 import com.smort.api.v1.model.ProductDTO;
+import com.smort.api.v1.model.ProductListDTO;
+import com.smort.api.v1.model.ProductsMetaDTO;
 import com.smort.domain.File;
 import com.smort.domain.Product;
 import com.smort.domain.ProductPhoto;
 import com.smort.error.FileStorageException;
 import com.smort.error.ResourceNotFoundException;
-import com.smort.repositories.CategoryRepository;
-import com.smort.repositories.FileRepository;
-import com.smort.repositories.ProductRepository;
-import com.smort.repositories.VendorRepository;
+import com.smort.repositories.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -28,24 +30,67 @@ public class ProductServiceImpl implements ProductService {
     private final VendorRepository vendorRepository;
     private final CategoryRepository categoryRepository;
     private final FileRepository fileRepository;
+    private final ProductRepositoryPaging productRepositoryPaging;
 
-    public ProductServiceImpl(ProductRepository productRepository, ProductMapper productMapper, VendorRepository vendorRepository, CategoryRepository categoryRepository, FileRepository fileRepository) {
+    public ProductServiceImpl(ProductRepository productRepository, ProductMapper productMapper, VendorRepository vendorRepository, CategoryRepository categoryRepository, FileRepository fileRepository, ProductRepositoryPaging productRepositoryPaging) {
         this.productRepository = productRepository;
         this.productMapper = productMapper;
         this.vendorRepository = vendorRepository;
         this.categoryRepository = categoryRepository;
         this.fileRepository = fileRepository;
+        this.productRepositoryPaging = productRepositoryPaging;
+    }
+
+
+    @Override
+    public ProductListDTO getAllProductsPaginated(Integer page, int limit) {
+
+        ProductListDTO productListDTO = new ProductListDTO();
+
+        Pageable pageableRequest = PageRequest.of(page-1, limit);
+
+        Page<Product> products = productRepositoryPaging.findAll(pageableRequest);
+
+        List<ProductDTO> listOfDTOs = products.getContent().stream().map(product -> {
+                ProductDTO productDTO = productMapper.productToProductDTO(product);
+                productDTO.setProductUrl(UrlBuilder.getProductUrl(product.getId()));
+                return productDTO;
+            }).collect(Collectors.toList());
+
+        Long productsCount = productRepository.count();
+
+        ProductsMetaDTO productsMetaDTO = new ProductsMetaDTO();
+        productsMetaDTO.setCount(productsCount);
+        productsMetaDTO.setLimit(limit);
+        productsMetaDTO.setPage(page);
+        productsMetaDTO.setNextUrl(UrlBuilder.getNextPageUrl(page, limit));
+
+        productListDTO.setMeta(productsMetaDTO);
+
+        productListDTO.setProducts(listOfDTOs);
+
+        return productListDTO;
     }
 
     @Override
-    public List<ProductDTO> getAllProducts() {
-        return productRepository.findAll()
+    public ProductListDTO getAllProductsMeta() {
+
+        List<ProductDTO> productDTOList = productRepository.findAll()
                 .stream()
                 .map(product -> {
                     ProductDTO productDTO = convertToDTOAndAddProductUrl(product);
                     return productDTO;
                 })
                 .collect(Collectors.toList());
+
+        ProductsMetaDTO metaDTO = new ProductsMetaDTO();
+        metaDTO.setCount((long) productDTOList.size());
+
+        ProductListDTO returnObject = new ProductListDTO(productDTOList);
+
+        returnObject.setMeta(metaDTO);
+
+        return returnObject;
     }
 
     @Override

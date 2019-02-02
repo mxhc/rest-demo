@@ -8,10 +8,7 @@ import com.smort.controllers.v1.VendorController;
 import com.smort.domain.Category;
 import com.smort.domain.Product;
 import com.smort.domain.Vendor;
-import com.smort.repositories.CategoryRepository;
-import com.smort.repositories.FileRepository;
-import com.smort.repositories.ProductRepository;
-import com.smort.repositories.VendorRepository;
+import com.smort.repositories.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -41,13 +38,15 @@ public class ProductServiceImplTest {
     CategoryRepository categoryRepository;
     @Mock
     FileRepository fileRepository;
+    @Mock
+    ProductRepositoryPaging productRepositoryPaging;
 
     @Before
     public void setUp() throws Exception {
 
         MockitoAnnotations.initMocks(this);
 
-        productService = new ProductServiceImpl(productRepository, ProductMapper.INSTANCE, vendorRepository, categoryRepository, fileRepository);
+        productService = new ProductServiceImpl(productRepository, ProductMapper.INSTANCE, vendorRepository, categoryRepository, fileRepository, productRepositoryPaging);
 
     }
 
@@ -60,7 +59,7 @@ public class ProductServiceImplTest {
         when(productRepository.findAll()).thenReturn(products);
 
         // when
-        List<ProductDTO> productDTOS = productService.getAllProducts();
+        List<ProductDTO> productDTOS = productService.getAllProductsMeta().getProducts();
 
         // then
         assertEquals(3, productDTOS.size());

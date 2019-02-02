@@ -29,11 +29,18 @@ public class ProductController {
         this.productService = productService;
     }
 
+    @ApiOperation(value = "Get paginated list of products", notes = "Collection of Products")
+    @GetMapping("/paginated")
+    @ResponseStatus(HttpStatus.OK)
+    public ProductListDTO getPaginatedListOfUsers(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "limit", defaultValue = "5") int limit) {
+        return productService.getAllProductsPaginated(page, limit);
+    }
+
     @ApiOperation(value = "${controller.product.get.list}", notes = "${controller.product.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ProductListDTO getAllProducts() {
-        return new ProductListDTO(productService.getAllProducts());
+        return productService.getAllProductsMeta();
     }
 
     @ApiOperation(value = "${controller.product.get}", notes = "${controller.product.get.notes}")

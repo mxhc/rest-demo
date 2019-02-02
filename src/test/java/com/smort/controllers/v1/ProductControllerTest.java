@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import java.util.Arrays;
 
@@ -59,15 +60,16 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void getAllProducts() throws Exception {
+    public void getAllProductsMeta() throws Exception {
         ProductListDTO productListDTO = new ProductListDTO(Arrays.asList(productDTO1, productDTO2));
 
-        given(productService.getAllProducts()).willReturn(productListDTO.getProducts());
+        given(productService.getAllProductsMeta()).willReturn(productListDTO);
 
         mockMvc.perform(get(ProductController.BASE_URL)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.products", hasSize(2)));
+                .andExpect(jsonPath("$.products", hasSize(2)))
+                .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
