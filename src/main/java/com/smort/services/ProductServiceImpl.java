@@ -1,9 +1,9 @@
 package com.smort.services;
 
 import com.smort.api.v1.mapper.ProductMapper;
+import com.smort.api.v1.model.MetaDTO;
 import com.smort.api.v1.model.ProductDTO;
 import com.smort.api.v1.model.ProductListDTO;
-import com.smort.api.v1.model.ProductsMetaDTO;
 import com.smort.domain.File;
 import com.smort.domain.Product;
 import com.smort.domain.ProductPhoto;
@@ -59,13 +59,13 @@ public class ProductServiceImpl implements ProductService {
 
         Long productsCount = productRepository.count();
 
-        ProductsMetaDTO productsMetaDTO = new ProductsMetaDTO();
-        productsMetaDTO.setCount(productsCount);
-        productsMetaDTO.setLimit(limit);
-        productsMetaDTO.setPage(page);
-        productsMetaDTO.setNextUrl(UrlBuilder.getNextPageUrl(page, limit));
+        MetaDTO metaDTO = new MetaDTO();
+        metaDTO.setCount(productsCount);
+        metaDTO.setLimit(limit);
+        metaDTO.setPage(page);
+        metaDTO.setNextUrl(UrlBuilder.getNextProductsPageUrl(page, limit));
 
-        productListDTO.setMeta(productsMetaDTO);
+        productListDTO.setMeta(metaDTO);
 
         productListDTO.setProducts(listOfDTOs);
 
@@ -83,7 +83,7 @@ public class ProductServiceImpl implements ProductService {
                 })
                 .collect(Collectors.toList());
 
-        ProductsMetaDTO metaDTO = new ProductsMetaDTO();
+        MetaDTO metaDTO = new MetaDTO();
         metaDTO.setCount((long) productDTOList.size());
 
         ProductListDTO returnObject = new ProductListDTO(productDTOList);

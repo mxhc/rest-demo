@@ -2,9 +2,11 @@ package com.smort.services;
 
 import com.smort.api.v1.mapper.CustomerMapper;
 import com.smort.api.v1.model.CustomerDTO;
+import com.smort.api.v1.model.CustomerListDTO;
 import com.smort.controllers.v1.CustomerController;
 import com.smort.domain.Customer;
 import com.smort.repositories.CustomerRepository;
+import com.smort.repositories.CustomerRepositoryPaging;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -29,12 +31,15 @@ public class CustomerServiceImplTest {
     @Mock
     CustomerRepository customerRepository;
 
+    @Mock
+    CustomerRepositoryPaging customerRepositoryPaging;
+
     @Before
     public void setUp() throws Exception {
 
         MockitoAnnotations.initMocks(this);
 
-        customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);
+        customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository, customerRepositoryPaging);
 
     }
 
@@ -47,10 +52,10 @@ public class CustomerServiceImplTest {
         when(customerRepository.findAll()).thenReturn(customers);
 
         // when
-        List<CustomerDTO> customerDTOS = customerService.getAllCustomers();
+        CustomerListDTO customerListDTO = customerService.getAllCustomersMeta();
 
         // then
-        assertEquals(3, customerDTOS.size());
+        assertEquals(3, customerListDTO.getCustomers().size());
 
     }
 

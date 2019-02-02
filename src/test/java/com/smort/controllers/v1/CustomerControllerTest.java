@@ -1,6 +1,7 @@
 package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.CustomerDTO;
+import com.smort.api.v1.model.CustomerListDTO;
 import com.smort.controllers.RestResponseEntityExceptionHandler;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.services.CustomerService;
@@ -64,8 +65,11 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
 
         List<CustomerDTO> customers = Arrays.asList(c1, c2);
 
+        CustomerListDTO customerListDTO = new CustomerListDTO();
+        customerListDTO.setCustomers(customers);
+
         // when
-        when(customerService.getAllCustomers()).thenReturn(customers);
+        when(customerService.getAllCustomersMeta()).thenReturn(customerListDTO);
 
         // then
         mockMvc.perform(get(CustomerController.BASE_URL).contentType(MediaType.APPLICATION_JSON))

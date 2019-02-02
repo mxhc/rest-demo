@@ -24,11 +24,18 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    @ApiOperation(value = "Get paginated list of customers", notes = "Collection of customers")
+    @GetMapping("/paginated")
+    @ResponseStatus(HttpStatus.OK)
+    public CustomerListDTO getPaginatedListOfCustomers(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "limit", defaultValue = "5") int limit) {
+        return customerService.getAllCustomersPaginated(page, limit);
+    }
+
     @ApiOperation(value = "${controller.customer.get.list}", notes = "${controller.customer.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public CustomerListDTO getAllCustomers()  {
-        return new CustomerListDTO(customerService.getAllCustomers());
+        return customerService.getAllCustomersMeta();
     }
 
     @ApiOperation(value = "${controller.customer.get}", notes = "${controller.customer.get.notes}")

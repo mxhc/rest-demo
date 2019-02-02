@@ -13,7 +13,7 @@ import java.util.List;
 public class ProductListDTO {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private ProductsMetaDTO meta;
+    private MetaDTO meta;
 
     private List<ProductDTO> products;
 

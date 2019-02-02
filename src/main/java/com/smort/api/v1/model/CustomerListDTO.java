@@ -11,6 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 public class CustomerListDTO {
 
-    List<CustomerDTO> customers;
+    private MetaDTO meta;
+
+    private List<CustomerDTO> customers;
 
 }

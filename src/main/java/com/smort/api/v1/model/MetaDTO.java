@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductsMetaDTO {
+public class MetaDTO {
 
     @ApiModelProperty(readOnly = true, example = "55")
     @JsonInclude(JsonInclude.Include.NON_NULL)

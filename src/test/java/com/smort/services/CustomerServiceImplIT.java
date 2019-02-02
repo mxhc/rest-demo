@@ -28,6 +28,9 @@ public class CustomerServiceImplIT {
     CustomerRepository customerRepository;
 
     @Autowired
+    CustomerRepositoryPaging customerRepositoryPaging;
+
+    @Autowired
     CategoryRepository categoryRepository;
 
     @Autowired
@@ -54,7 +57,7 @@ public class CustomerServiceImplIT {
         Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository, productRepository, orderRepository, userRepository);
         bootstrap.run(); //  load data
 
-        customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);
+        customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository, customerRepositoryPaging);
 
     }
 

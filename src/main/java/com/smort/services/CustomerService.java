@@ -1,12 +1,9 @@
 package com.smort.services;
 
 import com.smort.api.v1.model.CustomerDTO;
-
-import java.util.List;
+import com.smort.api.v1.model.CustomerListDTO;
 
 public interface CustomerService {
-
-    List<CustomerDTO> getAllCustomers();
 
     CustomerDTO findById(Long id);
 
@@ -17,4 +14,8 @@ public interface CustomerService {
     CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO);
 
     void deleteCustomerById(Long id);
+
+    CustomerListDTO getAllCustomersMeta();
+
+    CustomerListDTO getAllCustomersPaginated(Integer page, int limit);
 }
