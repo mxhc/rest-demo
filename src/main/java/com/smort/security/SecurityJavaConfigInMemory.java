@@ -41,15 +41,15 @@ public class SecurityJavaConfigInMemory extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().sameOrigin()
             .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1/customers/**").authenticated()
-                .antMatchers("/api/v1/vendors/**").hasRole("ADMIN")
-                .antMatchers("/**").permitAll()
+                .antMatchers("/api/v1/customers/**").authenticated() // ovde menjas urlove da mora da si ulogovan
+                .antMatchers("/api/v1/vendors/**").hasRole("ADMIN")// mora da je admin
+                .antMatchers("/**").permitAll()// ovde pusta sve
             .and()
                 .logout()
                     .logoutUrl("/logout")
                     .invalidateHttpSession(true)
                     .clearAuthentication(true)
-                    .logoutSuccessUrl("/swagger-ui.html");
+                    .logoutSuccessUrl("/swagger-ui.html"); // ovde ide stranica koju daje posle loguta
     }
 
     @Bean

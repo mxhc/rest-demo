@@ -181,7 +181,11 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         userInfoDTO.setUserUrl(UrlBuilder.getUserUrl(userInfo.getId()));
 
-        userInfoDTO.setRoles(convertRolesToRolesDTO(userInfo.getRoles()));
+        if (userInfo.getRoles() != null) {
+
+            userInfoDTO.setRoles(convertRolesToRolesDTO(userInfo.getRoles()));
+
+        }
 
         return userInfoDTO;
     }
