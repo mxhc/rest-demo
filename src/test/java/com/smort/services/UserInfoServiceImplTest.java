@@ -12,9 +12,11 @@ import com.smort.repositories.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -42,6 +44,8 @@ public class UserInfoServiceImplTest extends AbstractRestControllerTest {
     public static final String COUNTRY = "USA";
     public static final Boolean ENABLED = true;
     public static final String PASSWORD = "password";
+
+    HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
 
     @Before
     public void setUp() throws Exception {

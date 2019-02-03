@@ -13,6 +13,10 @@ import com.smort.error.UniqueFieldException;
 import com.smort.repositories.RoleRepository;
 import com.smort.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -74,9 +78,15 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public UserInfoDTO setRole(RolesEnum role, Long id) {
+
+        if (role.getRole() == "ROLE_SUPERADMIN" &&
+                !AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities()).contains("ROLE_SUPERADMIN")) {
+            throw new AccessDeniedException("Only SUPERADMIN can grant this role");
+        }
 
         UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 

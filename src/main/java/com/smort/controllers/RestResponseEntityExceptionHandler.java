@@ -1,10 +1,10 @@
 package com.smort.controllers;
 
 import com.smort.error.*;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -79,13 +79,6 @@ public class RestResponseEntityExceptionHandler {
         return new ResponseEntity<Object>(e.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ResponseBody
-    public ResponseEntity<Object> handleDataIntegrityViolationException(Exception e, WebRequest request) {
-        return new ResponseEntity<Object>(e.getCause() + e.getLocalizedMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
-    }
-
     @ExceptionHandler(UniqueFieldException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
@@ -93,5 +86,11 @@ public class RestResponseEntityExceptionHandler {
         return new ResponseEntity<Object>(e.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(AccessDeniedException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    public ResponseEntity<Object> handleAccessDeniedException(Exception e, WebRequest request) {
+        return new ResponseEntity<Object>(e.getMessage() + "\nYou are not authorised for this action", new HttpHeaders(), HttpStatus.FORBIDDEN);
+    }
 
 }

@@ -96,6 +96,23 @@ public class Bootstrap implements CommandLineRunner {
 
         userRepository.save(userInfo1);
 
+        UserInfo userInfo2 =new UserInfo();
+        userInfo2.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        userInfo2.setEnabled(true);
+        userInfo2.setEmail("admin@email.com");
+        userInfo2.setUserName("admin");
+        userInfo2.setCountry("Srbija");
+        userInfo2.setFirstName("Ivan");
+        userInfo2.setLastName("Bjelic");
+
+        Role role5 = new Role(RolesEnum.ROLE_USER);
+        userInfo2.addRole(role5);
+
+        Role role6 = new Role(RolesEnum.ROLE_ADMIN);
+        userInfo2.addRole(role6);
+
+        userRepository.save(userInfo2);
+
     }
 
     private void loadOrders() {

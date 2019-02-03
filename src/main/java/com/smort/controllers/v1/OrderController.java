@@ -30,7 +30,7 @@ public class OrderController {
     @ApiOperation(value = "${controller.order.get.list}", notes = "${controller.order.get.list.notes}")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public OrderListDTO getAllOrders(@RequestParam(required = false) @ApiParam(value = "${controller.order.get.list.param.state}") OrderStatus state) {   //todo display by order status
+    public OrderListDTO getAllOrders(@RequestParam(required = false) @ApiParam(value = "${controller.order.get.list.param.state}") OrderStatus state) {
         return new OrderListDTO(orderService.getAllOrders(state));
     }
 

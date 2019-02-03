@@ -17,6 +17,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.Arrays;
@@ -141,12 +142,15 @@ public class UserControllerTest extends AbstractRestControllerTest {
 
         userInfoDTO.setRoles(roleDTOS);
 
-        when(userInfoService.setRole(RolesEnum.ROLE_USER, ID)).thenReturn(userInfoDTO);
+        when(userInfoService.setRole(any(RolesEnum.class), anyLong())).thenReturn(userInfoDTO);
+
+//        when(userInfoService.setRole(RolesEnum.ROLE_USER, ID, request)).thenReturn(userInfoDTO);
 
         mockMvc.perform(post(UserController.BASE_URL + "/" + ID + "/roles?role=" + RolesEnum.ROLE_USER)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(asJsonString(userInfoDTO)))
                 .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print())
                 .andExpect(jsonPath("$.email", equalTo(EMAIL)))
                 .andExpect(jsonPath("$.roles", hasSize(1)))
                 .andExpect(jsonPath("$.roles[0].role", equalTo(r1.getRole().getRole())))
