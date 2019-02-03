@@ -31,7 +31,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
                 .authorizeRequests()
+                .antMatchers("http://localhost:8080/h2-console/**").permitAll()
                 .antMatchers("/", "/csrf", "/v2/api-docs", "/swagger-resources/configuration/ui", "/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/configuration/security", "/swagger-ui.html", "/webjars/**").permitAll()
                 .antMatchers("/**").hasAnyRole("ADMIN", "USER", "SUPERADMIN")
                 .and().httpBasic().realmName("MY APP REALM")

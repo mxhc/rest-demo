@@ -5,6 +5,7 @@ import com.smort.api.v1.model.UserInfoDTO;
 import com.smort.domain.RolesEnum;
 import com.smort.services.UserInfoService;
 import io.swagger.annotations.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@Slf4j
 @Api(description = "User controller")
 @RestController
 @Validated
@@ -38,7 +40,7 @@ public class UserController {
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})
     @ResponseStatus(HttpStatus.CREATED)
     public UserInfoDTO createNewUser(@RequestBody @ApiParam("User information for new User to be added") @Valid UserInfoDTO userInfoDTO) {
-        return userInfoService.createNewUser(userInfoDTO);
+            return userInfoService.createNewUser(userInfoDTO);
     }
 
     @ApiOperation(value = "Set user role")

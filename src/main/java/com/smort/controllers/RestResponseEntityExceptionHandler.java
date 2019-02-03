@@ -1,6 +1,7 @@
 package com.smort.controllers;
 
 import com.smort.error.*;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -77,5 +78,20 @@ public class RestResponseEntityExceptionHandler {
     public ResponseEntity<Object> handleFileStorageException(Exception e, WebRequest request) {
         return new ResponseEntity<Object>(e.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<Object> handleDataIntegrityViolationException(Exception e, WebRequest request) {
+        return new ResponseEntity<Object>(e.getCause() + e.getLocalizedMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UniqueFieldException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<Object> handleUniqueFieldException(Exception e, WebRequest request) {
+        return new ResponseEntity<Object>(e.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
 
 }

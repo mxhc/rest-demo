@@ -9,6 +9,7 @@ import com.smort.domain.RolesEnum;
 import com.smort.domain.UserInfo;
 import com.smort.error.InvalidUserOperationException;
 import com.smort.error.ResourceNotFoundException;
+import com.smort.error.UniqueFieldException;
 import com.smort.repositories.RoleRepository;
 import com.smort.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -47,6 +48,14 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDTO createNewUser(UserInfoDTO userInfoDTO) {
 
+        if (userRepository.existsByUserName(userInfoDTO.getUserName())) {
+            throw new UniqueFieldException("User name already taken");
+        }
+
+        if (userRepository.existsByEmail(userInfoDTO.getEmail())) {
+            throw new UniqueFieldException("Account with email \"" + userInfoDTO.getEmail() + "\" already exists");
+        }
+
         UserInfo userInfo = UserInfoMapper.INSTANCE.userInfoDTOToUserInfo(userInfoDTO);
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -69,7 +78,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDTO setRole(RolesEnum role, Long id) {
 
-        UserInfo userInfo = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 
         if (userInfo.getRoles().stream().anyMatch(role1 -> role1.getRole().getRole().equals(role.getRole()))) {
             throw new InvalidUserOperationException("User already has that role");
@@ -92,7 +101,7 @@ public class UserInfoServiceImpl implements UserInfoService {
             userInfo.setEnabled(true);
             UserInfo saved = userRepository.save(userInfo);
             return saved;
-        }).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 
         UserInfoDTO userInfoDTO = convertToDTO(enabledUser);
 
@@ -102,14 +111,14 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Transactional
     @Override
     public void deleteUserById(Long id) {
-        userRepository.delete(userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found")));
+        userRepository.delete(userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found")));
     }
 
     @Transactional
     @Override
     public UserInfoDTO editUser(UserInfoDTO userInfoDTO, Long id) {
 
-        UserInfo oldUser = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+        UserInfo oldUser = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 
         UserInfo userInfo = UserInfoMapper.INSTANCE.userInfoDTOToUserInfo(userInfoDTO);
         userInfo.setId(id);
@@ -127,7 +136,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDTO getUserById(Long id) {
 
-        UserInfo userInfo = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 
         UserInfoDTO userInfoDTO = convertToDTO(userInfo);
 
@@ -138,7 +147,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDTO revokeRole(Long id, RolesEnum role) {
 
-        UserInfo userInfo = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 
         if (!userInfo.getRoles().stream().anyMatch(role1 -> role1.getRole().getRole().equals(role.getRole()))) {
             throw new InvalidUserOperationException("User does not have that role");
@@ -163,7 +172,7 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserInfoDTO resetPassword(Long id, PasswordDTO passwordDTO) {
 
-        UserInfo userInfo = userRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+        UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
 

@@ -21,6 +21,8 @@ import java.io.IOException;
 @RequestMapping(ProductController.BASE_URL)
 public class ProductController {
 
+
+
     public static final String BASE_URL = "/api/v1/products";
 
     private final ProductService productService;
