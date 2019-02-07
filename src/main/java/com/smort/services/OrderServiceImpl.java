@@ -10,6 +10,7 @@ import com.smort.repositories.CustomerRepository;
 import com.smort.repositories.OrderItemRepository;
 import com.smort.repositories.OrderRepository;
 import com.smort.repositories.ProductRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,6 +37,7 @@ public class OrderServiceImpl implements OrderService {
         this.orderItemRepository = orderItemRepository;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public List<OrderDTO> getAllOrders(OrderStatus orderStatus) {
 
@@ -65,6 +67,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTOS;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public OrderDTO findById(Long id) {
 
@@ -94,6 +97,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN') or hasRole('ROLE_USER')")
     @Transactional
     @Override
     public OrderDTO createNewOrder(Long customerId) {
@@ -119,12 +123,14 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public void deleteOrder(Long id) {
         orderRepository.delete(orderRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + id + " not found")));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public OrderListDTO getOrdersByCustomer(Long customerId) {
         Customer customer = customerRepository.findById(customerId).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + customerId + " not found"));
@@ -140,7 +146,7 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
-
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public OrderDTO getOrderById(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -171,6 +177,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
@@ -201,6 +208,7 @@ public class OrderServiceImpl implements OrderService {
         return returnDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public OrderItemListDTO getListOfItems(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -218,6 +226,7 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public OrderDTO purchaseAction(Long orderId) {
@@ -240,6 +249,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public OrderDTO cancelAction(Long orderId) {
@@ -261,6 +271,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public OrderDTO deliverAction(Long orderId) {
@@ -282,6 +293,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public OrderItemDTO getItemFromOrder(Long oid, Long iid) {
 
@@ -297,6 +309,7 @@ public class OrderServiceImpl implements OrderService {
         return orderItemDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public void deleteItemFromOrder(Long oid, Long iid) {

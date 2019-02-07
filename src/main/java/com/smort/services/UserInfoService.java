@@ -2,12 +2,14 @@ package com.smort.services;
 
 import com.smort.api.v1.model.PasswordDTO;
 import com.smort.api.v1.model.UserInfoDTO;
+import com.smort.api.v1.model.UserListDTO;
 import com.smort.domain.RolesEnum;
 
-import java.util.List;
-
 public interface UserInfoService {
-    List<UserInfoDTO> getAllUsers();
+
+    UserListDTO getAllUsersMeta();
+
+    UserListDTO getAllUsersPaginated(Integer page, int limit);
 
     UserInfoDTO createNewUser(UserInfoDTO userInfoDTO);
 

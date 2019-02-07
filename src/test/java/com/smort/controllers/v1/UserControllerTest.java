@@ -3,6 +3,7 @@ package com.smort.controllers.v1;
 import com.smort.api.v1.model.PasswordDTO;
 import com.smort.api.v1.model.RoleDTO;
 import com.smort.api.v1.model.UserInfoDTO;
+import com.smort.api.v1.model.UserListDTO;
 import com.smort.controllers.RestResponseEntityExceptionHandler;
 import com.smort.domain.Role;
 import com.smort.domain.RolesEnum;
@@ -78,11 +79,14 @@ public class UserControllerTest extends AbstractRestControllerTest {
 
         List<UserInfoDTO> userInfoDTOS = Arrays.asList(userInfoDTO, ui1, ui2);
 
-        when(userInfoService.getAllUsers()).thenReturn(userInfoDTOS);
+        UserListDTO userListDTO = new UserListDTO();
+        userListDTO.setUsers(userInfoDTOS);
+
+        when(userInfoService.getAllUsersMeta()).thenReturn(userListDTO);
 
         mockMvc.perform(get(UserController.BASE_URL).contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.[0]lastName", equalTo(LAST_NAME)));
+                    .andExpect(jsonPath("$.users[0].lastName", equalTo(LAST_NAME)));
     }
 
     @Test

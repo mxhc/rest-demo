@@ -29,6 +29,9 @@ public class Order {
     private OrderStatus state;
 
     @ManyToOne
+    private UserInfo user;
+
+    @ManyToOne
     private Customer customer;
 
     @Column(nullable = false, updatable = false)

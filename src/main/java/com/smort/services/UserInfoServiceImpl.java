@@ -1,9 +1,7 @@
 package com.smort.services;
 
 import com.smort.api.v1.mapper.UserInfoMapper;
-import com.smort.api.v1.model.PasswordDTO;
-import com.smort.api.v1.model.RoleDTO;
-import com.smort.api.v1.model.UserInfoDTO;
+import com.smort.api.v1.model.*;
 import com.smort.domain.Role;
 import com.smort.domain.RolesEnum;
 import com.smort.domain.UserInfo;
@@ -12,7 +10,11 @@ import com.smort.error.ResourceNotFoundException;
 import com.smort.error.UniqueFieldException;
 import com.smort.repositories.RoleRepository;
 import com.smort.repositories.UserRepository;
+import com.smort.repositories.UserRepositoryPaging;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -33,22 +35,63 @@ public class UserInfoServiceImpl implements UserInfoService {
 
 
     private final UserRepository userRepository;
+    private final UserRepositoryPaging userRepositoryPaging;
     private final RoleRepository roleRepository;
 
-    public UserInfoServiceImpl(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserInfoServiceImpl(UserRepository userRepository, UserRepositoryPaging userRepositoryPaging, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.userRepositoryPaging = userRepositoryPaging;
         this.roleRepository = roleRepository;
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
-    public List<UserInfoDTO> getAllUsers() {
-        return userRepository.findAll()
+    public UserListDTO getAllUsersMeta() {
+
+        List<UserInfoDTO> usersDTO = userRepository.findAll()
                 .stream()
                 .map(userInfo -> {
                     UserInfoDTO userInfoDTO = convertToDTO(userInfo);
                     return userInfoDTO;
                 }).collect(Collectors.toList());
+
+        MetaDTO metaDTO = new MetaDTO();
+        metaDTO.setCount((long) usersDTO.size());
+
+        UserListDTO userListDTO = new UserListDTO();
+        userListDTO.setUsers(usersDTO);
+        userListDTO.setMeta(metaDTO);
+
+        return userListDTO;
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+    @Override
+    public UserListDTO getAllUsersPaginated(Integer page, int limit) {
+        UserListDTO userListDTO = new UserListDTO();
+
+        Pageable pageableRequest = PageRequest.of(page - 1, limit);
+
+        Page<UserInfo> userPage = userRepositoryPaging.findAll(pageableRequest);
+
+        List<UserInfoDTO> listOfDTOs = userPage.getContent().stream().map(userInfo -> {
+            UserInfoDTO userInfoDTO = convertToDTO(userInfo);
+            return userInfoDTO;
+        }).collect(Collectors.toList());
+
+        Long userCount = userRepository.count();
+
+        MetaDTO metaDTO = new MetaDTO();
+        metaDTO.setCount(userCount);
+        metaDTO.setLimit(limit);
+        metaDTO.setPage(page);
+        metaDTO.setNextUrl(UrlBuilder.getNextUsersPageUrl(page, limit));
+
+        userListDTO.setUsers(listOfDTOs);
+        userListDTO.setMeta(metaDTO);
+
+        return userListDTO;
+
     }
 
     @Transactional

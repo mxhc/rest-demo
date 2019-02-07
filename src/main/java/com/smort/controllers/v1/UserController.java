@@ -2,6 +2,7 @@ package com.smort.controllers.v1;
 
 import com.smort.api.v1.model.PasswordDTO;
 import com.smort.api.v1.model.UserInfoDTO;
+import com.smort.api.v1.model.UserListDTO;
 import com.smort.domain.RolesEnum;
 import com.smort.services.UserInfoService;
 import io.swagger.annotations.*;
@@ -12,7 +13,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Slf4j
 @Api(description = "User controller")
@@ -32,8 +32,8 @@ public class UserController {
     @ApiOperation(value = "Get List of Users")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<UserInfoDTO> getUsers() {
-        return userInfoService.getAllUsers();
+    public UserListDTO getUsers() {
+        return userInfoService.getAllUsersMeta();
     }
 
     @ApiOperation(value = "Create new user account")

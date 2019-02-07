@@ -2,6 +2,7 @@ package com.smort.services;
 
 import com.smort.api.v1.model.RoleDTO;
 import com.smort.api.v1.model.UserInfoDTO;
+import com.smort.api.v1.model.UserListDTO;
 import com.smort.controllers.v1.AbstractRestControllerTest;
 import com.smort.domain.Role;
 import com.smort.domain.RolesEnum;
@@ -9,6 +10,7 @@ import com.smort.domain.UserInfo;
 import com.smort.error.InvalidUserOperationException;
 import com.smort.repositories.RoleRepository;
 import com.smort.repositories.UserRepository;
+import com.smort.repositories.UserRepositoryPaging;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -34,6 +36,9 @@ public class UserInfoServiceImplTest extends AbstractRestControllerTest {
     UserRepository userRepository;
 
     @Mock
+    UserRepositoryPaging userRepositoryPaging;
+
+    @Mock
     RoleRepository roleRepository;
 
     public static final Long ID = 1L;
@@ -52,7 +57,7 @@ public class UserInfoServiceImplTest extends AbstractRestControllerTest {
 
         MockitoAnnotations.initMocks(this);
 
-        userInfoService = new UserInfoServiceImpl(userRepository, roleRepository);
+        userInfoService = new UserInfoServiceImpl(userRepository, userRepositoryPaging, roleRepository);
 
     }
 
@@ -72,12 +77,12 @@ public class UserInfoServiceImplTest extends AbstractRestControllerTest {
 
         when(userRepository.findAll()).thenReturn(users);
 
-        List<UserInfoDTO> userInfoDTOS = userInfoService.getAllUsers();
+        UserListDTO userInfoDTOS = userInfoService.getAllUsersMeta();
 
-        assertEquals(3, userInfoDTOS.size());
-        assertEquals(EMAIL, userInfoDTOS.get(2).getEmail());
-        assertEquals(UrlBuilder.getUserUrl(ID), userInfoDTOS.get(2).getUserUrl());
-        assertEquals(USER_NAME, userInfoDTOS.get(2).getUserName());
+        assertEquals(3, userInfoDTOS.getUsers().size());
+        assertEquals(EMAIL, userInfoDTOS.getUsers().get(2).getEmail());
+        assertEquals(UrlBuilder.getUserUrl(ID), userInfoDTOS.getUsers().get(2).getUserUrl());
+        assertEquals(USER_NAME, userInfoDTOS.getUsers().get(2).getUserName());
     }
 
     @Test
@@ -273,7 +278,7 @@ public class UserInfoServiceImplTest extends AbstractRestControllerTest {
         r2.setId(10L);
         user.addRole(r2);
 
-        UserInfoServiceImpl usi = new UserInfoServiceImpl(userRepository, roleRepository);
+        UserInfoServiceImpl usi = new UserInfoServiceImpl(userRepository, userRepositoryPaging, roleRepository);
         UserInfoDTO userInfoDTO = usi.convertToDTO(user);
 
         assertEquals(user.getRoles().size(), userInfoDTO.getRoles().size());
@@ -306,7 +311,7 @@ public class UserInfoServiceImplTest extends AbstractRestControllerTest {
         r2.setId(10L);
         user.addRole(r2);
 
-        UserInfoServiceImpl usi = new UserInfoServiceImpl(userRepository, roleRepository);
+        UserInfoServiceImpl usi = new UserInfoServiceImpl(userRepository, userRepositoryPaging, roleRepository);
 
         List<RoleDTO> roleDTOS = usi.convertRolesToRolesDTO(user.getRoles());
 

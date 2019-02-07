@@ -38,6 +38,9 @@ public class UserInfo {
 
     private Boolean enabled;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "user")
+    private List<Order> orders;
+
     @Column(unique=true, nullable = false)
     private String email;
 

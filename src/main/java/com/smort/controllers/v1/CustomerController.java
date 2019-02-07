@@ -54,7 +54,6 @@ public class CustomerController {
         return customerService.createNewCustomer(customerDTO);
     }
 
-    // todo proveri da li postoji
     @ApiOperation(value = "${controller.customer.put}", notes = "${controller.customer.put.notes}")
     @PutMapping("/{id}")
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})

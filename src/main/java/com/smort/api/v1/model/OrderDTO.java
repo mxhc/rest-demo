@@ -2,8 +2,8 @@ package com.smort.api.v1.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.smort.controllers.v1.CustomerController;
 import com.smort.controllers.v1.OrderController;
+import com.smort.controllers.v1.UserController;
 import com.smort.domain.OrderStatus;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -29,7 +29,12 @@ public class OrderDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private LocalDateTime updated;
 
-    @ApiModelProperty(value = "Customer url", hidden = true, example = CustomerController.BASE_URL + "/10")
+    @ApiModelProperty(value = "User url", hidden = true, example = UserController.BASE_URL + "/10")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonProperty(value = "user_url")
+    private String userUrl;
+
+    @ApiModelProperty(value = "Customer url", hidden = true, example = UserController.BASE_URL + "/10")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "customer_url")
     private String customerUrl;
@@ -43,7 +48,6 @@ public class OrderDTO {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "order_url")
     private String orderUrl;
-
 
     @ApiModelProperty(hidden = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -13,6 +13,7 @@ import com.smort.repositories.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -103,6 +104,7 @@ public class ProductServiceImpl implements ProductService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public ProductDTO createNewProduct(ProductDTO productDTO) {
@@ -118,6 +120,7 @@ public class ProductServiceImpl implements ProductService {
         return returnDto;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public ProductDTO saveProductByDTO(Long id, ProductDTO productDTO) {
@@ -130,6 +133,7 @@ public class ProductServiceImpl implements ProductService {
         return convertToDTOAndAddUrls(savedProduct);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public ProductDTO patchProduct(Long id, ProductDTO productDTO) {
@@ -159,6 +163,7 @@ public class ProductServiceImpl implements ProductService {
         }).orElseThrow(()-> new ResourceNotFoundException("Product with id: " + id + " not found"));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public void deleteProductById(Long id) {
@@ -175,6 +180,7 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public ProductDTO uploadPhoto(Long id, MultipartFile file) throws IOException {

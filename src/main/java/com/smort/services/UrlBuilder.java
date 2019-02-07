@@ -47,4 +47,8 @@ public final class UrlBuilder {
     public static String getNextCustomersPageUrl(Integer page, Integer limit) {
         return CustomerController.BASE_URL + "/?page=" + (page + 1) + "&limit=" + limit;
     }
+
+    public static String getNextUsersPageUrl(Integer page, Integer limit) {
+        return UserController.BASE_URL + "/?page=" + (page + 1) + "&limit=" + limit;
+    }
 }
