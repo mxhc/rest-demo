@@ -5,15 +5,15 @@ import com.smort.api.v1.model.OrderDTO;
 import com.smort.api.v1.model.OrderItemDTO;
 import com.smort.api.v1.model.OrderItemListDTO;
 import com.smort.api.v1.model.OrderListDTO;
-import com.smort.controllers.v1.CustomerController;
 import com.smort.controllers.v1.OrderController;
 import com.smort.controllers.v1.ProductController;
+import com.smort.controllers.v1.UserController;
 import com.smort.domain.*;
 import com.smort.error.OrderStateException;
-import com.smort.repositories.CustomerRepository;
 import com.smort.repositories.OrderItemRepository;
 import com.smort.repositories.OrderRepository;
 import com.smort.repositories.ProductRepository;
+import com.smort.repositories.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -39,7 +39,7 @@ public class OrderServiceImplTest {
     OrderRepository orderRepository;
 
     @Mock
-    CustomerRepository customerRepository;
+    UserRepository userRepository;
 
     @Mock
     ProductRepository productRepository;
@@ -57,7 +57,7 @@ public class OrderServiceImplTest {
         MockitoAnnotations.initMocks(this);
 
         orderService = new OrderServiceImpl(orderRepository, OrderMapper.INSTANCE,
-                customerRepository, productRepository, orderItemRepository);
+                productRepository, orderItemRepository, userRepository);
 
     }
 
@@ -79,17 +79,17 @@ public class OrderServiceImplTest {
         final LocalDateTime created = LocalDateTime.now();
         final LocalDateTime updated = LocalDateTime.now();
 
-        Customer customer = new Customer();
-        customer.setId(ID);
-        customer.setFirstname(FIRST_NAME);
-        customer.setLastname(LAST_NAME);
+        UserInfo user = new UserInfo();
+        user.setId(ID);
+        user.setFirstName(FIRST_NAME);
+        user.setLastName(LAST_NAME);
 
         Order order = new Order();
         order.setId(1L);
         order.setState(OrderStatus.ORDERED);
         order.setCreated(created);
         order.setUpdated(updated);
-        order.setCustomer(customer);
+        order.setUser(user);
         Optional<Order> optionalOrder = Optional.ofNullable(order);
 
         when(orderRepository.findById(anyLong())).thenReturn(optionalOrder);
@@ -97,7 +97,7 @@ public class OrderServiceImplTest {
         OrderDTO orderDTO = orderService.findById(1L);
 
         assertEquals(OrderStatus.ORDERED, orderDTO.getState());
-        assertEquals("/api/v1/customers/2", orderDTO.getCustomerUrl());
+        assertEquals("/api/v1/users/2", orderDTO.getUserUrl());
         assertEquals("/api/v1/orders/1/items/", orderDTO.getItemsUrl());
         assertEquals("/api/v1/orders/1/cancel", orderDTO.getActions().get(0).getUrl());
         assertEquals(2, orderDTO.getActions().size());
@@ -109,26 +109,26 @@ public class OrderServiceImplTest {
         final LocalDateTime created = LocalDateTime.now();
         final LocalDateTime updated = LocalDateTime.now();
 
-        Customer customer = new Customer();
-        customer.setId(ID);
-        customer.setFirstname(FIRST_NAME);
-        customer.setLastname(LAST_NAME);
+        UserInfo user = new UserInfo();
+        user.setId(ID);
+        user.setFirstName(FIRST_NAME);
+        user.setLastName(LAST_NAME);
 
         Order order = new Order();
         order.setId(1L);
         order.setState(OrderStatus.ORDERED);
         order.setCreated(created);
         order.setUpdated(updated);
-        order.setCustomer(customer);
+        order.setUser(user);
 
-        when(customerRepository.findById(anyLong())).thenReturn(Optional.ofNullable(customer));
+        when(userRepository.findById(anyLong())).thenReturn(Optional.ofNullable(user));
         when(orderRepository.save(any(Order.class))).thenReturn(order);
 
         OrderDTO orderDTO = orderService.createNewOrder(ID);
 
         assertEquals(orderDTO.getState(), order.getState());
         assertEquals(orderDTO.getCreated(), order.getCreated());
-        assertEquals(orderDTO.getCustomerUrl(), UrlBuilder.getCustomerUrl(ID));
+        assertEquals(orderDTO.getUserUrl(), UrlBuilder.getUserUrl(ID));
 
     }
 
@@ -138,17 +138,17 @@ public class OrderServiceImplTest {
         final LocalDateTime created = LocalDateTime.now();
         final LocalDateTime updated = LocalDateTime.now();
 
-        Customer customer = new Customer();
-        customer.setId(ID);
-        customer.setFirstname(FIRST_NAME);
-        customer.setLastname(LAST_NAME);
+        UserInfo user = new UserInfo();
+        user.setId(ID);
+        user.setFirstName(FIRST_NAME);
+        user.setLastName(LAST_NAME);
 
         Order order = new Order();
         order.setId(1L);
         order.setState(OrderStatus.ORDERED);
         order.setCreated(created);
         order.setUpdated(updated);
-        order.setCustomer(customer);
+        order.setUser(user);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
 
@@ -159,10 +159,10 @@ public class OrderServiceImplTest {
     }
 
     @Test
-    public void getOrdersByCustomer() {
-        Customer c1 = getCustomer1();
+    public void getOrdersByUser() {
+        UserInfo c1 = getUser1();
 
-        Long customerId = c1.getId();
+        Long userId = c1.getId();
         Long oId1 = c1.getOrders().get(0).getId();
         Long oId2 = c1.getOrders().get(1).getId();
 
@@ -170,26 +170,26 @@ public class OrderServiceImplTest {
         Order o1 = c1.getOrders().get(0);
         Order o2 = c1.getOrders().get(1);
 
-        when(customerRepository.findById(anyLong())).thenReturn(Optional.ofNullable(c1));
+        when(userRepository.findById(anyLong())).thenReturn(Optional.ofNullable(c1));
 
-        OrderListDTO orderListDTO = orderService.getOrdersByCustomer(1L);
+        OrderListDTO orderListDTO = orderService.getOrdersByUser(1L);
 
         assertEquals(o1.getState(), orderListDTO.getOrders().get(0).getState());
         assertEquals(o2.getState(), orderListDTO.getOrders().get(1).getState());
         assertEquals(OrderController.BASE_URL + "/" + oId1, orderListDTO.getOrders().get(0).getOrderUrl());
         assertEquals(OrderController.BASE_URL + "/" + oId2, orderListDTO.getOrders().get(1).getOrderUrl());
         assertEquals(c1.getOrders().size(), orderListDTO.getOrders().size());
-        verify(customerRepository, times(1)).findById(anyLong());
+        verify(userRepository, times(1)).findById(anyLong());
     }
 
     @Test
     public void getOrderById() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(1L, customer, OrderStatus.ORDERED);
+        Order order = getOrderByUser(1L, user, OrderStatus.ORDERED);
 
         OrderItem oi1 = new OrderItem();
         oi1.setId(10L);
@@ -219,19 +219,19 @@ public class OrderServiceImplTest {
         assertEquals(OrderController.BASE_URL + "/" + order.getId() + "/deliver", orderDTO.getActions().get(1).getUrl());
         assertEquals("POST", orderDTO.getActions().get(1).getMethod());
         assertEquals(OrderStatus.ORDERED, orderDTO.getState());
-        assertEquals(CustomerController.BASE_URL + "/" + order.getCustomer().getId(), orderDTO.getCustomerUrl());
+        assertEquals(UserController.BASE_URL + "/" + order.getUser().getId(), orderDTO.getUserUrl());
         assertEquals(OrderController.BASE_URL + "/" + order.getId() + "/items/", orderDTO.getItemsUrl());
         assertEquals(Double.valueOf(100.0), orderDTO.getTotal());
     }
 
     @Test
     public void addItemToOrder() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(1L, customer, OrderStatus.CREATED);
+        Order order = getOrderByUser(1L, user, OrderStatus.CREATED);
 
         OrderItem oi1 = new OrderItem();
         oi1.setId(10L);
@@ -269,12 +269,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void addItemToOrderInvalidState() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(1L, customer, OrderStatus.CANCELED);
+        Order order = getOrderByUser(1L, user, OrderStatus.CANCELED);
 
         OrderItem oi1 = new OrderItem();
         oi1.setId(10L);
@@ -308,12 +308,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void addItemToOrderInvalidStateRecieved() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(1L, customer, OrderStatus.RECEIVED);
+        Order order = getOrderByUser(1L, user, OrderStatus.RECEIVED);
 
         OrderItem oi2 = new OrderItem();
         oi2.setId(15L);
@@ -338,12 +338,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void addItemToOrderInvalidStatePurchased() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(1L, customer, OrderStatus.ORDERED);
+        Order order = getOrderByUser(1L, user, OrderStatus.ORDERED);
 
         OrderItem oi2 = new OrderItem();
         oi2.setId(15L);
@@ -368,12 +368,12 @@ public class OrderServiceImplTest {
 
     @Test
     public void getListOfItems() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CREATED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CREATED);
 
         OrderItem oi1 = new OrderItem();
         oi1.setId(10L);
@@ -404,12 +404,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void purchaseAction() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CREATED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CREATED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -419,7 +419,7 @@ public class OrderServiceImplTest {
         assertEquals(order.getCreated(), orderDTO.getCreated());
         assertEquals(OrderStatus.ORDERED, orderDTO.getState());
         assertEquals(OrderController.BASE_URL + "/" + order.getId() + "/cancel", orderDTO.getActions().get(0).getUrl());
-        assertEquals(CustomerController.BASE_URL + "/" + order.getCustomer().getId(), orderDTO.getCustomerUrl());
+        assertEquals(UserController.BASE_URL + "/" + order.getUser().getId(), orderDTO.getUserUrl());
         assertEquals(OrderController.BASE_URL + "/" + order.getId() + "/items/", orderDTO.getItemsUrl());
 
         order.setState(OrderStatus.ORDERED);
@@ -429,12 +429,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void purchaseActionCanceled() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CANCELED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CANCELED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -444,12 +444,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void purchaseActionDelivered() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.RECEIVED);
+        Order order = getOrderByUser(110L, user, OrderStatus.RECEIVED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -461,12 +461,12 @@ public class OrderServiceImplTest {
 
     @Test
     public void cancelAction() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CREATED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CREATED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -475,18 +475,18 @@ public class OrderServiceImplTest {
 
         assertEquals(order.getCreated(), orderDTO.getCreated());
         assertEquals(OrderStatus.CANCELED, orderDTO.getState());
-        assertEquals(CustomerController.BASE_URL + "/" + order.getCustomer().getId(), orderDTO.getCustomerUrl());
+        assertEquals(UserController.BASE_URL + "/" + order.getUser().getId(), orderDTO.getUserUrl());
         assertEquals(OrderController.BASE_URL + "/" + order.getId() + "/items/", orderDTO.getItemsUrl());
     }
 
     @Test(expected = OrderStateException.class)
     public void cancelActionDelivered() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.RECEIVED);
+        Order order = getOrderByUser(110L, user, OrderStatus.RECEIVED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -496,12 +496,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void cancelActionCanceled() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CANCELED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CANCELED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -511,12 +511,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void cancelActionOrdered() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.ORDERED);
+        Order order = getOrderByUser(110L, user, OrderStatus.ORDERED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -526,12 +526,12 @@ public class OrderServiceImplTest {
 
     @Test
     public void deliverAction() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.ORDERED);
+        Order order = getOrderByUser(110L, user, OrderStatus.ORDERED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -540,18 +540,18 @@ public class OrderServiceImplTest {
 
         assertEquals(order.getCreated(), orderDTO.getCreated());
         assertEquals(OrderStatus.RECEIVED, orderDTO.getState());
-        assertEquals(CustomerController.BASE_URL + "/" + order.getCustomer().getId(), orderDTO.getCustomerUrl());
+        assertEquals(UserController.BASE_URL + "/" + order.getUser().getId(), orderDTO.getUserUrl());
         assertEquals(OrderController.BASE_URL + "/" + order.getId() + "/items/", orderDTO.getItemsUrl());
     }
 
     @Test(expected = OrderStateException.class)
     public void deliverActionDelivered() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.RECEIVED);
+        Order order = getOrderByUser(110L, user, OrderStatus.RECEIVED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -561,12 +561,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void deliverActionCanceled() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CANCELED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CANCELED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -576,12 +576,12 @@ public class OrderServiceImplTest {
 
     @Test(expected = OrderStateException.class)
     public void deliverActionCreated() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CREATED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CREATED);
 
         when(orderRepository.findById(anyLong())).thenReturn(Optional.ofNullable(order));
         when(orderRepository.save(order)).thenReturn(order);
@@ -592,12 +592,12 @@ public class OrderServiceImplTest {
     @Test
     public void getItemFromOrder() {
 
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        Order order = getOrderByCustomer(110L, customer, OrderStatus.CREATED);
+        Order order = getOrderByUser(110L, user, OrderStatus.CREATED);
 
         OrderItem oi1 = new OrderItem();
         oi1.setId(10L);
@@ -629,34 +629,34 @@ public class OrderServiceImplTest {
 
     }
 
-    private Customer getCustomer1() {
-        Customer customer = new Customer();
-        customer.setId(1L);
-        customer.setFirstname("Milojko");
-        customer.setLastname("Pantic");
+    private UserInfo getUser1() {
+        UserInfo user = new UserInfo();
+        user.setId(1L);
+        user.setFirstName("Milojko");
+        user.setLastName("Pantic");
 
-        customer.setOrders(Arrays.asList(getOrderByCustomer(11L, customer, OrderStatus.CREATED), getOrderByCustomer(25L, customer, OrderStatus.RECEIVED)));
+        user.setOrders(Arrays.asList(getOrderByUser(11L, user, OrderStatus.CREATED), getOrderByUser(25L, user, OrderStatus.RECEIVED)));
 
-        return customer;
+        return user;
     }
 
-    private Customer getCustomer2() {
-        Customer customer = new Customer();
-        customer.setId(65L);
-        customer.setFirstname("Oliver");
-        customer.setLastname("Mlakar");
-        customer.setOrders(Arrays.asList(getOrderByCustomer(1L, customer, OrderStatus.ORDERED), getOrderByCustomer(2L, customer, OrderStatus.RECEIVED)));
+    private UserInfo getUser2() {
+        UserInfo user = new UserInfo();
+        user.setId(65L);
+        user.setFirstName("Oliver");
+        user.setLastName("Mlakar");
+        user.setOrders(Arrays.asList(getOrderByUser(1L, user, OrderStatus.ORDERED), getOrderByUser(2L, user, OrderStatus.RECEIVED)));
 
-        return customer;
+        return user;
     }
 
-    private Order getOrderByCustomer(Long id, Customer customer, OrderStatus state) {
+    private Order getOrderByUser(Long id, UserInfo user, OrderStatus state) {
         Order order = new Order();
         order.setId(id);
         order.setState(state);
         order.setCreated(LocalDateTime.now());
         order.setUpdated(LocalDateTime.now());
-        order.setCustomer(customer);
+        order.setUser(user);
 
         return order;
     }

@@ -36,6 +36,13 @@ public class UserController {
         return userInfoService.getAllUsersMeta();
     }
 
+    @ApiOperation(value = "Get paginated list of users")
+    @GetMapping("/paginated")
+    @ResponseStatus(HttpStatus.OK)
+    public UserListDTO getPaginatedUsers(@RequestParam(value = "page", defaultValue = "1") Integer page, @RequestParam(value = "limit", defaultValue = "5") int limit) {
+        return userInfoService.getAllUsersPaginated(page, limit);
+    }
+
     @ApiOperation(value = "Create new user account")
     @PostMapping
     @ApiResponses(value = {@ApiResponse(code = 400, message = "Bad Request")})

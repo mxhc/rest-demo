@@ -34,8 +34,8 @@ public class Bootstrap implements CommandLineRunner {
     Category exotic;
     Category nuts;
 
-    Customer c1;
-    Customer c2;
+    UserInfo c1;
+    UserInfo c2;
 
     public Bootstrap(CategoryRepository categoryRepository,
                      CustomerRepository customerRepository,
@@ -50,14 +50,12 @@ public class Bootstrap implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
+        loadUsers();
         loadCategories();
-        loadCustomers();
+        loadUsers2();
         loadVendors();
         loadProducts();
         loadOrders();
-        loadUsers();
-
     }
 
     private void loadUsers() {
@@ -178,7 +176,7 @@ public class Bootstrap implements CommandLineRunner {
         order.addOrderItem(oi1);
         order.addOrderItem(oi2);
 
-        order.setCustomer(c1);
+        order.setUser(c1);
 
         order = orderRepository.save(order);
 
@@ -203,7 +201,7 @@ public class Bootstrap implements CommandLineRunner {
         order1.addOrderItem(oi4);
         order1.addOrderItem(oi3);
 
-        order1.setCustomer(c2);
+        order1.setUser(c2);
 
         orderRepository.save(order1);
 
@@ -229,7 +227,7 @@ public class Bootstrap implements CommandLineRunner {
         order2.addOrderItem(oi6);
         order2.addOrderItem(oi7);
 
-        order2.setCustomer(c2);
+        order2.setUser(c2);
 
         orderRepository.save(order2);
 
@@ -387,32 +385,57 @@ public class Bootstrap implements CommandLineRunner {
         log.warn("Data Loaded = " + categoryRepository.count());
     }
 
-    private void loadCustomers() {
-        c1 = new Customer();
-        c1.setFirstname("Milojko");
-        c1.setLastname("Pantic");
+    private void loadUsers2() {
+        c1 = new UserInfo();
+        c1.setFirstName("Milojko");
+        c1.setLastName("Pantic");
+        c1.setUserName("milojko");
+        c1.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        c1.setEnabled(true);
+        c1.setEmail("milojko@email.com");
+        c1.setCountry("Srbija");
 
-        c2 = new Customer();
-        c2.setFirstname("Milan");
-        c2.setLastname("Petrovic");
+        c2 = new UserInfo();
+        c2.setFirstName("Milan");
+        c2.setLastName("Petrovic");
+        c2.setUserName("milan");
+        c2.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        c2.setEnabled(true);
+        c2.setEmail("milan@email.com");
+        c2.setCountry("Srbija");
 
-        Customer c3 = new Customer();
-        c3.setFirstname("Inga");
-        c3.setLastname("Zica");
+        UserInfo c3 = new UserInfo();
+        c3.setFirstName("Inga");
+        c3.setLastName("Zica");
+        c3.setUserName("inga");
+        c3.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        c3.setEnabled(true);
+        c3.setEmail("inga@email.com");
+        c3.setCountry("Srbija");
 
-        Customer c4 = new Customer();
-        c4.setFirstname("David");
-        c4.setLastname("Zica");
+        UserInfo c4 = new UserInfo();
+        c4.setFirstName("David");
+        c4.setLastName("Zica");
+        c4.setUserName("david");
+        c4.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        c4.setEnabled(true);
+        c4.setEmail("david@email.com");
+        c4.setCountry("Srbija");
 
-        Customer c5 = new Customer();
-        c5.setFirstname("Janko");
-        c5.setLastname("Petrovic");
+        UserInfo c5 = new UserInfo();
+        c5.setFirstName("Janko");
+        c5.setLastName("Petrovic");
+        c5.setUserName("janko");
+        c5.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        c5.setEnabled(true);
+        c5.setEmail("janko@email.com");
+        c5.setCountry("Srbija");
 
-        c1 = customerRepository.save(c1);
-        c2 = customerRepository.save(c2);
-        customerRepository.save(c3);
-        customerRepository.save(c4);
-        customerRepository.save(c5);
+        c1 = userRepository.save(c1);
+        c2 = userRepository.save(c2);
+        userRepository.save(c3);
+        userRepository.save(c4);
+        userRepository.save(c5);
 
         log.warn("Customers loaded = " + customerRepository.count());
     }

@@ -19,11 +19,11 @@ public class Customer {
 
     @NotBlank(message = "{custome.first.name.blank}")
     @Size(min = 2, message = "{customer.first.name.minsize}")
-    private String firstname;
+    private String firstName;
 
     @NotBlank(message = "{custome.last.name.blank}")
     @Size(min = 2, message = "{customer.last.name.minsize}")
-    private String lastname;
+    private String lastName;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "customer")
     private List<Order> orders;

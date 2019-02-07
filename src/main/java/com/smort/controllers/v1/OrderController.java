@@ -35,17 +35,17 @@ public class OrderController {
     }
 
     @ApiOperation(value = "${controller.order.post}")
-    @PostMapping("/customers/{customerId}")
+    @PostMapping("/users/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public OrderDTO createNewOrder(@PathVariable Long customerId) {
-        return orderService.createNewOrder(customerId);
+    public OrderDTO createNewOrder(@PathVariable Long userId) {
+        return orderService.createNewOrder(userId);
     }
 
     @ApiOperation(value = "${controller.order.customer.get}", notes = "${controller.order.customer.get.notes}")
-    @GetMapping("/customers/{customerId}")
+    @GetMapping("/users/{userId}")
     @ResponseStatus(HttpStatus.OK)
-    public OrderListDTO getOrdersByCustomer(@PathVariable Long customerId) {
-        return orderService.getOrdersByCustomer(customerId);
+    public OrderListDTO getOrdersByUser(@PathVariable Long userId) {
+        return orderService.getOrdersByUser(userId);
     }
 
     @ApiOperation(value = "${controller.order.delete}")

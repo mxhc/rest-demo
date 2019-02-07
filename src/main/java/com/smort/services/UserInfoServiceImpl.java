@@ -110,8 +110,6 @@ public class UserInfoServiceImpl implements UserInfoService {
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
 
-        log.warn("Clear pass: " + userInfoDTO.getClearPassword());
-
         String encodedPassword = encoder.encode(userInfoDTO.getClearPassword());
 
         userInfo.setPassword(encodedPassword);

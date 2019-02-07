@@ -33,7 +33,7 @@ public class OrderControllerTest extends AbstractRestControllerTest {
     public static final LocalDateTime CREATED = LocalDateTime.now();
     public static final LocalDateTime UPDATED = LocalDateTime.now();
 
-    public static final long CUSTOMER_ID = 2L;
+    public static final long USER_ID = 2L;
     public static final String FIRST_NAME = "Milojko";
     public static final String LAST_NAME = "Pantic";
 
@@ -87,17 +87,17 @@ public class OrderControllerTest extends AbstractRestControllerTest {
         orderDTO.setState(OrderStatus.CREATED);
         orderDTO.setCreated(CREATED);
         orderDTO.setUpdated(UPDATED);
-        orderDTO.setCustomerUrl(CustomerController.BASE_URL + "/" + CUSTOMER_ID);
+        orderDTO.setUserUrl(UserController.BASE_URL + "/" + USER_ID);
         orderDTO.setItemsUrl(OrderController.BASE_URL + "/" + ID + "/items/");
         orderDTO.setActions(Arrays.asList(new ActionDTO("/api/v1/orders/" + ID + "/purchase", "POST")));
 
-        when(orderService.createNewOrder(CUSTOMER_ID)).thenReturn(orderDTO);
+        when(orderService.createNewOrder(USER_ID)).thenReturn(orderDTO);
 
-        mockMvc.perform(post(OrderController.BASE_URL + "/customers/" + CUSTOMER_ID)
+        mockMvc.perform(post(OrderController.BASE_URL + "/users/" + USER_ID)
                         .contentType(MediaType.APPLICATION_JSON))
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.state", equalTo("CREATED")))
-                    .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/" + CUSTOMER_ID)))
+                    .andExpect(jsonPath("$.user_url", equalTo(UserController.BASE_URL + "/" + USER_ID)))
                     .andExpect(jsonPath("$.items_url", equalTo(OrderController.BASE_URL + "/" + ID + "/items/")))
                     .andExpect(jsonPath("$.actions", hasSize(1)));
     }
@@ -109,13 +109,13 @@ public class OrderControllerTest extends AbstractRestControllerTest {
         orderDTO.setState(OrderStatus.CREATED);
         orderDTO.setCreated(CREATED);
         orderDTO.setUpdated(UPDATED);
-        orderDTO.setCustomerUrl(CustomerController.BASE_URL + "/" + CUSTOMER_ID);
+        orderDTO.setUserUrl(UserController.BASE_URL + "/" + USER_ID);
         orderDTO.setItemsUrl(OrderController.BASE_URL + "/" + ID + "/items/");
         orderDTO.setActions(Arrays.asList(new ActionDTO("/api/v1/orders/" + ID + "/purchase", "POST")));
 
-        when(orderService.createNewOrder(CUSTOMER_ID)).thenReturn(orderDTO);
+        when(orderService.createNewOrder(USER_ID)).thenReturn(orderDTO);
 
-        mockMvc.perform(post(OrderController.BASE_URL + "/customers/" + FIRST_NAME)
+        mockMvc.perform(post(OrderController.BASE_URL + "/users/" + FIRST_NAME)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest());
     }
@@ -125,7 +125,7 @@ public class OrderControllerTest extends AbstractRestControllerTest {
         orderDTO.setState(OrderStatus.CREATED);
         orderDTO.setCreated(CREATED);
         orderDTO.setUpdated(UPDATED);
-        orderDTO.setCustomerUrl(CustomerController.BASE_URL + "/" + CUSTOMER_ID);
+        orderDTO.setUserUrl(UserController.BASE_URL + "/" + USER_ID);
         orderDTO.setItemsUrl(OrderController.BASE_URL + "/" + ID + "/items/");
         orderDTO.setActions(Arrays.asList(new ActionDTO("/api/v1/orders/" + ID + "/purchase", "POST")));
         orderDTO.setOrderUrl(OrderController.BASE_URL + "/" + ID);
@@ -134,7 +134,7 @@ public class OrderControllerTest extends AbstractRestControllerTest {
     }
 
     @Test
-    public void getOrdersByCustomer() throws Exception {
+    public void getOrdersByUser() throws Exception {
         OrderDTO orderDTO = getOrderDto();
 
         OrderDTO orderDTO1 = getOrderDto();
@@ -143,9 +143,9 @@ public class OrderControllerTest extends AbstractRestControllerTest {
 
         OrderListDTO orderListDTO = new OrderListDTO(Arrays.asList(orderDTO, orderDTO1));
 
-        when(orderService.getOrdersByCustomer(CUSTOMER_ID)).thenReturn(orderListDTO);
+        when(orderService.getOrdersByUser(USER_ID)).thenReturn(orderListDTO);
 
-        mockMvc.perform(get(OrderController.BASE_URL + "/customers/" + CUSTOMER_ID)
+        mockMvc.perform(get(OrderController.BASE_URL + "/users/" + USER_ID)
                             .contentType(MediaType.APPLICATION_JSON))
                         .andExpect(status().isOk())
                         .andExpect(jsonPath("$.orders", hasSize(2)))

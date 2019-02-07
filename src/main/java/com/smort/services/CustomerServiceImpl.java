@@ -145,11 +145,11 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id).map(customer -> {
 
             if (customerDTO.getFirstname() != null) {
-                customer.setFirstname(customerDTO.getFirstname());
+                customer.setFirstName(customerDTO.getFirstname());
             }
 
             if (customerDTO.getLastname() != null) {
-                customer.setLastname(customerDTO.getLastname());
+                customer.setLastName(customerDTO.getLastname());
             }
 
             CustomerDTO returnDto = customerMapper.customerToCustomerDTO(customerRepository.save(customer));

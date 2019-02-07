@@ -20,8 +20,8 @@ public class CustomerMapperTest {
         // given
         Customer customer = new Customer();
         customer.setId(ID);
-        customer.setFirstname(FIRST_NAME);
-        customer.setLastname(LAST_NAME);
+        customer.setFirstName(FIRST_NAME);
+        customer.setLastName(LAST_NAME);
 
         // when
         CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);

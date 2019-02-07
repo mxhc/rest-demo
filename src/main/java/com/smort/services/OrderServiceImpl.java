@@ -6,11 +6,10 @@ import com.smort.controllers.v1.ProductController;
 import com.smort.domain.*;
 import com.smort.error.OrderStateException;
 import com.smort.error.ResourceNotFoundException;
-import com.smort.repositories.CustomerRepository;
 import com.smort.repositories.OrderItemRepository;
 import com.smort.repositories.OrderRepository;
 import com.smort.repositories.ProductRepository;
-import org.springframework.security.access.prepost.PreAuthorize;
+import com.smort.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,19 +24,19 @@ public class OrderServiceImpl implements OrderService {
 
     private final OrderRepository orderRepository;
     private final OrderMapper orderMapper;
-    private final CustomerRepository customerRepository;
     private final ProductRepository productRepository;
     private final OrderItemRepository orderItemRepository;
+    private final UserRepository userRepository;
 
-    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper, CustomerRepository customerRepository, ProductRepository productRepository, OrderItemRepository orderItemRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, OrderMapper orderMapper, ProductRepository productRepository, OrderItemRepository orderItemRepository, UserRepository userRepository) {
         this.orderRepository = orderRepository;
         this.orderMapper = orderMapper;
-        this.customerRepository = customerRepository;
         this.productRepository = productRepository;
         this.orderItemRepository = orderItemRepository;
+        this.userRepository = userRepository;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Override
     public List<OrderDTO> getAllOrders(OrderStatus orderStatus) {
 
@@ -67,7 +66,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTOS;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Override
     public OrderDTO findById(Long id) {
 
@@ -75,7 +74,7 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
 
-        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setUserUrl(UrlBuilder.getUserUrl(order.getUser().getId()));
         orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(id));
 
         List<ActionDTO> actionDTOS = new ArrayList<>();
@@ -97,19 +96,19 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN') or hasRole('ROLE_USER')")
+
     @Transactional
     @Override
-    public OrderDTO createNewOrder(Long customerId) {
+    public OrderDTO createNewOrder(Long userId) {
 
         Order order = new Order();
-        order.setCustomer(customerRepository.findById(customerId).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + customerId + " not found")));
+        order.setUser(userRepository.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User with id: " + userId + " not found")));
 
         Order savedOrder = orderRepository.save(order);
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(customerId));
+        orderDTO.setUserUrl(UrlBuilder.getUserUrl(userId));
         orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(savedOrder.getId()));
 
         ActionDTO actionDTO = new ActionDTO();
@@ -123,19 +122,19 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Transactional
     @Override
     public void deleteOrder(Long id) {
         orderRepository.delete(orderRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + id + " not found")));
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
-    @Override
-    public OrderListDTO getOrdersByCustomer(Long customerId) {
-        Customer customer = customerRepository.findById(customerId).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + customerId + " not found"));
 
-        List<Order> orders = customer.getOrders();
+    @Override
+    public OrderListDTO getOrdersByUser(Long userId) {
+        UserInfo user = userRepository.findById(userId).orElseThrow(()-> new ResourceNotFoundException("User with id: " + userId + " not found"));
+
+        List<Order> orders = user.getOrders();
 
         return new OrderListDTO(orders.stream().map(order -> {
             OrderDTO orderDTO = orderMapper.orderToOrderDTO(order);
@@ -146,7 +145,7 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Override
     public OrderDTO getOrderById(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -156,7 +155,7 @@ public class OrderServiceImpl implements OrderService {
         orderDTO.setTotal(getOrderTotal(order));
 
         orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
-        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setUserUrl(UrlBuilder.getUserUrl(order.getUser().getId()));
 
         List<ActionDTO> actionDTOS = new ArrayList<>();
 
@@ -177,7 +176,7 @@ public class OrderServiceImpl implements OrderService {
         return orderDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Transactional
     @Override
     public OrderItemDTO addItemToOrder(Long orderId, OrderItemDTO orderItemDTO) {
@@ -208,7 +207,7 @@ public class OrderServiceImpl implements OrderService {
         return returnDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Override
     public OrderItemListDTO getListOfItems(Long orderId) {
         Order order = orderRepository.findById(orderId).orElseThrow(()-> new ResourceNotFoundException("Order with id: " + orderId + " not found"));
@@ -226,7 +225,7 @@ public class OrderServiceImpl implements OrderService {
 
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Transactional
     @Override
     public OrderDTO purchaseAction(Long orderId) {
@@ -242,14 +241,14 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setUserUrl(UrlBuilder.getUserUrl(order.getUser().getId()));
         orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
         orderDTO.setActions(Arrays.asList(createAction("cancel", orderId)));
 
         return orderDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Transactional
     @Override
     public OrderDTO cancelAction(Long orderId) {
@@ -265,13 +264,13 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setUserUrl(UrlBuilder.getUserUrl(order.getUser().getId()));
         orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
 
         return orderDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Transactional
     @Override
     public OrderDTO deliverAction(Long orderId) {
@@ -287,13 +286,13 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDTO orderDTO = orderMapper.orderToOrderDTO(savedOrder);
 
-        orderDTO.setCustomerUrl(UrlBuilder.getCustomerUrl(order.getCustomer().getId()));
+        orderDTO.setUserUrl(UrlBuilder.getUserUrl(order.getUser().getId()));
         orderDTO.setItemsUrl(UrlBuilder.getItemsUrl(orderId));
 
         return orderDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Override
     public OrderItemDTO getItemFromOrder(Long oid, Long iid) {
 
@@ -309,7 +308,7 @@ public class OrderServiceImpl implements OrderService {
         return orderItemDTO;
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
+
     @Transactional
     @Override
     public void deleteItemFromOrder(Long oid, Long iid) {

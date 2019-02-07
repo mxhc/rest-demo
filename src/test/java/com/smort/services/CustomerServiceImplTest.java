@@ -65,8 +65,8 @@ public class CustomerServiceImplTest {
         // given
         Customer customer = new Customer();
         customer.setId(ID);
-        customer.setFirstname(FIRST_NAME);
-        customer.setLastname(LAST_NAME);
+        customer.setFirstName(FIRST_NAME);
+        customer.setLastName(LAST_NAME);
         Optional<Customer> optionalCustomer = Optional.ofNullable(customer);
 
         when(customerRepository.findById(anyLong())).thenReturn(optionalCustomer);
@@ -89,8 +89,8 @@ public class CustomerServiceImplTest {
         customerDTO.setFirstname("Milojko");
 
         Customer savedCustomer = new Customer();
-        savedCustomer.setFirstname(customerDTO.getFirstname());
-        savedCustomer.setLastname(customerDTO.getLastname());
+        savedCustomer.setFirstName(customerDTO.getFirstname());
+        savedCustomer.setLastName(customerDTO.getLastname());
         savedCustomer.setId(1L);
 
         when(customerRepository.save(any(Customer.class))).thenReturn(savedCustomer);
@@ -112,8 +112,8 @@ public class CustomerServiceImplTest {
         customerDTO.setFirstname("Milojko");
 
         Customer savedCustomer = new Customer();
-        savedCustomer.setFirstname(customerDTO.getFirstname());
-        savedCustomer.setLastname(customerDTO.getLastname());
+        savedCustomer.setFirstName(customerDTO.getFirstname());
+        savedCustomer.setLastName(customerDTO.getLastname());
         savedCustomer.setId(1L);
 
         when(customerRepository.save(any(Customer.class))).thenReturn(savedCustomer);
@@ -134,8 +134,8 @@ public class CustomerServiceImplTest {
         Long id = 1L;
 
         Customer savedCustomer = new Customer();
-        savedCustomer.setFirstname(FIRST_NAME);
-        savedCustomer.setLastname(LAST_NAME);
+        savedCustomer.setFirstName(FIRST_NAME);
+        savedCustomer.setLastName(LAST_NAME);
         savedCustomer.setId(1L);
 
         when(customerRepository.findById(anyLong())).thenReturn(Optional.ofNullable(savedCustomer));

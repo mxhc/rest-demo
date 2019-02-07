@@ -3,17 +3,19 @@ package com.smort.controllers.v1;
 import com.smort.api.v1.model.CustomerDTO;
 import com.smort.api.v1.model.CustomerListDTO;
 import com.smort.services.CustomerService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Api(description = "Customer Controller")
-@Validated
-@RestController
-@RequestMapping(CustomerController.BASE_URL)
+//@Api(description = "Customer Controller")
+//@Validated
+//@RestController
+//@RequestMapping(CustomerController.BASE_URL)
 public class CustomerController {
 
     public static final String BASE_URL = "/api/v1/customers";

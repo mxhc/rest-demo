@@ -91,7 +91,7 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
 
         mockMvc.perform(get(CustomerController.BASE_URL + "/1").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstname", equalTo(FIRST_NAME)))
+                .andExpect(jsonPath("$.firstName", equalTo(FIRST_NAME)))
                 .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
 
     }
@@ -115,7 +115,7 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(asJsonString(customer)))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.firstname", equalTo("Ivan")))
+                .andExpect(jsonPath("$.firstName", equalTo("Ivan")))
                 .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
 
     }
@@ -140,8 +140,8 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(asJsonString(customer)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstname", equalTo("Ivan")))
-                .andExpect(jsonPath("$.lastname", equalTo("Trajkovic")))
+                .andExpect(jsonPath("$.firstName", equalTo("Ivan")))
+                .andExpect(jsonPath("$.lastName", equalTo("Trajkovic")))
                 .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
     }
 
@@ -164,8 +164,8 @@ public class CustomerControllerTest extends AbstractRestControllerTest {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(asJsonString(customer)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.firstname", equalTo("Fred")))
-                .andExpect(jsonPath("$.lastname", equalTo("Flintstone")))
+                .andExpect(jsonPath("$.firstName", equalTo("Fred")))
+                .andExpect(jsonPath("$.lastName", equalTo("Flintstone")))
                 .andExpect(jsonPath("$.customer_url", equalTo(CustomerController.BASE_URL + "/1")));
     }
 
