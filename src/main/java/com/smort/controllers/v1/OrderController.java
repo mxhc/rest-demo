@@ -41,7 +41,7 @@ public class OrderController {
         return orderService.createNewOrder(userId);
     }
 
-    @ApiOperation(value = "${controller.order.customer.get}", notes = "${controller.order.customer.get.notes}")
+    @ApiOperation(value = "${controller.order.user.get}", notes = "${controller.order.user.get.notes}")
     @GetMapping("/users/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public OrderListDTO getOrdersByUser(@PathVariable Long userId) {
