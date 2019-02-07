@@ -32,12 +32,6 @@ public class UrlBuilderTest extends AbstractRestControllerTest {
     }
 
     @Test
-    public void getCustomerUrl() {
-        String url = UrlBuilder.getCustomerUrl(1234L);
-        assertEquals(CustomerController.BASE_URL + "/" + 1234, url);
-    }
-
-    @Test
     public void getItemsUrl() {
         String url = UrlBuilder.getItemsUrl(3L);
         assertEquals(OrderController.BASE_URL + "/" + 3 + "/items/", url);

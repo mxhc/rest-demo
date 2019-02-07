@@ -18,7 +18,6 @@ import java.util.List;
 public class Bootstrap implements CommandLineRunner {
 
     private CategoryRepository categoryRepository;
-    private CustomerRepository customerRepository;
     private VendorRepository vendorRepository;
     private ProductRepository productRepository;
     private OrderRepository orderRepository;
@@ -38,10 +37,8 @@ public class Bootstrap implements CommandLineRunner {
     UserInfo c2;
 
     public Bootstrap(CategoryRepository categoryRepository,
-                     CustomerRepository customerRepository,
                      VendorRepository vendorRepository, ProductRepository productRepository, OrderRepository orderRepository, UserRepository userRepository) {
         this.categoryRepository = categoryRepository;
-        this.customerRepository = customerRepository;
         this.vendorRepository = vendorRepository;
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
@@ -124,8 +121,6 @@ public class Bootstrap implements CommandLineRunner {
         userInfo3.addRole(role7);
 
         userRepository.save(userInfo3);
-
-        log.warn("Users loaded = " + userRepository.count());
 
     }
 
@@ -437,7 +432,7 @@ public class Bootstrap implements CommandLineRunner {
         userRepository.save(c4);
         userRepository.save(c5);
 
-        log.warn("Customers loaded = " + customerRepository.count());
+        log.warn("Users loaded = " + userRepository.count());
     }
 
     private void loadVendors() {

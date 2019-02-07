@@ -34,11 +34,6 @@ public class OrderDTO {
     @JsonProperty(value = "user_url")
     private String userUrl;
 
-    @ApiModelProperty(value = "Customer url", hidden = true, example = UserController.BASE_URL + "/10")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonProperty(value = "customer_url")
-    private String customerUrl;
-
     @ApiModelProperty(value = "Items url", hidden = true, example = OrderController.BASE_URL + "/10/items/14")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonProperty(value = "items_url")
