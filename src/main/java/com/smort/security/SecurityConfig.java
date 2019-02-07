@@ -35,6 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/", "/csrf", "/v2/api-docs", "/swagger-resources/configuration/ui", "/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/configuration/security", "/swagger-ui.html", "/webjars/**", "/h2-console/**").permitAll()
+                .antMatchers("/api/v1/users", "/api/v1/users/*/activate", "/api/v1/categories/**", "/api/v1/categories").permitAll()
                 .antMatchers("/**").hasAnyRole("ADMIN", "USER", "SUPERADMIN")
                 .and().httpBasic().realmName("MY APP REALM")
                 .authenticationEntryPoint(authenticationEntryPoint);

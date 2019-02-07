@@ -15,6 +15,7 @@ import com.smort.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,6 +23,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +40,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         this.roleRepository = roleRepository;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public List<UserInfoDTO> getAllUsers() {
         return userRepository.findAll()
@@ -69,6 +72,11 @@ public class UserInfoServiceImpl implements UserInfoService {
         String encodedPassword = encoder.encode(userInfoDTO.getClearPassword());
 
         userInfo.setPassword(encodedPassword);
+
+        Role role = new Role(RolesEnum.ROLE_USER);
+        role.setUser(userInfo);
+
+        userInfo.setRoles(Arrays.asList(role));
 
         UserInfo savedUser = userRepository.save(userInfo);
 
@@ -118,17 +126,27 @@ public class UserInfoServiceImpl implements UserInfoService {
         return userInfoDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public void deleteUserById(Long id) {
         userRepository.delete(userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found")));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN') or authentication.name == #userInfoDTO.userName")
     @Transactional
     @Override
     public UserInfoDTO editUser(UserInfoDTO userInfoDTO, Long id) {
 
         UserInfo oldUser = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
+
+        if (!oldUser.getUserName().equals(userInfoDTO.getUserName())) {
+            throw new InvalidUserOperationException("You can not change the user name");
+        }
+
+        if (!userInfoDTO.getEmail().equals(oldUser.getEmail()) && userRepository.existsByEmail(userInfoDTO.getEmail())) {
+            throw new InvalidUserOperationException("User with email " + userInfoDTO.getEmail() + " already exists");
+        }
 
         UserInfo userInfo = UserInfoMapper.INSTANCE.userInfoDTOToUserInfo(userInfoDTO);
         userInfo.setId(id);
@@ -142,17 +160,29 @@ public class UserInfoServiceImpl implements UserInfoService {
         return returnDto;
     }
 
-    @Transactional
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN') or hasRole('ROLE_USER')")
     @Override
     public UserInfoDTO getUserById(Long id) {
 
         UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null) {
+            String currentPrincipalName = authentication.getName();
+            if (!userInfo.getUserName().equals(currentPrincipalName) &&
+                    (!AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities()).contains("ROLE_ADMIN") ||
+                            !AuthorityUtils.authorityListToSet(SecurityContextHolder.getContext().getAuthentication().getAuthorities()).contains("ROLE_SUPERADMIN"))) {
+                throw new InvalidUserOperationException("You are not authorised for this operation");
+            }
+        }
 
         UserInfoDTO userInfoDTO = convertToDTO(userInfo);
 
         return userInfoDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public UserInfoDTO revokeRole(Long id, RolesEnum role) {
@@ -183,6 +213,13 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfoDTO resetPassword(Long id, PasswordDTO passwordDTO) {
 
         UserInfo userInfo = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User with id: " + id + " not found"));
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+
+        if (!userInfo.getUserName().equals(currentPrincipalName)) {
+            throw new InvalidUserOperationException("Wrong id supplied");
+        }
 
         PasswordEncoder encoder = new BCryptPasswordEncoder();
 

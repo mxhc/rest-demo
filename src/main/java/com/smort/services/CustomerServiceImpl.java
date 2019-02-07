@@ -11,6 +11,7 @@ import com.smort.repositories.CustomerRepositoryPaging;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public CustomerListDTO getAllCustomersMeta() {
 
@@ -54,6 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerListDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public CustomerListDTO getAllCustomersPaginated(Integer page, int limit) {
 
@@ -83,6 +85,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerListDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Override
     public CustomerDTO findById(Long id) {
         return customerRepository.findById(id)
@@ -93,6 +96,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }).orElseThrow(()-> new ResourceNotFoundException("Customer with id: " + id + " not found"));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
@@ -109,6 +113,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     public CustomerDTO saveAndReturnDTO(Customer customer) {
         Customer savedCustomer = customerRepository.save(customer);
@@ -121,6 +126,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public CustomerDTO saveCustomerByDTO(Long id, CustomerDTO customerDTO) {
@@ -132,6 +138,7 @@ public class CustomerServiceImpl implements CustomerService {
         return saveAndReturnDTO(customer);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public CustomerDTO patchCustomer(Long id, CustomerDTO customerDTO) {
@@ -153,10 +160,13 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public void deleteCustomerById(Long id) {
-        // todo error handling if id is not found
+
+        customerRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User with id: " + id + " not found"));
+
         customerRepository.deleteById(id);
     }
 

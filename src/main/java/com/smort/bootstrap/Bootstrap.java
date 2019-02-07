@@ -63,10 +63,10 @@ public class Bootstrap implements CommandLineRunner {
     private void loadUsers() {
 
         UserInfo userInfo = new UserInfo();
+        userInfo.setUserName("mxhc");
         userInfo.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo.setEnabled(true);
-        userInfo.setEmail("email@email.com");
-        userInfo.setUserName("mxhc");
+        userInfo.setEmail("mxhc@email.com");
         userInfo.setCountry("India");
         userInfo.setFirstName("Mile");
         userInfo.setLastName("Karapandza");
@@ -83,10 +83,10 @@ public class Bootstrap implements CommandLineRunner {
         userRepository.save(userInfo);
 
         UserInfo userInfo1 =new UserInfo();
+        userInfo1.setUserName("user");
         userInfo1.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo1.setEnabled(true);
-        userInfo1.setEmail("nekiemail@email.com");
-        userInfo1.setUserName("user");
+        userInfo1.setEmail("user@email.com");
         userInfo1.setCountry("Denmark");
         userInfo1.setFirstName("Bjorn");
         userInfo1.setLastName("Olafssen");
@@ -97,10 +97,10 @@ public class Bootstrap implements CommandLineRunner {
         userRepository.save(userInfo1);
 
         UserInfo userInfo2 =new UserInfo();
+        userInfo2.setUserName("admin");
         userInfo2.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo2.setEnabled(true);
         userInfo2.setEmail("admin@email.com");
-        userInfo2.setUserName("admin");
         userInfo2.setCountry("Srbija");
         userInfo2.setFirstName("Ivan");
         userInfo2.setLastName("Bjelic");
@@ -112,6 +112,22 @@ public class Bootstrap implements CommandLineRunner {
         userInfo2.addRole(role6);
 
         userRepository.save(userInfo2);
+
+        UserInfo userInfo3 =new UserInfo();
+        userInfo3.setUserName("user2");
+        userInfo3.setPassword(new BCryptPasswordEncoder().encode("xxx"));
+        userInfo3.setEnabled(true);
+        userInfo3.setEmail("user2@email.com");
+        userInfo3.setCountry("Denmark");
+        userInfo3.setFirstName("Bjorn");
+        userInfo3.setLastName("Olafssen");
+
+        Role role7 = new Role(RolesEnum.ROLE_USER);
+        userInfo3.addRole(role7);
+
+        userRepository.save(userInfo3);
+
+        log.warn("Users loaded = " + userRepository.count());
 
     }
 

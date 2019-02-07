@@ -133,6 +133,13 @@ public class CustomerServiceImplTest {
 
         Long id = 1L;
 
+        Customer savedCustomer = new Customer();
+        savedCustomer.setFirstname(FIRST_NAME);
+        savedCustomer.setLastname(LAST_NAME);
+        savedCustomer.setId(1L);
+
+        when(customerRepository.findById(anyLong())).thenReturn(Optional.ofNullable(savedCustomer));
+
         customerService.deleteCustomerById(id);
 
         verify(customerRepository, times(1)).deleteById(anyLong());

@@ -7,6 +7,7 @@ import com.smort.services.UserInfoService;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -94,6 +95,14 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public UserInfoDTO changePassword(@PathVariable Long id, @RequestBody PasswordDTO passwordDTO) {
         return userInfoService.resetPassword(id, passwordDTO);
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @ApiOperation(value = "Log in")
+    @PostMapping("/login")
+    @ResponseStatus(HttpStatus.OK)
+    public String logIn() {
+        return "Login successful";
     }
 
 

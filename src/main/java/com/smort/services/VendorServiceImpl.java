@@ -5,6 +5,7 @@ import com.smort.api.v1.model.VendorDTO;
 import com.smort.domain.Vendor;
 import com.smort.error.ResourceNotFoundException;
 import com.smort.repositories.VendorRepository;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,6 +46,7 @@ public class VendorServiceImpl implements VendorService {
                 .orElseThrow(()-> new ResourceNotFoundException("Vendor with id: " + id + " not found"));
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public VendorDTO createNewVendor(VendorDTO vendorDTO) {
@@ -60,6 +62,7 @@ public class VendorServiceImpl implements VendorService {
         return returnDto;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public VendorDTO saveVendorByDTO(Long id, VendorDTO vendorDTO) {
@@ -72,7 +75,7 @@ public class VendorServiceImpl implements VendorService {
     }
 
     @Transactional
-    private VendorDTO saveAndReturnDto(Vendor vendor) {
+    public VendorDTO saveAndReturnDto(Vendor vendor) {
 
         Vendor savedVendor = vendorRepository.save(vendor);
 
@@ -83,6 +86,7 @@ public class VendorServiceImpl implements VendorService {
         return returnDTO;
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public VendorDTO patchVendor(Long id, VendorDTO vendorDTO) {
@@ -105,6 +109,7 @@ public class VendorServiceImpl implements VendorService {
 
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_SUPERADMIN')")
     @Transactional
     @Override
     public void deleteVendorById(Long id) {
