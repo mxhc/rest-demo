@@ -31,7 +31,7 @@ public class SwaggerConfig {
 
     private ApiInfo metaData(){
 
-        Contact contact = new Contact("Dragoslav Petrovic", "https://localhost:8080",
+        Contact contact = new Contact("Dragoslav Petrovic", "https://rest-demo-smort.cfapps.io/swagger-ui.html",
                 "petrovicdragoslav@gmail.com");
 
         return new ApiInfo(

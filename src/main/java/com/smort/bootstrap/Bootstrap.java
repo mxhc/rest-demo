@@ -1,13 +1,16 @@
 package com.smort.bootstrap;
 
 import com.smort.domain.*;
+import com.smort.error.FileStorageException;
 import com.smort.repositories.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,11 +20,12 @@ import java.util.List;
 @Component
 public class Bootstrap implements CommandLineRunner {
 
-    private CategoryRepository categoryRepository;
-    private VendorRepository vendorRepository;
-    private ProductRepository productRepository;
-    private OrderRepository orderRepository;
-    private UserRepository userRepository;
+    private final CategoryRepository categoryRepository;
+    private final VendorRepository vendorRepository;
+    private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
+    private final UserRepository userRepository;
+    private final FileRepository fileRepository;
 
     Vendor v1;
     Vendor v2;
@@ -37,12 +41,13 @@ public class Bootstrap implements CommandLineRunner {
     UserInfo c2;
 
     public Bootstrap(CategoryRepository categoryRepository,
-                     VendorRepository vendorRepository, ProductRepository productRepository, OrderRepository orderRepository, UserRepository userRepository) {
+                     VendorRepository vendorRepository, ProductRepository productRepository, OrderRepository orderRepository, UserRepository userRepository, FileRepository fileRepository) {
         this.categoryRepository = categoryRepository;
         this.vendorRepository = vendorRepository;
         this.productRepository = productRepository;
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
+        this.fileRepository = fileRepository;
     }
 
     @Override
@@ -77,7 +82,7 @@ public class Bootstrap implements CommandLineRunner {
 
         userRepository.save(userInfo);
 
-        UserInfo userInfo1 =new UserInfo();
+        UserInfo userInfo1 = new UserInfo();
         userInfo1.setUserName("user");
         userInfo1.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo1.setEnabled(true);
@@ -91,7 +96,7 @@ public class Bootstrap implements CommandLineRunner {
 
         userRepository.save(userInfo1);
 
-        UserInfo userInfo2 =new UserInfo();
+        UserInfo userInfo2 = new UserInfo();
         userInfo2.setUserName("admin");
         userInfo2.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo2.setEnabled(true);
@@ -108,7 +113,7 @@ public class Bootstrap implements CommandLineRunner {
 
         userRepository.save(userInfo2);
 
-        UserInfo userInfo3 =new UserInfo();
+        UserInfo userInfo3 = new UserInfo();
         userInfo3.setUserName("user2");
         userInfo3.setPassword(new BCryptPasswordEncoder().encode("xxx"));
         userInfo3.setEnabled(true);
@@ -180,7 +185,6 @@ public class Bootstrap implements CommandLineRunner {
         orderRepository.save(order);
 
 
-
         Order order1 = new Order();
 
         OrderItem oi4 = new OrderItem();
@@ -231,6 +235,34 @@ public class Bootstrap implements CommandLineRunner {
 
     }
 
+    private Product addPhoto(String fileName, Product product) {
+
+        FileToMultipart ftm = new FileToMultipart();
+        MultipartFile multipartFile = null;
+        File dbFile = null;
+        try {
+            multipartFile = ftm.convertToMultipart(fileName);
+        if (fileName.contains("..")) {
+            throw new FileStorageException("Filename contains invalid path sequence " + fileName);
+        }
+            dbFile = new File(fileName, multipartFile.getContentType(), multipartFile.getBytes());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        File savedFile = fileRepository.save(dbFile);
+
+        ProductPhoto productPhoto;
+        productPhoto = new ProductPhoto();
+        productPhoto.setProduct(product);
+        productPhoto.setPhoto(savedFile);
+        product.setProductPhoto(productPhoto);
+
+        return product;
+
+    }
+
     private void loadProducts() {
 
         List<Product> products = new ArrayList<>();
@@ -241,11 +273,15 @@ public class Bootstrap implements CommandLineRunner {
         p1.setVendor(v1);
         p1.setCategory(fresh);
 
+        p1 = addPhoto(p1.getName()+".jpg", p1);
+
         Product p2 = new Product();
         p2.setName("Banane");
         p2.setPrice(112.0);
         p2.setVendor(v2);
         p2.setCategory(fruits);
+
+        p2 = addPhoto(p2.getName()+".jpg", p2);
 
         Product p3 = new Product();
         p3.setName("Jabuke");
@@ -260,10 +296,12 @@ public class Bootstrap implements CommandLineRunner {
         p4.setCategory(nuts);
 
         Product p5 = new Product();
-        p5.setName("Suvo Grozdje");
+        p5.setName("Suvo Grožđe");
         p5.setPrice(150.32);
         p5.setVendor(v1);
         p5.setCategory(dried);
+
+        p5 = addPhoto(p5.getName()+".jpg", p5);
 
         Product p6 = new Product();
         p6.setName("Jagode");
@@ -294,12 +332,6 @@ public class Bootstrap implements CommandLineRunner {
         p10.setPrice(75.2);
         p10.setVendor(v2);
         p10.setCategory(fresh);
-
-        Product p11 = new Product();
-        p11.setName("Ananas");
-        p11.setPrice(756.25);
-        p11.setVendor(v3);
-        p11.setCategory(exotic);
 
         Product p12 = new Product();
         p12.setName("Beli Luk");
@@ -345,7 +377,7 @@ public class Bootstrap implements CommandLineRunner {
         p18.setCategory(fruits);
 
         products.addAll(Arrays.asList(
-                p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17, p18));
+                p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12, p13, p14, p15, p16, p17, p18));
 
         productRepository.saveAll(products);
 
@@ -452,4 +484,6 @@ public class Bootstrap implements CommandLineRunner {
         log.warn("Vendors loaded = " + vendorRepository.count());
 
     }
+
+
 }

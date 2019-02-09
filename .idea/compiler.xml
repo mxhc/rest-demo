@@ -8,7 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.2/lombok-1.18.2.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.4/lombok-1.18.4.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.2.0.Final/mapstruct-processor-1.2.0.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/com/jolira/hickory/1.0.0/hickory-1.0.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.2.0.Final/mapstruct-1.2.0.Final.jar" />
