@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@Api(description = "Vendor controller")
+@Api(description = "Vendor Controller")
 @Validated
 @RestController
 @RequestMapping(VendorController.BASE_URL)

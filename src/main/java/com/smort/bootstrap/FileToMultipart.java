@@ -15,7 +15,8 @@ public class FileToMultipart {
 
 //        File diskFile = ResourceUtils.getFile("classpath:" + fileName);
 
-        File diskFile = new File("products/" + fileName);
+
+        File diskFile = new File("src/main/resources/products/" + fileName);
 
         FileItem fileItem = new DiskFileItem("file", Files.probeContentType(diskFile.toPath()), false, diskFile.getName(), (int) diskFile.length(), diskFile.getParentFile());
 

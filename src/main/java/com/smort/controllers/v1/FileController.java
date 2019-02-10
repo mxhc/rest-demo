@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Api(description = "Files controller")
+@Api(description = "Files Controller")
 @RequestMapping(FileController.BASE_URL)
 @RestController
 public class FileController {

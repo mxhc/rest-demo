@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Slf4j
-@Api(description = "User controller")
+@Api(description = "User Controller")
 @RestController
 @Validated
 @RequestMapping(UserController.BASE_URL)
