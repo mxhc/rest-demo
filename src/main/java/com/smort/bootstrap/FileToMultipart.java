@@ -15,11 +15,6 @@ public class FileToMultipart {
 
     public MultipartFile convertToMultipart(String fileName) throws IOException {
 
-//        File diskFile = ResourceUtils.getFile("classpath:" + fileName);
-
-
-//        File diskFile = new File("src/main/resources/products/" + fileName);
-
         ClassPathResource classPathResource = new ClassPathResource("products/" + fileName);
 
         InputStream inputStream = classPathResource.getInputStream();
@@ -32,14 +27,17 @@ public class FileToMultipart {
 
         FileItem fileItem = new DiskFileItem("file", Files.probeContentType(diskFile.toPath()), false, diskFile.getName(), (int) diskFile.length(), diskFile.getParentFile());
 
-        InputStream input = new FileInputStream(diskFile);
-        OutputStream os = fileItem.getOutputStream();
-        IOUtils.copy(input, os);
+        InputStream in = new FileInputStream(diskFile);
+        OutputStream out = fileItem.getOutputStream();
+
+        try {
+            IOUtils.copy(in, out);
+        } finally {
+            IOUtils.closeQuietly(in);
+            IOUtils.closeQuietly(out);
+        }
 
         MultipartFile multipartFile = new CommonsMultipartFile(fileItem);
-
-        input.close();
-        os.close();
 
         return multipartFile;
 
