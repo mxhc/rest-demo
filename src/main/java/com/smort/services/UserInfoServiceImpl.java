@@ -48,6 +48,8 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public UserListDTO getAllUsersMeta() {
 
+        log.warn("getting users");
+
         List<UserInfoDTO> usersDTO = userRepository.findAll()
                 .stream()
                 .map(userInfo -> {
