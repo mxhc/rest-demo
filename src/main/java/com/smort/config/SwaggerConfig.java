@@ -36,7 +36,7 @@ public class SwaggerConfig {
 
         return new ApiInfo(
                 "Rest Example",
-                "Basic REST API",
+                "Basic REST API, user: mxhc, pass: xxx",
                 "1.0",
                 "Terms of Service: free to use",
                 contact,
