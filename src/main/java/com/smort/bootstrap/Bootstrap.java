@@ -141,7 +141,7 @@ public class Bootstrap implements CommandLineRunner {
         p1.setVendor(v1);
         p1.setCategory(fresh);
 
-        p1 = addPhoto(p1.getName()+".jpg", p1);
+        p1 = addPhoto(p1.getName() + ".jpg", p1);
 
         p1 = productRepository.save(p1);
 
@@ -151,7 +151,7 @@ public class Bootstrap implements CommandLineRunner {
         p2.setVendor(v2);
         p2.setCategory(fruits);
 
-        p2 = addPhoto(p2.getName()+".jpg", p2);
+        p2 = addPhoto(p2.getName() + ".jpg", p2);
 
         p2 = productRepository.save(p2);
 
@@ -161,7 +161,7 @@ public class Bootstrap implements CommandLineRunner {
         p3.setVendor(v3);
         p3.setCategory(fruits);
 
-        p3 = addPhoto(p3.getName()+".jpg", p3);
+        p3 = addPhoto(p3.getName() + ".jpg", p3);
 
         p3 = productRepository.save(p3);
 
@@ -248,9 +248,9 @@ public class Bootstrap implements CommandLineRunner {
         File dbFile = null;
         try {
             multipartFile = ftm.convertToMultipart(fileName);
-        if (fileName.contains("..")) {
-            throw new FileStorageException("Filename contains invalid path sequence " + fileName);
-        }
+            if (fileName.contains("..")) {
+                throw new FileStorageException("Filename contains invalid path sequence " + fileName);
+            }
             dbFile = new File(fileName, multipartFile.getContentType(), multipartFile.getBytes());
 
         } catch (IOException e) {
@@ -279,7 +279,7 @@ public class Bootstrap implements CommandLineRunner {
         p1.setVendor(v1);
         p1.setCategory(fresh);
 
-        p1 = addPhoto(p1.getName()+".jpg", p1);
+        p1 = addPhoto(p1.getName() + ".jpg", p1);
 
         Product p2 = new Product();
         p2.setName("Banane");
@@ -287,7 +287,7 @@ public class Bootstrap implements CommandLineRunner {
         p2.setVendor(v2);
         p2.setCategory(fruits);
 
-        p2 = addPhoto(p2.getName()+".jpg", p2);
+        p2 = addPhoto(p2.getName() + ".jpg", p2);
 
         Product p3 = new Product();
         p3.setName("Jabuke");
@@ -295,7 +295,7 @@ public class Bootstrap implements CommandLineRunner {
         p3.setVendor(v3);
         p3.setCategory(fruits);
 
-        p3 = addPhoto(p3.getName()+".jpg", p3);
+        p3 = addPhoto(p3.getName() + ".jpg", p3);
 
         Product p4 = new Product();
         p4.setName("Lešnik");
@@ -303,7 +303,7 @@ public class Bootstrap implements CommandLineRunner {
         p4.setVendor(v2);
         p4.setCategory(nuts);
 
-        p4 = addPhoto(p4.getName()+".jpg", p4);
+        p4 = addPhoto(p4.getName() + ".jpg", p4);
 
         Product p5 = new Product();
         p5.setName("Suvo Grožđe");
@@ -311,7 +311,7 @@ public class Bootstrap implements CommandLineRunner {
         p5.setVendor(v1);
         p5.setCategory(dried);
 
-        p5 = addPhoto(p5.getName()+".jpg", p5);
+        p5 = addPhoto(p5.getName() + ".jpg", p5);
 
         Product p6 = new Product();
         p6.setName("Jagode");
@@ -319,7 +319,7 @@ public class Bootstrap implements CommandLineRunner {
         p6.setVendor(v1);
         p6.setCategory(fresh);
 
-        p6 = addPhoto(p6.getName()+".jpg", p6);
+        p6 = addPhoto(p6.getName() + ".jpg", p6);
 
         Product p7 = new Product();
         p7.setName("Maline");
@@ -327,7 +327,7 @@ public class Bootstrap implements CommandLineRunner {
         p7.setVendor(v2);
         p7.setCategory(fresh);
 
-        p7 = addPhoto(p7.getName()+".jpg", p7);
+        p7 = addPhoto(p7.getName() + ".jpg", p7);
 
         Product p8 = new Product();
         p8.setName("Orah");
@@ -335,7 +335,7 @@ public class Bootstrap implements CommandLineRunner {
         p8.setVendor(v3);
         p8.setCategory(nuts);
 
-        p8 = addPhoto(p8.getName()+".jpg", p8);
+        p8 = addPhoto(p8.getName() + ".jpg", p8);
 
         Product p9 = new Product();
         p9.setName("Suve Banane");
@@ -343,7 +343,7 @@ public class Bootstrap implements CommandLineRunner {
         p9.setVendor(v2);
         p9.setCategory(dried);
 
-        p9 = addPhoto(p9.getName()+".jpg", p9);
+        p9 = addPhoto(p9.getName() + ".jpg", p9);
 
         Product p10 = new Product();
         p10.setName("Crni Luk");
@@ -351,7 +351,7 @@ public class Bootstrap implements CommandLineRunner {
         p10.setVendor(v2);
         p10.setCategory(fresh);
 
-        p10 = addPhoto(p10.getName()+".jpg", p10);
+        p10 = addPhoto(p10.getName() + ".jpg", p10);
 
         Product p12 = new Product();
         p12.setName("Beli Luk");
@@ -359,7 +359,7 @@ public class Bootstrap implements CommandLineRunner {
         p12.setVendor(v1);
         p12.setCategory(fresh);
 
-        p12 = addPhoto(p12.getName()+".jpg", p12);
+        p12 = addPhoto(p12.getName() + ".jpg", p12);
 
         Product p13 = new Product();
         p13.setName("Kruške");
@@ -367,7 +367,7 @@ public class Bootstrap implements CommandLineRunner {
         p13.setVendor(v2);
         p13.setCategory(fruits);
 
-        p13 = addPhoto(p13.getName()+".jpg", p13);
+        p13 = addPhoto(p13.getName() + ".jpg", p13);
 
         Product p14 = new Product();
         p14.setName("Kupine");
@@ -375,7 +375,7 @@ public class Bootstrap implements CommandLineRunner {
         p14.setVendor(v3);
         p14.setCategory(fresh);
 
-        p14 = addPhoto(p14.getName()+".jpg", p14);
+        p14 = addPhoto(p14.getName() + ".jpg", p14);
 
         Product p15 = new Product();
         p15.setName("Mandarine");
@@ -383,7 +383,7 @@ public class Bootstrap implements CommandLineRunner {
         p15.setVendor(v1);
         p15.setCategory(fresh);
 
-        p15 = addPhoto(p15.getName()+".jpg", p15);
+        p15 = addPhoto(p15.getName() + ".jpg", p15);
 
         Product p16 = new Product();
         p16.setName("Mango");
@@ -391,7 +391,7 @@ public class Bootstrap implements CommandLineRunner {
         p16.setVendor(v3);
         p16.setCategory(exotic);
 
-        p16 = addPhoto(p16.getName()+".jpg", p16);
+        p16 = addPhoto(p16.getName() + ".jpg", p16);
 
         Product p17 = new Product();
         p17.setName("Vlašac");
@@ -399,7 +399,7 @@ public class Bootstrap implements CommandLineRunner {
         p17.setVendor(v1);
         p17.setCategory(fresh);
 
-        p17 = addPhoto(p17.getName()+".jpg", p17);
+        p17 = addPhoto(p17.getName() + ".jpg", p17);
 
         Product p18 = new Product();
         p18.setName("Breskve");
@@ -407,7 +407,7 @@ public class Bootstrap implements CommandLineRunner {
         p18.setVendor(v2);
         p18.setCategory(fruits);
 
-        p18 = addPhoto(p18.getName()+".jpg", p18);
+        p18 = addPhoto(p18.getName() + ".jpg", p18);
 
         products.addAll(Arrays.asList(
                 p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p12, p13, p14, p15, p16, p17, p18));
