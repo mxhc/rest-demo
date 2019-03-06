@@ -5,4 +5,4 @@ RUN yum install -y java-11-openjdk-devel
 VOLUME /tmp
 ADD /target/rest-demo-0.0.1-SNAPSHOT.jar myapp.jar
 RUN sh -c 'touch /myapp.jar'
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom", "-Dspring.datasource.password=${MYSQL_PASS}","-jar","/myapp.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom", "-Dspring.datasource.password=dra2000Dra","-jar","/myapp.jar"]
